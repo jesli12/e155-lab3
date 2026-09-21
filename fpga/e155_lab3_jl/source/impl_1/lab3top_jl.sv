@@ -9,12 +9,11 @@ module lab3top_jl(
 	output  logic  [1:0] pwr,
 	output  logic  [6:0] seg,
 	output  logic  [3:0] row,
-	output  logic  [3:0] led 
 );
 	// internal connections declarations
 	logic int_osc;
-	logic seg_clk;
-	logic [3:0] sw; // this is the single set of switches that get sent into the single seven segment module
+	logic [3:0] disp; // this is the single set of switches that get sent into the single seven segment module
+	logic [27:0] seg_count;
 	
 	logic [3:0] col_sync;
 	logic [3:0] row_sync;
@@ -31,25 +30,23 @@ module lab3top_jl(
 	// counter for timing multiplexer (120 Hz)
 	counter #(
 		.WIDTH(28),
-		.MAX_COUNT(200_000) // MAX_COUNT = 200_000 = a signal on/off frequency of 120 Hz
+		.MAX_COUNT(400_000) // MAX_COUNT = 200_000 = a signal on/off frequency of 120 Hz
 	) segment_counter (
 		.osc (int_osc), 
 		.nrst (nreset),  
 		.en (enable),
-		.clk (seg_clk),
-		.count () // purposely ignored, no use
+		.count (seg_count) // purposely ignored, no use
 	);
 	
 	// switch-to-7 segment display module
 	sev_seg segment_decoder(
-		.switch (sw), 
+		.switch (disp), 
 		.segment (seg) // this already outputs for segment display
 	);
 	
 	
-	assign pwr[0] = seg_clk;
-	assign pwr[1] = ~seg_clk;
-	assign sw = (seg_clk)? sw1 : sw2;	   // MUX: seg_clk == 0 --> sw1 + first display on, seg_clk ==1 --> sw2 + second display on (see above)
+	assign pwr = (seg_count < 200_000)? 2'b01 : 2'b10;
+	assign disp = (seg_clk)? d0 : d1;	   // MUX: seg_clk == 0 --> sw1 + first display on, seg_clk ==1 --> sw2 + second display on (see above)
 	
 	
 
