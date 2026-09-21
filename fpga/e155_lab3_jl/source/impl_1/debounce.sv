@@ -24,7 +24,7 @@ module debounce(
 	// The FSM owns the counter: cleared in IDLE, running everywhere else.
 	counter #(
 		.WIDTH(20),
-		.MAX_COUNT(524_288) // MAX_COUNT = 524,288 about 10.9 ms (based on 48Mhz base clk)
+		.MAX_COUNT(524_288) // MAX_COUNT = 524,288 about 10.9 ms (based on 48Mhz base clk) (base 2 to minimize hardware)
 	) debounce_counter (
 		.osc (clk), 
 		.nrst (~(state == IDLE)),  // in state idle, counter <= 0
@@ -36,9 +36,9 @@ module debounce(
 		case (state)
 			IDLE: nextstate = (~(col == 4'b1111)) ? WAIT : IDLE;
 			WAIT: if (col == 4'b1111)) nextstate = IDLE; // a bounce
-				else if (count_num[19]) nextstate = PRESSED;
+				else if (count_num[19]&~(col == 4'b1111)) nextstate = PRESSED;
 				else nextstate = WAIT;
-			PRESSED: nextstate = sw ? PRESSED : IDLE;
+			PRESSED: nextstate = (~(col == 4'b1111)) ? PRESSED : IDLE;
 			default: nextstate = IDLE;
 		endcase
 
