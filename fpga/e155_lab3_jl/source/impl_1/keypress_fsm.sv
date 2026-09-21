@@ -4,8 +4,9 @@
 // States: SCAN, PRESS, HOLD
 
 module keypress_fsm(
-	input   logic   clk, nrst,
+	input   logic   clk, nrst, en,
 	input 	logic 	[3:0] c_sync,
+	input   logic   [3:0] r_sync,
 	input   logic   d_en,
 	output  logic   [3:0] row_exert,
 	output  logic   [3:0] d0,
@@ -15,9 +16,12 @@ module keypress_fsm(
 							  HOLD = 3'b100} statetype;
 	statetype state, nextstate;
 	logic one_key;
+	logic [3:0] col_index;
+	logic [3:0] key_next;
+	// logic any_key;
 	
-	// JESSICA GOTTA WRITE "PRESS" LOGIC (ONE KEY)
-	assign one_key = ~&c_sync; // low-asserted: any column pulled down
+	// assign any_key = ~&c_sync; // low-asserted: any column pulled down
+	keypress press_logic(.clk, .nrst, .en, .c_sync, .r_sync, .one_press(one_key), .col_index, .key_next );
 	
 	always_ff @(posedge clk, posedge ~nrst)
 		if (~nrst) state <= SCAN;
@@ -42,7 +46,7 @@ module keypress_fsm(
 				row_exert <= {row_exert[0], row_exert[3:1]};
 			if (state == PRESS) begin
 				d1 <= d0;
-				d0 <= key; // combinational decode of {rows, cols}
+				d0 <= key_next; // combinational decode of {rows, cols}
 			end
 		end
 

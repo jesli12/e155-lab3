@@ -8,7 +8,7 @@ module lab3top_jl(
 	input   logic enable, 
 	output  logic  [1:0] pwr,
 	output  logic  [6:0] seg,
-	output  logic  [3:0] row,
+	output  logic  [3:0] row
 );
 	// internal connections declarations
 	logic int_osc;
@@ -46,7 +46,7 @@ module lab3top_jl(
 	
 	
 	assign pwr = (seg_count < 200_000)? 2'b01 : 2'b10;
-	assign disp = (seg_clk)? d0 : d1;	   // MUX: seg_clk == 0 --> sw1 + first display on, seg_clk ==1 --> sw2 + second display on (see above)
+	assign disp = (seg_count < 200_000)? d0 : d1;	   // MUX: seg_clk == 0 --> sw1 + first display on, seg_clk ==1 --> sw2 + second display on (see above)
 	
 	
 

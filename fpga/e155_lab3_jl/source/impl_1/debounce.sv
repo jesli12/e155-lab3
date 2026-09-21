@@ -32,7 +32,7 @@ module debounce(
 	always_comb
 		case (state)
 			IDLE: nextstate = (~(col == 4'b1111)) ? WAIT : IDLE;
-			WAIT: if (col == 4'b1111)) nextstate = IDLE; // a bounce
+			WAIT: if (col == 4'b1111) nextstate = IDLE; // a bounce
 				else if (count_num[19]&~(col == 4'b1111)) nextstate = PRESSED;
 				else nextstate = WAIT;
 			PRESSED: nextstate = (~(col == 4'b1111)) ? PRESSED : IDLE;

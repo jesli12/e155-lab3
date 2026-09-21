@@ -6,7 +6,7 @@ module sync(
 	input 	logic 	[3:0] d,
 	output  logic   [3:0] q
 );
-	logic [3:0] n1
+	logic [3:0] n1;
 	
 	always_ff @(posedge clk) begin
 		n1 <= d;
