@@ -1,0 +1,35 @@
+// Jessica Li  |  jesli@g.hmc.edu
+// 09/20/2026 
+// This is a submodule, exerts a 4 bit code that cycles each code at 2 Hz
+// "Scanning module only includes instances of a counter and assign statements 
+// that convert from the counter output to output values."
+// "exerts 1000, 0100, 0010, and 0001"
+
+
+module scanner(
+	input   logic   int_osc, nreset, enable,
+	output  logic   [3:0] rows
+);
+
+	logic [24:0] scan_count;
+	logic scan_clk;
+	
+	// counter for timing *each* of the 4 codes to go at 2Hz 
+	counter #(
+		.WIDTH(25),
+		.MAX_COUNT(12_000_000) // MAX_COUNT = 12_000_000 = a signal on/off frequency of 2 Hz
+	) scanner_counter (
+		.osc (int_osc), 
+		.nrst (nreset),  
+		.en (enable),
+		.clk (scan_clk),
+		.count (scan_count)
+	);
+	
+	assign rows = ((scan_clk == 0) & (scan_count <= 5_999_999))? 4'b1000 : 
+					((scan_clk == 0) & (scan_count <= 11_999_999))? 4'b0100 : 
+					((scan_clk == 1) & (scan_count <= 5_999_999))? 4'b0010 : 
+					((scan_clk == 1) & (scan_count <= 11_999_999))? 4'b0001 : 
+					4'b1000;
+
+endmodule
