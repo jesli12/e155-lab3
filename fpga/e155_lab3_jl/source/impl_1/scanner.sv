@@ -6,30 +6,31 @@
 // "exerts 1000, 0100, 0010, and 0001"
 
 
-module scanner(
+module scanner
+	#(parameter WIDTH = 25,
+		MAX_COUNT = 24_000_000)(
 	input   logic   int_osc, nreset, enable,
 	output  logic   [3:0] rows
 );
 
-	logic [24:0] scan_count;
+	logic [WIDTH:0] scan_count;
 	logic scan_clk;
 	
-	// counter for timing *each* of the 4 codes to go at 2Hz 
+	// counter for timing *each* of the 4 codes to go at 150Hz? 
 	counter #(
-		.WIDTH(25),
-		.MAX_COUNT(12_000_000) // MAX_COUNT = 12_000_000 = a signal on/off frequency of 2 Hz
+		.WIDTH(WIDTH),
+		.MAX_COUNT(MAX_COUNT) // MAX_COUNT = 12_000_000 = a signal on/off frequency of 2 Hz
 	) scanner_counter (
 		.osc (int_osc), 
 		.nrst (nreset),  
 		.en (enable),
-		.clk (scan_clk),
 		.count (scan_count)
 	);
 	
-	assign rows = ((scan_clk == 0) & (scan_count <= 5_999_999))? 4'b1000 : 
-					((scan_clk == 0) & (scan_count <= 11_999_999))? 4'b0100 : 
-					((scan_clk == 1) & (scan_count <= 5_999_999))? 4'b0010 : 
-					((scan_clk == 1) & (scan_count <= 11_999_999))? 4'b0001 : 
+	assign rows = ((scan_count <= (MAX_COUNT/4 - 1)))? 4'b1000 : 
+					((scan_count <= (MAX_COUNT/2 - 1))? 4'b0100 : 
+					( (scan_count <= ((MAX_COUNT*3)/2 - 1)))? 4'b0010 : 
+					( (scan_count <= (MAX_COUNT - 1)))? 4'b0001 : 
 					4'b1000;
 
 endmodule
