@@ -13,9 +13,8 @@ module scanner
 	output  logic   [3:0] rows
 );
 
-	logic [WIDTH:0] scan_count;
+	logic [WIDTH-1:0] scan_count;
 	
-	// default parameters is 2 Hz
 	counter #(
 		.WIDTH(WIDTH),
 		.MAX_COUNT(MAX_COUNT) 
@@ -26,9 +25,9 @@ module scanner
 		.count (scan_count)
 	);
 	
-	assign rows = ((scan_count <= (MAX_COUNT/4 - 1)))? 4'b1000 : 
-					((scan_count <= (MAX_COUNT/2 - 1))? 4'b0100 : 
-					(scan_count <= ((MAX_COUNT*3)/4 - 1)))? 4'b0010 : 
-					(scan_count <= (MAX_COUNT - 1))? 4'b0001 : 4'b1000;
+	assign rows = ((scan_count < (MAX_COUNT/4)))? 4'b1000 : 
+					((scan_count < (MAX_COUNT/2))? 4'b0100 : 
+					(scan_count < ((MAX_COUNT*3)/4)))? 4'b0010 : 
+					(scan_count < (MAX_COUNT))? 4'b0001 : 4'b1000;
 
 endmodule

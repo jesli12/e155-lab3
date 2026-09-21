@@ -20,7 +20,6 @@ module keypress_fsm(
 	logic [3:0] key_next;
 	
 	// logic any_key;
-	
 	// assign any_key = ~&c_sync; // low-asserted: any column pulled down
 	keypress press_logic(.clk, .nrst, .en, .c_sync, .r_sync, .one_press(one_key), .col_index, .key_next );
 	
@@ -39,7 +38,7 @@ module keypress_fsm(
 		case (state)
 			SCAN: nextstate = (one_key & d_en) ? PRESS : SCAN;
 			PRESS: nextstate = HOLD;
-			HOLD: nextstate = one_key ? HOLD : SCAN; // CHECK SAME KEY              
+			HOLD: nextstate = one_key ? HOLD : SCAN; // CHECK SAME KEY [TO BE IMPLEMENTED]             
 			default: nextstate = SCAN;
 		endcase
 		

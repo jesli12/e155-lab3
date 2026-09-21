@@ -6,7 +6,7 @@
 module debounce(
 	input   logic   [3:0] col, 
 	input 	logic 	 clk, nreset, enable,
-	output  logic   [3:0] d_en
+	output  logic   d_en
 );
 
 	typedef enum logic [1:0] {IDLE, WAIT, PRESSED} statetype;
