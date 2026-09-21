@@ -14,12 +14,11 @@ module scanner
 );
 
 	logic [WIDTH:0] scan_count;
-	logic scan_clk;
 	
-	// counter for timing *each* of the 4 codes to go at 150Hz? 
+	// default parameters is 2 Hz
 	counter #(
 		.WIDTH(WIDTH),
-		.MAX_COUNT(MAX_COUNT) // MAX_COUNT = 12_000_000 = a signal on/off frequency of 2 Hz
+		.MAX_COUNT(MAX_COUNT) 
 	) scanner_counter (
 		.osc (int_osc), 
 		.nrst (nreset),  
@@ -29,7 +28,7 @@ module scanner
 	
 	assign rows = ((scan_count <= (MAX_COUNT/4 - 1)))? 4'b1000 : 
 					((scan_count <= (MAX_COUNT/2 - 1))? 4'b0100 : 
-					(scan_count <= ((MAX_COUNT*3)/2 - 1)))? 4'b0010 : 
+					(scan_count <= ((MAX_COUNT*3)/4 - 1)))? 4'b0010 : 
 					(scan_count <= (MAX_COUNT - 1))? 4'b0001 : 4'b1000;
 
 endmodule
