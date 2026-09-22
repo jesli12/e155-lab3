@@ -1,95 +1,109 @@
 ----------------------------------------------------------------------
 Report for cell lab3top_jl.TECH
-Register bits:  82 of 5280 (1.553%)
+Register bits:  108 of 5280 (2.045%)
 I/O cells:      22
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               CCU2        26          100.0
-                            FD1P3XZ        82          100.0
+                               CCU2        37          100.0
+                            FD1P3XZ       108          100.0
                          HSOSC_CORE         1          100.0
                                  IB         6          100.0
                               IOL_B         4          100.0
-                               LUT4       191          100.0
+                               LUT4       231          100.0
                                  OB        16          100.0
 SUB MODULES
- counter(WIDTH=20,MAX_COUNT=524289)         1
+          counter(MAX_COUNT=320000)         1
+  counter(WIDTH=17,MAX_COUNT=80000)         1
  counter(WIDTH=28,MAX_COUNT=400000)         1
                            debounce         1
                            keypress         1
                        keypress_fsm         1
- scanner(WIDTH=20,MAX_COUNT=524289)         1
+          scanner(MAX_COUNT=320000)         1
                             sev_seg         1
                                sync         1
-                              TOTAL       334
-----------------------------------------------------------------------
-Report for cell sync.v1
-Instance Path : col_synchronizer
-                                  Cell usage:
-                               cell     count   Res Usage(%)
-                            FD1P3XZ         4            4.9
-                              IOL_B         4          100.0
-                              TOTAL         8
+                              TOTAL       412
 ----------------------------------------------------------------------
 Report for cell debounce.v1
 Instance Path : bouncer
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               LUT4         1            0.5
+                               LUT4         1            0.4
                               TOTAL         1
 ----------------------------------------------------------------------
-Report for cell sev_seg.v1
-Instance Path : segment_decoder
+Report for cell sync.v1
+Instance Path : col_synchronizer
                                   Cell usage:
                                cell     count   Res Usage(%)
-                               LUT4         7            3.7
-                              TOTAL         7
+                            FD1P3XZ         4            3.7
+                              IOL_B         4          100.0
+                              TOTAL         8
 ----------------------------------------------------------------------
 Report for cell counter(WIDTH=28,MAX_COUNT=400000).v1
 Instance Path : segment_counter
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2        15           57.7
-                            FD1P3XZ        28           34.1
-                               LUT4        38           19.9
+                                FA2        15           40.5
+                            FD1P3XZ        28           25.9
+                               LUT4        38           16.5
                               TOTAL        81
 ----------------------------------------------------------------------
 Report for cell keypress_fsm.v1
 Instance Path : main_fsm
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2        11           42.3
-                            FD1P3XZ        50           61.0
-                               LUT4       104           54.5
+                                FA2        22           59.5
+                            FD1P3XZ        76           70.4
+                               LUT4       152           65.8
 SUB MODULES
- counter(WIDTH=20,MAX_COUNT=524289)         1
+          counter(MAX_COUNT=320000)         1
+  counter(WIDTH=17,MAX_COUNT=80000)         1
                            keypress         1
- scanner(WIDTH=20,MAX_COUNT=524289)         1
-                              TOTAL       168
+          scanner(MAX_COUNT=320000)         1
+                              TOTAL       254
 ----------------------------------------------------------------------
-Report for cell scanner(WIDTH=20,MAX_COUNT=524289).v1
+Report for cell scanner(MAX_COUNT=320000).v1
 Instance Path : main_fsm.scanning
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2        11           42.3
-                            FD1P3XZ        20           24.4
-                               LUT4        33           17.3
+                                FA2        13           35.1
+                            FD1P3XZ        25           23.1
+                               LUT4        57           24.7
 SUB MODULES
- counter(WIDTH=20,MAX_COUNT=524289)         1
-                              TOTAL        65
+          counter(MAX_COUNT=320000)         1
+                              TOTAL        96
 ----------------------------------------------------------------------
-Report for cell counter(WIDTH=20,MAX_COUNT=524289).v1
+Report for cell counter(MAX_COUNT=320000).v1
 Instance Path : main_fsm.scanning.scanner_counter
                                   Cell usage:
                                cell     count   Res Usage(%)
-                                FA2        11           42.3
-                            FD1P3XZ        20           24.4
-                               LUT4        20           10.5
-                              TOTAL        51
+                                FA2        13           35.1
+                            FD1P3XZ        25           23.1
+                               LUT4        44           19.0
+                              TOTAL        82
 ----------------------------------------------------------------------
 Report for cell keypress.v1
 Instance Path : main_fsm.press_logic
                                   Cell usage:
                                cell     count   Res Usage(%)
-                            FD1P3XZ        16           19.5
-                               LUT4        58           30.4
-                              TOTAL        74
+                                FA2         9           24.3
+                            FD1P3XZ        33           30.6
+                               LUT4        90           39.0
+SUB MODULES
+  counter(WIDTH=17,MAX_COUNT=80000)         1
+                              TOTAL       133
+----------------------------------------------------------------------
+Report for cell counter(WIDTH=17,MAX_COUNT=80000).v1
+Instance Path : main_fsm.press_logic.counter_sad_ellen
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2         9           24.3
+                            FD1P3XZ        17           15.7
+                               LUT4        23           10.0
+                              TOTAL        49
+----------------------------------------------------------------------
+Report for cell sev_seg.v1
+Instance Path : segment_decoder
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         7            3.0
+                              TOTAL         7
