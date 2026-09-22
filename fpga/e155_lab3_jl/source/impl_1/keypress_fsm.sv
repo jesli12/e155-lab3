@@ -48,7 +48,6 @@ module keypress_fsm(
 	//assign en_scan = (state == SCAN); // moment one key and debounce are true --> press state stops scan rotation and freezes at row of detection
 
 
-
 	logic [3:0] d_write;
 	
 	always_ff @(posedge clk, posedge ~nrst) begin
