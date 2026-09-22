@@ -1,0 +1,16 @@
+<RadiantSimulationProject language="1" name="scanner_tb" path="." simType="QuestaSim Qrun" stage="0" version="2.0">
+    <Source include="none" langstandard="System Verilog" path="source/impl_1/debounce.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="source/impl_1/lab3top_jl.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="source/impl_1/scanner.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="source/impl_1/sev_seg.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="source/impl_1/counter.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="source/impl_1/sync.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="source/impl_1/keypress_fsm.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="source/impl_1/keypress.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="" path="source/impl_1/scanner_tb.sv" type="VERILOG" worklib=""/>
+    <SimLib value="pmi_work ovi_ice40up"/>
+    <GlbInc value=""/>
+    <Macro value=""/>
+    <Udo value=""/>
+    <TopModule instance="" language="VERILOG" name="scanner_tb"/>
+</RadiantSimulationProject>

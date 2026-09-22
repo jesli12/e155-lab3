@@ -8,7 +8,8 @@ module lab3top_jl(
 	input   logic enable, 
 	output  logic  [1:0] pwr,
 	output  logic  [6:0] seg,
-	output  logic  [3:0] row
+	output  logic  [3:0] row,
+	output  logic  [2:0] debug_led
 );
 	// internal connections declarations
 	logic int_osc;
@@ -33,8 +34,7 @@ module lab3top_jl(
 	// sync row_synchronizer(.clk(int_osc), .d(row_raw), .q(row_sync));  
 	
 	// main keypress fsm
-	keypress_fsm main_fsm(.clk(int_osc), .nrst(nreset), .en(enable), .c_sync(col_sync), .r_sync(row_sync), .d_en,
-	.row_exert(row),.d0,.d1);
+	keypress_fsm main_fsm(.clk(int_osc), .nrst(nreset), .en(enable), .c_sync(col_sync), .r_sync(row_sync), .d_en, .row_exert(row), .d0, .d1, .db_led(debug_led));
 	
 	// debounce enables d_en
 	debounce bouncer(.col(col_sync), .clk(int_osc), .nreset, .enable,

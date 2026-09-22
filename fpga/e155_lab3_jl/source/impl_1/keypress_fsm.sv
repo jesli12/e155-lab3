@@ -10,7 +10,8 @@ module keypress_fsm(
 	input   logic   d_en,
 	output  logic   [3:0] row_exert,
 	output  logic   [3:0] d0,
-	output  logic   [3:0] d1
+	output  logic   [3:0] d1,
+	output  logic   [2:0] db_led
 );
 	typedef enum logic [2:0] {SCAN = 3'b001, PRESS = 3'b010,
 							  HOLD = 3'b100} statetype;
@@ -36,7 +37,7 @@ module keypress_fsm(
 	
 	always_comb
 		case (state)
-			SCAN: nextstate = (one_key & d_en) ? PRESS : SCAN;
+			SCAN: nextstate = (one_key) ? PRESS : SCAN; //& d_en
 			PRESS: nextstate = HOLD;
 			HOLD: nextstate = one_key ? HOLD : SCAN; // CHECK SAME KEY [TO BE IMPLEMENTED]             
 			default: nextstate = SCAN;
@@ -49,11 +50,20 @@ module keypress_fsm(
 		if (~nrst) begin
 			d0 <= 4'h0;
 			d1 <= 4'h0;
+			db_led <= 3'b000;
 		end else begin
 			if (state == PRESS) begin
+				db_led[1] <= 1'b1;
+				db_led[0] <= 0;
+				db_led[2] <= 0;
 				d1 <= d0;
 				d0 <= key_next; // combinational decode of {rows, cols}
 			end
+			else if (state == SCAN)begin
+				db_led[0] <= 1'b1;
+				db_led[1] <= 0;
+				db_led[2] <= 0; end
+			else db_led[2] <= 1'b1;
 		end
 
 endmodule

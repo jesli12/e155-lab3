@@ -4,40 +4,19 @@ Report for cell lab3top_jl
                      Cell usage:
                                   cell	      count    Res Usage(%)
                                  IOLGC	       4.00        100.0
-                                  LUT4	        273        100.0
-                               LUTGATE	        199        100.0
-                                LUTCCU	         74        100.0
+                                  LUT4	        249        100.0
+                               LUTGATE	        197        100.0
+                                LUTCCU	         52        100.0
                                  IOREG	          4        100.0
-                                 IOBUF	         19        100.0
-                                PFUREG	        102        100.0
+                                 IOBUF	         22        100.0
+                                PFUREG	         82        100.0
 SUB MODULES
                                   cell	      count    LUT4 Usage(%)
-    counter(WIDTH=28,MAX_COUNT=400000)	          1        24.5
-                              debounce	          1        10.3
-                          keypress_fsm	          1        40.7
-                               sev_seg	          1         2.6
+    counter(WIDTH=28,MAX_COUNT=400000)	          1        27.3
+                              debounce	          1         0.4
+                          keypress_fsm	          1        44.2
+                               sev_seg	          1         2.8
                                   sync	          1         0.0
----------------------------------------------------
-Report for cell debounce
-   Instance path: lab3top_jl/bouncer
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  LUT4	         28        10.3
-                               LUTGATE	          6         3.0
-                                LUTCCU	         22        29.7
-                                PFUREG	         23        22.5
-SUB MODULES
-                                  cell	      count    LUT4 Usage(%)
- counter(WIDTH=20,MAX_COUNT=524289)_U0	          1         8.4
----------------------------------------------------
-Report for cell counter(WIDTH=20,MAX_COUNT=524289)_U0
-   Instance path: lab3top_jl/bouncer/debounce_counter
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  LUT4	         23         8.4
-                               LUTGATE	          1         0.5
-                                LUTCCU	         22        29.7
-                                PFUREG	         20        19.6
 ---------------------------------------------------
 Report for cell sync
    Instance path: lab3top_jl/col_synchronizer
@@ -45,62 +24,69 @@ Report for cell sync
                                   cell	      count    Res Usage(%)
                                  IOLGC	       4.00        100.0
                                  IOREG	          4        100.0
-                                PFUREG	          4         3.9
+                                PFUREG	          4         4.9
 ---------------------------------------------------
-Report for cell keypress_fsm
-   Instance path: lab3top_jl/main_fsm
+Report for cell debounce
+   Instance path: lab3top_jl/bouncer
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	        111        40.7
-                               LUTGATE	         89        44.7
-                                LUTCCU	         22        29.7
-                                PFUREG	         47        46.1
-SUB MODULES
-                                  cell	      count    LUT4 Usage(%)
-                              keypress	          1        20.1
-    scanner(WIDTH=20,MAX_COUNT=524289)	          1        19.4
----------------------------------------------------
-Report for cell scanner(WIDTH=20,MAX_COUNT=524289)
-   Instance path: lab3top_jl/main_fsm/scanning
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  LUT4	         53        19.4
-                               LUTGATE	         31        15.6
-                                LUTCCU	         22        29.7
-                                PFUREG	         20        19.6
-SUB MODULES
-                                  cell	      count    LUT4 Usage(%)
-    counter(WIDTH=20,MAX_COUNT=524289)	          1        15.4
----------------------------------------------------
-Report for cell counter(WIDTH=20,MAX_COUNT=524289)
-   Instance path: lab3top_jl/main_fsm/scanning/scanner_counter
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  LUT4	         42        15.4
-                               LUTGATE	         20        10.1
-                                LUTCCU	         22        29.7
-                                PFUREG	         20        19.6
----------------------------------------------------
-Report for cell keypress
-   Instance path: lab3top_jl/main_fsm/press_logic
-                     Cell usage:
-                                  cell	      count    Res Usage(%)
-                                  LUT4	         55        20.1
-                               LUTGATE	         55        27.6
-                                PFUREG	         16        15.7
+                                  LUT4	          1         0.4
+                               LUTGATE	          1         0.5
 ---------------------------------------------------
 Report for cell sev_seg
    Instance path: lab3top_jl/segment_decoder
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	          7         2.6
-                               LUTGATE	          7         3.5
+                                  LUT4	          7         2.8
+                               LUTGATE	          7         3.6
 ---------------------------------------------------
 Report for cell counter(WIDTH=28,MAX_COUNT=400000)
    Instance path: lab3top_jl/segment_counter
                      Cell usage:
                                   cell	      count    Res Usage(%)
-                                  LUT4	         67        24.5
-                               LUTGATE	         37        18.6
-                                LUTCCU	         30        40.5
-                                PFUREG	         28        27.5
+                                  LUT4	         68        27.3
+                               LUTGATE	         38        19.3
+                                LUTCCU	         30        57.7
+                                PFUREG	         28        34.1
+---------------------------------------------------
+Report for cell keypress_fsm
+   Instance path: lab3top_jl/main_fsm
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        110        44.2
+                               LUTGATE	         88        44.7
+                                LUTCCU	         22        42.3
+                                PFUREG	         50        61.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                              keypress	          1        20.5
+    scanner(WIDTH=20,MAX_COUNT=524289)	          1        21.3
+---------------------------------------------------
+Report for cell scanner(WIDTH=20,MAX_COUNT=524289)
+   Instance path: lab3top_jl/main_fsm/scanning
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         53        21.3
+                               LUTGATE	         31        15.7
+                                LUTCCU	         22        42.3
+                                PFUREG	         20        24.4
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+    counter(WIDTH=20,MAX_COUNT=524289)	          1        16.9
+---------------------------------------------------
+Report for cell counter(WIDTH=20,MAX_COUNT=524289)
+   Instance path: lab3top_jl/main_fsm/scanning/scanner_counter
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         42        16.9
+                               LUTGATE	         20        10.2
+                                LUTCCU	         22        42.3
+                                PFUREG	         20        24.4
+---------------------------------------------------
+Report for cell keypress
+   Instance path: lab3top_jl/main_fsm/press_logic
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         51        20.5
+                               LUTGATE	         51        25.9
+                                PFUREG	         16        19.5
