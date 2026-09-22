@@ -37,7 +37,7 @@ module keypress_fsm(
 	
 	always_comb
 		case (state)
-			SCAN: nextstate = (one_key) ? PRESS : SCAN; //& d_en
+			SCAN: nextstate = (one_key & d_en) ? PRESS : SCAN; //& d_en
 			PRESS: nextstate = HOLD;
 			HOLD: nextstate = (~one_key) ? SCAN : HOLD; // CHECK SAME KEY [TO BE IMPLEMENTED]             
 			default: nextstate = SCAN;

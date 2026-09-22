@@ -37,8 +37,7 @@ module lab3top_jl(
 	keypress_fsm main_fsm(.clk(int_osc), .nrst(nreset), .en(enable), .c_sync(col_sync), .r_sync(row_sync), .d_en, .row_exert(row), .d0, .d1, .db_led(debug_led));
 	
 	// debounce enables d_en
-	debounce bouncer(.col(col_sync), .clk(int_osc), .nreset, .enable,
-	.d_en);
+	debounce bouncer(.col(col_sync), .clk(int_osc), .nreset, .enable,.d_en);
 	
 
 	// Sev Seg DISPLAY *****************************************************************

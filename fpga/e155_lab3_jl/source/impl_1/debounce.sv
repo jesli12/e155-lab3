@@ -1,4 +1,4 @@
-// Jessica Li  |  jesli@g.hmc.edu
+// Jessica Li  |  jesli@g.hmc. 
 // 09/20/2026 
 // This is a submodule that contains a FSM that communicates with the main canonicl FSM on when the keypad's switches have been debounced
 // (post debounce wait time, key press signals are stabilized)
@@ -25,7 +25,7 @@ module debounce(
 	) debounce_counter (
 		.osc (clk), 
 		.nrst (~(state == IDLE)),  // in state idle, counter <= 0
-		.en (~(state == IDLE)), // in any other state, counter increment
+		.en ((state == WAIT)), // in any other state, counter increment
 		.count (count_num) 
 	);
 	

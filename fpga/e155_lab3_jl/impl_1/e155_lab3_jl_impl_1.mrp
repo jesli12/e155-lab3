@@ -8,7 +8,7 @@ Package: SG48
 Performance Grade:  High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 2026.1.0.37.0
-Mapped on: Tue Sep 22 05:52:10 2026
+Mapped on: Tue Sep 22 15:14:43 2026
 
 Design Information
 ------------------
@@ -22,12 +22,12 @@ Command line:   map -pdc
 Design Summary
 --------------
 
-   Number of slice registers: 108 out of  5280 (2%)
+   Number of slice registers: 131 out of  5280 (2%)
    Number of I/O registers:      4 out of   117 (3%)
-   Number of LUT4s:           319 out of  5280 (6%)
-      Number of logic LUT4s:             232
+   Number of LUT4s:           349 out of  5280 (7%)
+      Number of logic LUT4s:             240
       Number of inserted feedthru LUT4s:  13
-      Number of ripple logic:             37 (74 LUT4s)
+      Number of ripple logic:             48 (96 LUT4s)
    Number of IO sites used:   22 out of 39 (56%)
       Number of IO sites used for general PIO: 22
       Number of IO sites used for I3C: 0 out of 2 (0%)
@@ -50,16 +50,16 @@ Design Summary
    Number of EBRs:             0 out of 30 (0%)
    Number of PLLs:             0 out of 1 (0%)
    Number of Clocks:  1
-      Net int_osc: 112 loads, 112 rising, 0 falling (Driver: Pin hf_osc/CLKHF)
+      Net int_osc: 126 loads, 126 rising, 0 falling (Driver: Pin hf_osc/CLKHF)
    Number of Clock Enables:  3
       Net VCC_net: 1 loads, 0 SLICEs
-      Net n1030: 70 loads, 70 SLICEs
+      Net n1293: 70 loads, 70 SLICEs
       Net main_fsm.state[1]: 8 loads, 8 SLICEs
-   Number of LSRs:  1
-      Net debug_led_c_0__N_151: 88 loads, 88 SLICEs
+   Number of LSRs:  2
+      Net d_en_N_154: 91 loads, 91 SLICEs
+      Net bouncer.debounce_counter.n339: 11 loads, 11 SLICEs
    Top 10 highest fanout non-clock nets:
-      Net debug_led_c_0__N_151: 88 loads
-      Net n1030: 70 loads
+      Net d_en_N_154: 91 loads
 
                                     Page 1
 
@@ -69,14 +69,15 @@ Design Summary
 
 Design Summary (cont)
 ---------------------
+      Net n1293: 70 loads
       Net segment_counter.n4: 28 loads
-      Net main_fsm.scanning.scanner_counter.n2649: 25 loads
+      Net main_fsm.scanning.scanner_counter.n2785: 25 loads
       Net nreset_c: 18 loads
       Net main_fsm.press_logic.counter_sad_ellen.n4: 17 loads
-      Net map[0]: 16 loads
-      Net map[4]: 14 loads
-      Net map[5]: 13 loads
-      Net main_fsm.state[1]: 12 loads
+      Net map[4]: 16 loads
+      Net map[0]: 15 loads
+      Net map[1]: 15 loads
+      Net map[3]: 14 loads
 
 
 
@@ -126,7 +127,6 @@ IO (PIO) Attributes
 +---------------------+-----------+-----------+-------+-------+-----------+
 | seg[1]              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
-| seg[0]              | OUTPUT    |           |       |       |           |
 
                                     Page 2
 
@@ -136,6 +136,7 @@ IO (PIO) Attributes
 
 IO (PIO) Attributes (cont)
 --------------------------
+| seg[0]              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
 | row[3]              | OUTPUT    |           |       |       |           |
 +---------------------+-----------+-----------+-------+-------+-----------+
@@ -170,8 +171,6 @@ OSC 1:                                 Pin/Node Value
 ASIC Components
 ---------------
 
-Instance Name: hf_osc
-         Type: HFOSC
 Instance Name: col_synchronizer/n1_i2
          Type: IOLOGIC
 Instance Name: col_synchronizer/n1_i1
@@ -180,6 +179,8 @@ Instance Name: col_synchronizer/n1_i0
          Type: IOLOGIC
 Instance Name: col_synchronizer/n1_i3
          Type: IOLOGIC
+Instance Name: hf_osc
+         Type: HFOSC
 
 Constraint Summary
 ------------------
@@ -192,7 +193,6 @@ Run Time and Memory Usage
 
    Total CPU Time: 0 secs
    Total REAL Time: 0 secs
-   Peak Memory Usage: 70 MB
 
                                     Page 3
 
@@ -202,8 +202,8 @@ Run Time and Memory Usage
 
 Run Time and Memory Usage (cont)
 --------------------------------
-Checksum -- map: 7478e07597787c93b6d0b2f51e1b1674a69e473
-
+   Peak Memory Usage: 70 MB
+Checksum -- map: c5393415e584150e8dd2ee6e3d0bbfd8b90d2ac5
 
 
 
