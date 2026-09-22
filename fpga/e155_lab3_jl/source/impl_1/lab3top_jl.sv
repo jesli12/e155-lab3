@@ -19,15 +19,18 @@ module lab3top_jl(
 	logic [3:0] d1;
 	logic d_en;
 	
+	
 	logic [3:0] col_sync;
 	logic [3:0] row_sync;
+	// logic [3:0] row_raw;
+	assign row_sync = row;
 	
 	// Internal high-speed oscillator, 48 MHz clock generated in FPGA by HSOSC primitive
 	HSOSC hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
 
 	// col input synchronizer
-	sync col_synchronizer(.clk(int_osc), .d(col_raw), .q(col_sync)); // synchronize all col omputs
-	sync row_synchronizer(.clk(int_osc), .d(row), .q(row_sync));  // Q: do i neet a reset for these?
+	sync col_synchronizer(.clk(int_osc), .d(col_raw), .q(col_sync)); // synchronize all col inputs
+	// sync row_synchronizer(.clk(int_osc), .d(row_raw), .q(row_sync));  
 	
 	// main keypress fsm
 	keypress_fsm main_fsm(.clk(int_osc), .nrst(nreset), .en(enable), .c_sync(col_sync), .r_sync(row_sync), .d_en,
@@ -51,10 +54,7 @@ module lab3top_jl(
 	);
 	
 	// switch-to-7 segment display module
-	sev_seg segment_decoder(
-		.switch (disp), 
-		.segment (seg) // this already outputs for segment display
-	);
+	sev_seg segment_decoder(.switch (disp), .segment(seg));
 	
 	assign pwr = (seg_count < 200_000)? 2'b01 : 2'b10;
 	assign disp = (seg_count < 200_000)? d0 : d1;	   // MUX: seg_clk == 0 --> sw1 + first display on, seg_clk ==1 --> sw2 + second display on (see above)

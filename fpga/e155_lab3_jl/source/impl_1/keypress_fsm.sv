@@ -16,8 +16,8 @@ module keypress_fsm(
 							  HOLD = 3'b100} statetype;
 	statetype state, nextstate;
 	logic one_key;
-	logic [3:0] col_index;
 	logic [3:0] key_next;
+	logic [1:0] col_index;
 	
 	// logic any_key;
 	// assign any_key = ~&c_sync; // low-asserted: any column pulled down
