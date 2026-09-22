@@ -8,7 +8,7 @@ Package: SG48
 Performance Grade:  High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 2026.1.0.37.0
-Mapped on: Mon Sep 21 20:51:30 2026
+Mapped on: Mon Sep 21 23:29:37 2026
 
 Design Information
 ------------------
@@ -24,8 +24,8 @@ Design Summary
 
    Number of slice registers:  82 out of  5280 (2%)
    Number of I/O registers:      4 out of   117 (3%)
-   Number of LUT4s:           249 out of  5280 (5%)
-      Number of logic LUT4s:             188
+   Number of LUT4s:           253 out of  5280 (5%)
+      Number of logic LUT4s:             192
       Number of inserted feedthru LUT4s:   9
       Number of ripple logic:             26 (52 LUT4s)
    Number of IO sites used:   22 out of 39 (56%)
@@ -53,10 +53,10 @@ Design Summary
       Net int_osc: 86 loads, 86 rising, 0 falling (Driver: Pin hf_osc/CLKHF)
    Number of Clock Enables:  5
       Net VCC_net: 1 loads, 0 SLICEs
-      Net n918: 28 loads, 28 SLICEs
-      Net n886: 20 loads, 20 SLICEs
+      Net n870: 20 loads, 20 SLICEs
+      Net n902: 28 loads, 28 SLICEs
       Net main_fsm.state[1]: 8 loads, 8 SLICEs
-      Net main_fsm.n499: 1 loads, 1 SLICEs
+      Net main_fsm.n516: 1 loads, 1 SLICEs
    Number of LSRs:  1
       Net debug_led_c_0__N_125: 62 loads, 62 SLICEs
    Top 10 highest fanout non-clock nets:
@@ -71,14 +71,14 @@ Design Summary (cont)
 ---------------------
       Net debug_led_c_0__N_125: 62 loads
       Net main_fsm.scanning.scan_count[19]: 28 loads
-      Net n918: 28 loads
-      Net segment_counter.n4: 28 loads
-      Net n886: 20 loads
+      Net n902: 28 loads
+      Net segment_counter.n4_adj_131: 28 loads
+      Net n870: 20 loads
       Net nreset_c: 19 loads
       Net main_fsm.state[1]: 13 loads
-      Net map[2]: 12 loads
-      Net map[3]: 12 loads
-      Net map[0]: 11 loads
+      Net map[6]: 11 loads
+      Net map[7]: 11 loads
+      Net map[0]: 10 loads
 
 
 
@@ -172,13 +172,13 @@ OSC 1:                                 Pin/Node Value
 ASIC Components
 ---------------
 
+Instance Name: col_synchronizer/n1_i3
+         Type: IOLOGIC
 Instance Name: col_synchronizer/n1_i2
          Type: IOLOGIC
 Instance Name: col_synchronizer/n1_i1
          Type: IOLOGIC
 Instance Name: col_synchronizer/n1_i0
-         Type: IOLOGIC
-Instance Name: col_synchronizer/n1_i3
          Type: IOLOGIC
 Instance Name: hf_osc
          Type: HFOSC
@@ -204,7 +204,7 @@ Run Time and Memory Usage (cont)
 --------------------------------
    Total REAL Time: 0 secs
    Peak Memory Usage: 68 MB
-Checksum -- map: 30e982571368031c24f1938e67957ad500fe227
+Checksum -- map: 8da79486fa1b27aaac19312b312421854c0d65e8
 
 
 

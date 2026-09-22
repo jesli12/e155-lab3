@@ -39,7 +39,7 @@ module keypress_fsm(
 		case (state)
 			SCAN: nextstate = (one_key) ? PRESS : SCAN; //& d_en
 			PRESS: nextstate = HOLD;
-			HOLD: nextstate = one_key ? HOLD : SCAN; // CHECK SAME KEY [TO BE IMPLEMENTED]             
+			HOLD: nextstate = (~c_sync[col_index]) ? HOLD : SCAN; // CHECK SAME KEY [TO BE IMPLEMENTED]             
 			default: nextstate = SCAN;
 		endcase
 		
