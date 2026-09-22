@@ -1,5 +1,5 @@
 // Verilog netlist produced by program LSE :  version Radiant Software (64-bit) 2026.1.0.37.0
-// Netlist written on Tue Sep 22 03:36:23 2026
+// Netlist written on Tue Sep 22 05:52:09 2026
 // Source file index table: 
 // Object locations will have the form @<file_index>(<first_ line>[<left_column>],<last_line>[<right_column>])
 // file 0 "c:/users/jesli/documents/github/e155-lab3/fpga/e155_lab3_jl/source/impl_1/counter.sv"
@@ -227,8 +227,8 @@ module lab3top_jl (input [3:0]col_raw, input nreset, input enable, output [1:0]p
     (* lut_function="(A (B+(C))+!A !((C)+!B))" *) LUT4 d1_2__I_0_3_lut_3_lut (.A(d1[2]), 
             .B(d0[2]), .C(pwr_c_0__N_121), .Z(disp[2]));
     defparam d1_2__I_0_3_lut_3_lut.INIT = "0xacac";
-    (* LSE_LINE_FILE_ID=31, LSE_LCOL=7, LSE_RCOL=65, LSE_LLINE=33, LSE_RLINE=33 *) sync col_synchronizer ({col_sync}, 
-            int_osc, {col_raw_c});
+    (* LSE_LINE_FILE_ID=31, LSE_LCOL=7, LSE_RCOL=65, LSE_LLINE=33, LSE_RLINE=33 *) sync col_synchronizer ({col_raw_c}, 
+            {col_sync}, int_osc);
     (* lut_function="(A+(B+(C+(D))))" *) LUT4 i1834_3_lut_4_lut (.A(map[4]), 
             .B(map[5]), .C(map[7]), .D(map[6]), .Z(n1989));
     defparam i1834_3_lut_4_lut.INIT = "0xfffe";
@@ -238,18 +238,18 @@ module lab3top_jl (input [3:0]col_raw, input nreset, input enable, output [1:0]p
     (* lut_function="(!(A))" *) LUT4 i1987_1_lut (.A(pwr_c_0__N_121), .Z(pwr_c[0]));
     defparam i1987_1_lut.INIT = "0x5555";
     (* LSE_LINE_FILE_ID=31, LSE_LCOL=4, LSE_RCOL=3, LSE_LLINE=49, LSE_RLINE=54 *) \counter(WIDTH=28,MAX_COUNT=400000)  segment_counter (n1030, 
-            int_osc, debug_led_c_0__N_151, seg_count[18], seg_count[17], 
-            seg_count[16], seg_count[11], seg_count[12], seg_count[6], 
-            seg_count[10], seg_count[9], seg_count[8], seg_count[7], 
+            int_osc, debug_led_c_0__N_151, seg_count[16], seg_count[18], 
+            seg_count[17], seg_count[8], seg_count[11], seg_count[12], 
+            seg_count[6], seg_count[7], seg_count[10], seg_count[9], 
             n872, n869);
     (* lut_function="(A+(B+(C)))" *) LUT4 i3_2_lut_3_lut (.A(map[0]), .B(map[10]), 
             .C(map[9]), .Z(n8));
     defparam i3_2_lut_3_lut.INIT = "0xfefe";
-    (* LSE_LINE_FILE_ID=31, LSE_LCOL=15, LSE_RCOL=158, LSE_LLINE=37, LSE_RLINE=37 *) keypress_fsm main_fsm ({map}, 
-            int_osc, debug_led_c_0__N_151, {d0}, {row_c}, n52, n9, 
-            n19, {d1}, n2077, {debug_led_c}, n52_adj_169, one_key, 
-            n8, n880, n1030, nreset_c, {col_sync}, n2655, n5, 
-            n6, enable_c, n48, n46, n43, n2810);
+    (* LSE_LINE_FILE_ID=31, LSE_LCOL=15, LSE_RCOL=158, LSE_LLINE=37, LSE_RLINE=37 *) keypress_fsm main_fsm (one_key, 
+            int_osc, {map}, {d0}, {col_sync}, n6, debug_led_c_0__N_151, 
+            {debug_led_c}, n52, {d1}, n43, n46, {row_c}, nreset_c, 
+            n1030, n2810, n880, n2077, enable_c, n8, n19, n48, 
+            n2655, n52_adj_169, n9, n5);
     (* lut_function="(A+(B+(C+(D))))" *) LUT4 i3_3_lut_4_lut (.A(map[9]), 
             .B(map[4]), .C(map[0]), .D(map[5]), .Z(n48));
     defparam i3_3_lut_4_lut.INIT = "0xfffe";
@@ -259,8 +259,8 @@ module lab3top_jl (input [3:0]col_raw, input nreset, input enable, output [1:0]p
     (* lut_function="(A+!(B))" *) LUT4 i875_2_lut_2_lut (.A(enable_c), .B(nreset_c), 
             .Z(n1030));
     defparam i875_2_lut_2_lut.INIT = "0xbbbb";
-    (* LSE_LINE_FILE_ID=31, LSE_LCOL=10, LSE_RCOL=56, LSE_LLINE=57, LSE_RLINE=57 *) sev_seg segment_decoder ({seg_c}, 
-            {disp});
+    (* LSE_LINE_FILE_ID=31, LSE_LCOL=10, LSE_RCOL=56, LSE_LLINE=57, LSE_RLINE=57 *) sev_seg segment_decoder ({disp}, 
+            {seg_c});
     
 endmodule
 
@@ -280,7 +280,7 @@ endmodule
 // Verilog Description of module sync
 //
 
-module sync (output [3:0]col_sync, input int_osc, input [3:0]col_raw_c);
+module sync (input [3:0]col_raw_c, output [3:0]col_sync, input int_osc);
     
     wire [3:0]n1;
     (* is_clock=1 *) wire int_osc;
@@ -333,24 +333,26 @@ endmodule
 //
 
 module \counter(WIDTH=28,MAX_COUNT=400000)  (input n1030, input int_osc, 
-            input debug_led_c_0__N_151, output \seg_count[18] , output \seg_count[17] , 
-            output \seg_count[16] , output \seg_count[11] , output \seg_count[12] , 
-            output \seg_count[6] , output \seg_count[10] , output \seg_count[9] , 
-            output \seg_count[8] , output \seg_count[7] , output n872, 
+            input debug_led_c_0__N_151, output \seg_count[16] , output \seg_count[18] , 
+            output \seg_count[17] , output \seg_count[8] , output \seg_count[11] , 
+            output \seg_count[12] , output \seg_count[6] , output \seg_count[7] , 
+            output \seg_count[10] , output \seg_count[9] , output n872, 
             output n869);
     
     wire [27:0]seg_count;
     (* is_clock=1 *) wire int_osc;
     
     wire GND_net, VCC_net;
-    wire [27:0]n147;
     wire [27:0]n35;
     
-    wire n3730, n2312, n3763, n3778, n4, n2641, n2310, n2332, 
-        n2330, n2322, n12, n2324, n2664, n2326, n2314, n2320, 
-        n3760, n3748, n3751, n3754, n2316, n2334, n11, n3775, 
-        n2328, n3772, n3769, n3766, n2336, n3811, n3808, n2318, 
-        n3757, n3745, n14, n15, n4_adj_168;
+    wire n4, n3778, n2330;
+    wire [27:0]n147;
+    
+    wire n2641, n2316, n3757, n3811, n3730, n3766, n2310, n2664, 
+        n2334, n3769, n3748, n2324, n2322, n3763, n2332, n2320, 
+        n3760, n2336, n2314, n3751, n15, n3775, n2312, n4_adj_168, 
+        n3808, n2328, n3772, n2326, n2318, n3754, n3745, n14, 
+        n12, n11;
     
     (* LSE_LINE_FILE_ID=31, LSE_LCOL=4, LSE_RCOL=3, LSE_LLINE=49, LSE_RLINE=54 *) FD1P3XZ count__i23 (.D(n35[23]), 
             .SP(n1030), .CK(int_osc), .SR(debug_led_c_0__N_151), .Q(seg_count[23]));
@@ -675,23 +677,21 @@ endmodule
 // Verilog Description of module keypress_fsm
 //
 
-module keypress_fsm (output [15:0]map, input int_osc, input debug_led_c_0__N_151, 
-            output [3:0]d0, output [3:0]row_c, input n52, output n9, 
-            output n19, output [3:0]d1, input n2077, output [2:0]debug_led_c, 
-            input n52_adj_2, input one_key, input n8, input n880, input n1030, 
-            input nreset_c, input [3:0]col_sync, input n2655, input n5, 
-            input n6, input enable_c, input n48, input n46, input n43, 
-            input n2810);
+module keypress_fsm (input one_key, input int_osc, output [15:0]map, output [3:0]d0, 
+            input [3:0]col_sync, input n6, input debug_led_c_0__N_151, 
+            output [2:0]debug_led_c, input n52, output [3:0]d1, input n43, 
+            input n46, output [3:0]row_c, input nreset_c, input n1030, 
+            input n2810, input n880, input n2077, input enable_c, input n8, 
+            output n19, input n48, input n2655, input n52_adj_2, output n9, 
+            input n5);
     
     wire [3:0]key_next;
-    (* is_clock=1 *) wire int_osc;
     wire [3:0]d_write;
+    (* is_clock=1 *) wire int_osc;
     wire [2:0]state;
     
-    wire VCC_net, n616, n495, state_1__N_47;
+    wire VCC_net, n616, n2061, state_1__N_47, n495;
     wire [2:0]debug_led_c_2__N_146;
-    
-    wire n2061;
     
     FD1P3XZ state_FSM_i2 (.D(n616), .SP(VCC_net), .CK(int_osc), .SR(debug_led_c_0__N_151), 
             .Q(state[0]));
@@ -777,13 +777,13 @@ module keypress_fsm (output [15:0]map, input int_osc, input debug_led_c_0__N_151
     (* lut_function="(!(A+(B)))" *) LUT4 i2822_2_lut (.A(state[0]), .B(state[1]), 
             .Z(n2061));
     defparam i2822_2_lut.INIT = "0x1111";
-    (* LSE_LINE_FILE_ID=37, LSE_LCOL=44, LSE_RCOL=127, LSE_LLINE=30, LSE_RLINE=30 *) \scanner(MAX_COUNT=320000)  scanning ({row_c}, 
-            int_osc, debug_led_c_0__N_151, n1030);
-    (* LSE_LINE_FILE_ID=37, LSE_LCOL=11, LSE_RCOL=103, LSE_LLINE=25, LSE_RLINE=25 *) keypress press_logic (nreset_c, 
-            {row_c}, {map}, {col_sync}, debug_led_c_0__N_151, n5, 
-            n6, {key_next}, n9, n19, n880, enable_c, n8, n48, 
-            n2655, n52_adj_2, n46, n2077, n43, n2810, int_osc, 
-            n52, n1030);
+    (* LSE_LINE_FILE_ID=37, LSE_LCOL=44, LSE_RCOL=127, LSE_LLINE=30, LSE_RLINE=30 *) \scanner(MAX_COUNT=320000)  scanning (n1030, 
+            {row_c}, int_osc, debug_led_c_0__N_151);
+    (* LSE_LINE_FILE_ID=37, LSE_LCOL=11, LSE_RCOL=103, LSE_LLINE=25, LSE_RLINE=25 *) keypress press_logic ({map}, 
+            nreset_c, {col_sync}, n43, {row_c}, n6, debug_led_c_0__N_151, 
+            n2810, n46, n880, n52, enable_c, n2077, n8, n19, 
+            n48, n2655, {key_next}, n52_adj_2, n9, int_osc, n5, 
+            n1030);
     (* LSE_LINE_FILE_ID=31, LSE_LCOL=15, LSE_RCOL=158, LSE_LLINE=37, LSE_RLINE=37 *) FD1P3XZ d_write_i0 (.D(key_next[0]), 
             .SP(VCC_net), .CK(int_osc), .SR(debug_led_c_0__N_151), .Q(d_write[0]));
     defparam d_write_i0.REGSET = "RESET";
@@ -795,14 +795,14 @@ endmodule
 // Verilog Description of module \scanner(MAX_COUNT=320000) 
 //
 
-module \scanner(MAX_COUNT=320000)  (output [3:0]row_c, input int_osc, input debug_led_c_0__N_151, 
-            input n1030);
+module \scanner(MAX_COUNT=320000)  (input n1030, output [3:0]row_c, input int_osc, 
+            input debug_led_c_0__N_151);
     
     wire [24:0]scan_count;
     (* is_clock=1 *) wire int_osc;
     
-    wire n2620, n4, n2031, n6, n288, n289, n4_adj_166, n2131, 
-        n2125, n2085, n2618, n2117, n2143, n2113, n2827, n2812;
+    wire n2131, n6, n289, n288, n2113, n4, n2125, n2085, n2117, 
+        n2031, n2143, n2620, n2618, n4_adj_166, n2827, n2812;
     
     (* lut_function="(A+(B+(C+(D))))" *) LUT4 i3_3_lut_4_lut (.A(scan_count[23]), 
             .B(scan_count[24]), .C(n6), .D(scan_count[18]), .Z(n288));
@@ -842,11 +842,11 @@ module \scanner(MAX_COUNT=320000)  (output [3:0]row_c, input int_osc, input debu
             .B(scan_count[22]), .C(scan_count[20]), .D(scan_count[21]), 
             .Z(n6));
     defparam i2_4_lut.INIT = "0xfffe";
-    (* LSE_LINE_FILE_ID=35, LSE_LCOL=4, LSE_RCOL=3, LSE_LLINE=21, LSE_RLINE=26 *) \counter(MAX_COUNT=320000)  scanner_counter (scan_count[19], 
-            n2827, int_osc, n6, n1030, scan_count[22], debug_led_c_0__N_151, 
-            scan_count[16], scan_count[18], n2812, scan_count[24], n2620, 
-            scan_count[23], scan_count[17], scan_count[15], scan_count[21], 
-            n2618, scan_count[20], n2113, n4_adj_166, n2031);
+    (* LSE_LINE_FILE_ID=35, LSE_LCOL=4, LSE_RCOL=3, LSE_LLINE=21, LSE_RLINE=26 *) \counter(MAX_COUNT=320000)  scanner_counter (n2812, 
+            int_osc, n1030, scan_count[18], debug_led_c_0__N_151, scan_count[15], 
+            scan_count[16], n2827, n4_adj_166, n6, n2620, scan_count[24], 
+            scan_count[23], scan_count[17], scan_count[22], scan_count[21], 
+            scan_count[19], scan_count[20], n2113, n2618, n2031);
     
 endmodule
 
@@ -854,28 +854,28 @@ endmodule
 // Verilog Description of module \counter(MAX_COUNT=320000) 
 //
 
-module \counter(MAX_COUNT=320000)  (output \scan_count[19] , output n2827, 
-            input int_osc, input n6, input n1030, output \scan_count[22] , 
-            input debug_led_c_0__N_151, output \scan_count[16] , output \scan_count[18] , 
-            output n2812, output \scan_count[24] , output n2620, output \scan_count[23] , 
-            output \scan_count[17] , output \scan_count[15] , output \scan_count[21] , 
-            output n2618, output \scan_count[20] , output n2113, output n4, 
-            output n2031);
+module \counter(MAX_COUNT=320000)  (output n2812, input int_osc, input n1030, 
+            output \scan_count[18] , input debug_led_c_0__N_151, output \scan_count[15] , 
+            output \scan_count[16] , output n2827, output n4, input n6, 
+            output n2620, output \scan_count[24] , output \scan_count[23] , 
+            output \scan_count[17] , output \scan_count[22] , output \scan_count[21] , 
+            output \scan_count[19] , output \scan_count[20] , output n2113, 
+            output n2618, output n2031);
     
     wire [24:0]scan_count;
     (* is_clock=1 *) wire int_osc;
     
-    wire GND_net, VCC_net;
+    wire GND_net, VCC_net, n3736;
     wire [24:0]n132;
     
-    wire n2649;
+    wire n3715, n2649, n38;
     wire [24:0]n32;
     
-    wire n2029, n2371, n3724, n14, n6_c, n3715, n15, n2673, 
-        n3817, n2647, n38, n2365, n2373, n3727, n3739, n2367, 
-        n2375, n2631, n2363, n3721, n3805, n2021, n2369, n2359, 
-        n3736, n3733, n2361, n3718, n2051, n2357, n2379, n3820, 
-        n2377, n34, n3814, n3712;
+    wire n14, n3727, n15, n2373, n2369, n2673, n2361, n2365, 
+        n2367, n6_c, n3817, n2631, n2359, n3718, n2357, n3724, 
+        n2375, n2363, n3712, n3805, n2371, n3739, n3733, n3721, 
+        n3814, n2379, n2051, n3820, n2377, n2021, n2029, n34, 
+        n2647;
     
     (* lut_function="(!((B)+!A))" *) LUT4 i1813_2_lut (.A(n132[10]), .B(n2649), 
             .Z(n32[10]));
@@ -1197,24 +1197,24 @@ endmodule
 // Verilog Description of module keypress
 //
 
-module keypress (input nreset_c, input [3:0]row_c, output [15:0]map, input [3:0]col_sync, 
-            input debug_led_c_0__N_151, input n5, input n6, output [3:0]key_next, 
-            output n9, output n19, input n880, input enable_c, input n8, 
-            input n48, input n2655, input n52, input n46, input n2077, 
-            input n43, input n2810, input int_osc, input n52_adj_1, 
-            input n1030);
+module keypress (output [15:0]map, input nreset_c, input [3:0]col_sync, 
+            input n43, input [3:0]row_c, input n6, input debug_led_c_0__N_151, 
+            input n2810, input n46, input n880, input n52, input enable_c, 
+            input n2077, input n8, output n19, input n48, input n2655, 
+            output [3:0]key_next, input n52_adj_1, output n9, input int_osc, 
+            input n5, input n1030);
     
     wire [16:0]sad_ellen_count;
     (* is_clock=1 *) wire int_osc;
     
-    wire VCC_net, n978, n654, n954, n980, n962, n13, n982, n7, 
-        n896, n944, n13_adj_155, n984, n968, n63, n643, n966, 
-        n10, n964, n543, n2249, n3576, n960, n14, n2504, n958, 
-        n956, n2674, n2824, n3088, n9_adj_163, n15, n18, n974, 
-        n16, n2948, n8_c, n2230, n972, n9_c, n12, n2007, n2818, 
-        n970, n63_adj_156, n2822, n3074, n6_c, n12_adj_157, n875, 
-        n6_adj_158, n650, n3065, n11, n45, n2941, n2815, n2246, 
-        n3482, n976, n6_adj_160, n4, GND_net;
+    wire VCC_net, n3576, n980, n654, n978, n966, n14, n984, 
+        n982, n896, n9_c, n8_c, n944, n2822, n958, n643, n964, 
+        n972, n962, n543, n12, n960, n956, n15, n650, n4, 
+        n2948, n10, n2674, n954, n9_adj_163, n6_c, n2230, n16, 
+        n2007, n6_adj_155, n2818, n63, n18, n13, n3482, n3074, 
+        n12_adj_157, n2824, n875, n3065, n2504, n63_adj_158, n11, 
+        n45, n2941, n2815, n3088, n13_adj_159, n2246, n976, n974, 
+        n970, n968, n2249, n7, n6_adj_160, GND_net;
     
     (* lut_function="(!((B (C (D))+!B (C+!(D)))+!A))" *) LUT4 i816_4_lut (.A(nreset_c), 
             .B(map[12]), .C(col_sync[0]), .D(n654), .Z(n978));
@@ -1288,16 +1288,16 @@ module keypress (input nreset_c, input [3:0]row_c, output [15:0]map, input [3:0]
             .B(n12), .C(map[3]), .D(n19), .Z(n16));
     defparam i6_4_lut_adj_6.INIT = "0xfffe";
     (* lut_function="(A (B (C)+!B (C (D)))+!A (B (C+!(D))+!B (C (D)+!C !(D))))" *) LUT4 i65_4_lut (.A(n2007), 
-            .B(n8), .C(map[15]), .D(n2818), .Z(n63_adj_156));
+            .B(n8), .C(map[15]), .D(n2818), .Z(n63));
     defparam i65_4_lut.INIT = "0xf0c5";
     (* lut_function="(A+(B+(C (D))))" *) LUT4 i8_4_lut_adj_7 (.A(n9_c), .B(n16), 
             .C(map[10]), .D(n48), .Z(n18));
     defparam i8_4_lut_adj_7.INIT = "0xfeee";
     (* lut_function="(A (B (C+(D))+!B (C))+!A (B (D)))" *) LUT4 i3_4_lut_adj_8 (.A(map[5]), 
-            .B(map[13]), .C(n6), .D(n2655), .Z(n13_adj_155));
+            .B(map[13]), .C(n6), .D(n2655), .Z(n13));
     defparam i3_4_lut_adj_8.INIT = "0xeca0";
-    (* lut_function="(A+(B+(C+(D))))" *) LUT4 i9_4_lut (.A(n13_adj_155), .B(n18), 
-            .C(map[6]), .D(n63_adj_156), .Z(key_next[1]));
+    (* lut_function="(A+(B+(C+(D))))" *) LUT4 i9_4_lut (.A(n13), .B(n18), 
+            .C(map[6]), .D(n63), .Z(key_next[1]));
     defparam i9_4_lut.INIT = "0xfffe";
     (* lut_function="(A+(B+(C)))" *) LUT4 i2_3_lut (.A(map[9]), .B(map[0]), 
             .C(map[10]), .Z(n2007));
@@ -1306,7 +1306,7 @@ module keypress (input nreset_c, input [3:0]row_c, output [15:0]map, input [3:0]
             .B(map[7]), .C(n19), .D(n2007), .Z(n2822));
     defparam i2_4_lut_adj_9.INIT = "0xfffe";
     (* lut_function="(A (B+(C (D)))+!A (B+(C+!(D))))" *) LUT4 i3_4_lut_adj_10 (.A(n2822), 
-            .B(n52), .C(n3074), .D(map[13]), .Z(n10));
+            .B(n52_adj_1), .C(n3074), .D(map[13]), .Z(n10));
     defparam i3_4_lut_adj_10.INIT = "0xfcdd";
     (* lut_function="(A (B+(C+(D)))+!A (B+(C)))" *) LUT4 i5_4_lut (.A(map[7]), 
             .B(n10), .C(n46), .D(n2077), .Z(n12_adj_157));
@@ -1315,10 +1315,10 @@ module keypress (input nreset_c, input [3:0]row_c, output [15:0]map, input [3:0]
             .C(n2824), .D(n875), .Z(key_next[2]));
     defparam i6_4_lut_adj_11.INIT = "0xfffe";
     (* lut_function="(A+(B))" *) LUT4 i1_2_lut (.A(map[12]), .B(map[15]), 
-            .Z(n6_adj_158));
+            .Z(n6_adj_155));
     defparam i1_2_lut.INIT = "0xeeee";
     (* lut_function="(A+(B+(C+(D))))" *) LUT4 i4_4_lut (.A(map[11]), .B(n2810), 
-            .C(map[14]), .D(n6_adj_158), .Z(n875));
+            .C(map[14]), .D(n6_adj_155), .Z(n875));
     defparam i4_4_lut.INIT = "0xfffe";
     (* lut_function="(A+(B))" *) LUT4 i2_2_lut (.A(map[10]), .B(map[9]), 
             .Z(n9_adj_163));
@@ -1349,7 +1349,7 @@ module keypress (input nreset_c, input [3:0]row_c, output [15:0]map, input [3:0]
             .C(map[5]), .D(n19), .Z(n2504));
     defparam i2240_4_lut.INIT = "0xaaa8";
     (* lut_function="(A (B (C))+!A (B (C+!(D))+!B !(C+(D))))" *) LUT4 i65_4_lut_adj_15 (.A(n3576), 
-            .B(n3065), .C(map[13]), .D(n6_c), .Z(n63));
+            .B(n3065), .C(map[13]), .D(n6_c), .Z(n63_adj_158));
     defparam i65_4_lut_adj_15.INIT = "0xc0c5";
     (* lut_function="(A (B+(C))+!A (B (C+(D))))" *) LUT4 i3_4_lut_adj_16 (.A(map[5]), 
             .B(map[8]), .C(n5), .D(map[6]), .Z(n11));
@@ -1361,13 +1361,13 @@ module keypress (input nreset_c, input [3:0]row_c, output [15:0]map, input [3:0]
             .Z(n3088));
     defparam i2724_2_lut.INIT = "0xeeee";
     (* lut_function="(A+(B+(C+(D))))" *) LUT4 i5_4_lut_adj_18 (.A(n9), .B(n9_adj_163), 
-            .C(n875), .D(n2504), .Z(n13));
+            .C(n875), .D(n2504), .Z(n13_adj_159));
     defparam i5_4_lut_adj_18.INIT = "0xfffe";
     (* lut_function="(A+(B))" *) LUT4 i1_rep_4_2_lut (.A(map[1]), .B(n2246), 
             .Z(n3482));
     defparam i1_rep_4_2_lut.INIT = "0xeeee";
-    (* lut_function="(A+(B+(C+(D))))" *) LUT4 i7_4_lut (.A(n13), .B(n11), 
-            .C(n63), .D(n52_adj_1), .Z(key_next[3]));
+    (* lut_function="(A+(B+(C+(D))))" *) LUT4 i7_4_lut (.A(n13_adj_159), .B(n11), 
+            .C(n63_adj_158), .D(n52), .Z(key_next[3]));
     defparam i7_4_lut.INIT = "0xfffe";
     (* LSE_LINE_FILE_ID=37, LSE_LCOL=11, LSE_RCOL=103, LSE_LLINE=25, LSE_RLINE=25 *) FD1P3XZ map__i2 (.D(n958), 
             .SP(VCC_net), .CK(int_osc), .SR(GND_net), .Q(map[2]));
@@ -1480,8 +1480,8 @@ module keypress (input nreset_c, input [3:0]row_c, output [15:0]map, input [3:0]
     (* lut_function="(!((B (C (D))+!B (C+!(D)))+!A))" *) LUT4 i814_4_lut (.A(nreset_c), 
             .B(map[11]), .C(col_sync[3]), .D(n650), .Z(n976));
     defparam i814_4_lut.INIT = "0x0a88";
-    (* LSE_LINE_FILE_ID=36, LSE_LCOL=43, LSE_RCOL=108, LSE_LLINE=16, LSE_RLINE=16 *) \counter(WIDTH=17,MAX_COUNT=80000)  counter_sad_ellen (int_osc, 
-            {sad_ellen_count}, n1030, debug_led_c_0__N_151);
+    (* LSE_LINE_FILE_ID=36, LSE_LCOL=43, LSE_RCOL=108, LSE_LLINE=16, LSE_RLINE=16 *) \counter(WIDTH=17,MAX_COUNT=80000)  counter_sad_ellen (debug_led_c_0__N_151, 
+            {sad_ellen_count}, n1030, int_osc);
     (* LSE_LINE_FILE_ID=37, LSE_LCOL=11, LSE_RCOL=103, LSE_LLINE=25, LSE_RLINE=25 *) FD1P3XZ map__i0 (.D(n954), 
             .SP(VCC_net), .CK(int_osc), .SR(GND_net), .Q(map[0]));
     defparam map__i0.REGSET = "RESET";
@@ -1494,18 +1494,20 @@ endmodule
 // Verilog Description of module \counter(WIDTH=17,MAX_COUNT=80000) 
 //
 
-module \counter(WIDTH=17,MAX_COUNT=80000)  (input int_osc, output [16:0]sad_ellen_count, 
-            input n1030, input debug_led_c_0__N_151);
+module \counter(WIDTH=17,MAX_COUNT=80000)  (input debug_led_c_0__N_151, output [16:0]sad_ellen_count, 
+            input n1030, input int_osc);
     
     (* is_clock=1 *) wire int_osc;
     
-    wire GND_net, VCC_net;
-    wire [16:0]n24;
+    wire GND_net, VCC_net, n2339;
     wire [16:0]n92;
     
-    wire n4, n3799, n3787, n3793, n2622, n2353, n2341, n3784, 
-        n2343, n2339, n3781, n3796, n2345, n3802, n2351, n2349, 
-        n2347, n942, n3742, n3790, n12, n2652, n2624;
+    wire n4, n3784, n2349;
+    wire [16:0]n24;
+    
+    wire n2622, n3742, n3796, n942, n2341, n2343, n3781, n3799, 
+        n2353, n3802, n2351, n2347, n3793, n2345, n3790, n3787, 
+        n12, n2652, n2624;
     
     (* lut_function="(!((B)+!A))" *) LUT4 i1789_2_lut (.A(n92[2]), .B(n4), 
             .Z(n24[2]));
@@ -1708,7 +1710,7 @@ endmodule
 // Verilog Description of module sev_seg
 //
 
-module sev_seg (output [6:0]seg_c, input [3:0]disp);
+module sev_seg (input [3:0]disp, output [6:0]seg_c);
     
     
     (* lut_function="(!(A (B+!(C (D)+!C !(D)))+!A !(B (C (D))+!B !(C+!(D)))))" *) LUT4 disp_3__I_0_4_lut (.A(disp[2]), 
