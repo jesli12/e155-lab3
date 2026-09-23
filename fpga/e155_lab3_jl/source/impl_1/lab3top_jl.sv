@@ -20,6 +20,7 @@ module lab3top_jl(
 	logic [3:0] d1;
 	logic d_en;
 	
+	logic [15:0] keymap;
 	
 	logic [3:0] col_sync;
 	logic [3:0] row_sync;
@@ -34,10 +35,10 @@ module lab3top_jl(
 	// sync row_synchronizer(.clk(int_osc), .d(row_raw), .q(row_sync));  
 	
 	// main keypress fsm
-	keypress_fsm main_fsm(.clk(int_osc), .nrst(nreset), .en(enable), .c_sync(col_sync), .r_sync(row_sync), .d_en, .row_exert(row), .d0, .d1, .db_led(debug_led));
+	keypress_fsm main_fsm(.clk(int_osc), .nrst(nreset), .en(enable), .c_sync(col_sync), .r_sync(row_sync), .d_en, .row_exert(row), .d0, .d1, .db_led(debug_led), .keymap);
 	
 	// debounce enables d_en
-	debounce bouncer(.col(col_sync), .clk(int_osc), .nreset, .enable,.d_en);
+	debounce_fsm bouncer(.keymap, .clk(int_osc), .nreset, .enable,.d_en);
 	
 
 	// Sev Seg DISPLAY *****************************************************************

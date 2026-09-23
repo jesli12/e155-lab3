@@ -7,9 +7,9 @@ module keypress(
 	input 	logic 	[3:0] r_sync,
 	output  logic   one_press,
 	output  logic   [1:0] col_index, //pressed column = col_sync[col_index]
-	output  logic   [3:0] key_next  
+	output  logic   [3:0] key_next,
+	output  logic   [15:0] map
 );
-	logic 	[15:0] map;
 	logic	[16:0] sad_ellen_count;  // Classmate helped me find & solve original timing error
 	logic	sample;
 
