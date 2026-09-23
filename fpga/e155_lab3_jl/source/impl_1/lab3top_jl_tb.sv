@@ -7,46 +7,134 @@
 
 `timescale 1 ns/1 ns
 
-module keypress_fsm_tb();
-	logic           osc, enable, nreset, d_en, press;    
-	logic  [3:0]    key, d0, d1; 
-	logic  [2:0]    db_led;
+module lab3top_jl_tb();
+	logic  [3:0] col_raw;
+	logic nreset;
+	logic enable;
+	logic  [1:0] pwr;
+	logic  [6:0] seg;
+	logic  [3:0] row;
+	logic  [2:0] debug_led;
+	
+    lab3top_jl dut (
+        .col_raw,
+		.nreset,
+		.enable,
+		.pwr,
+		.seg,
+		.row,
+		.debug_led
+    );
 
-    keypress_fsm dut (.clk(osc), .nrst(nreset), .en(enable),.one_key(press),.key_next(key),.d_en,
-		.d0,.d1,.db_led);
-
-	// generate clock
-	always begin
-		osc = 0; 
-		#5;
-		osc = 1; 
-		#5;
-	end
-
-	initial begin
-		enable = 1;
+  // apply stimuli and check outputs
+  initial begin
+	enable = 1;
+    nreset = 0;
+    #22;
+	nreset = 1;
+	
+	col_raw = 4'b1101;
+	#5_000_000;// shorter than debounce
+	col_raw = 4'b1111;
+	#15_000_000;
+	
+	
+	col_raw = 4'b1101;
+    #15_000_000;// longer than debounce                      
+	col_raw = 4'b1111;
+	#15_000_000;// longer than debounce
+	col_raw = 4'b1001; // multipress
+	#15_000_000;// longer than debounce
+	col_raw = 4'b1101;
+	#15_000_000;// longer than debounce
+	nreset = 0;
+	#10_000_000;
+	nreset = 1;
+	col_raw = 4'b1011;
+		#100000
+		col_raw = 4'b1111;
+		#100000
+		col_raw = 4'b1011;
+		#100000
+		col_raw = 4'b1111;
+		#100000
+		col_raw = 4'b1011;
+		#100000
+		col_raw = 4'b1111;
+		#100000
+		col_raw = 4'b1011;
+		#100000
+		col_raw = 4'b1111;
+		#100000
+		col_raw = 4'b1011;
+		#100000
+		col_raw = 4'b1111;
+		#100000
+		col_raw = 4'b1011;
+		#100000000
+		
 		nreset = 0;
-		#22 nreset = 1;
-		d_en = 0;
-		press = 0;
-		key = 4'h6;
-		#50;
-		press = 1'b1;
-		#50;
-		d_en = 1'b1;
-		#50;
-		press = 0;
-		#50;
-		key = 4'h7;
-		#50;
-		press = 1;
-		#50
-		nreset = 0;
-		#50;
+		#5
 		nreset = 1;
-		#50
-		press = 0;
-		#50
-		$stop;
+		#5
+		//col_raw = 4'b1111;
+		//#6666657
+		//col_raw = 4'b1111;
+		//#6666667
+		//col_raw = 4'b0111;
+		//#6666657
+		//col_raw = 4'b1111;
+		//#6666667
+		//col_raw = 4'b1111;
+		//#6666657
+		//col_raw = 4'b1111;
+		//#6666667
+		//col_raw = 4'b0111;
+		//#6666657
+		//col_raw = 4'b1111;
+		//#6666667
+		//col_raw = 4'b1111;
+		//#6666657
+		//col_raw = 4'b1111;
+		//#6666667
+		//col_raw = 4'b0111;
+		//#6666657
+		//col_raw = 4'b1111;
+		//#6666667
+		//col_raw = 4'b1111;
+		//#6666657
+		//col_raw = 4'b1111;
+		//#6666667
+		//col_raw = 4'b0111;
+		//#6666657
+		//col_raw = 4'b1111;
+		//#6666667
+		//col_raw = 4'b1111;
+		//#6666657
+		//col_raw = 4'b1111;
+		//#6666667
+		//col_raw = 4'b0111;
+		//#6666657
+		//col_raw = 4'b1111;
+		//#6666667
+		//col_raw = 4'b1111;
+		//#6666657
+		//col_raw = 4'b1111;
+		//#6666667
+		//col_raw = 4'b0111;
+		//#6666657
+		//col_raw = 4'b1111;
+		//#6666667
+		//col_raw = 4'b1111;
+		//#6666657
+		//col_raw = 4'b1111;
+		//#6666667
+		//col_raw = 4'b0111;
+		//#6666657
+		//col_raw = 4'b1111;
+		//#6666667
+
+
+    #100 $stop;
   end
 endmodule

@@ -1,0 +1,18 @@
+- Entry: 1
+  Time: Wed Sep 23 13:53:54 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -clean -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/lab3top_jl_tb/lab3top_jl_tb.f 
+- Entry: 2
+  Time: Wed Sep 23 13:54:20 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/lab3top_jl_tb/lab3top_jl_tb.f 
+- Entry: 3
+  Time: Wed Sep 23 13:54:40 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/lab3top_jl_tb/lab3top_jl_tb.f 
+- Entry: 4
+  Time: Wed Sep 23 14:05:04 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/lab3top_jl_tb/lab3top_jl_tb.f 
+- Entry: 5
+  Time: Wed Sep 23 14:13:32 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/lab3top_jl_tb/lab3top_jl_tb.f 
+- Entry: 6
+  Time: Wed Sep 23 14:19:04 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/lab3top_jl_tb/lab3top_jl_tb.f 
