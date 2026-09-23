@@ -10,6 +10,7 @@ module keypress(
 	output  logic   [3:0] key_next,
 	output  logic   [15:0] map
 );
+
 	logic	[16:0] ellen_count;  // Classmate helped me find & solve original timing error
 	logic	sample;
 
@@ -22,7 +23,7 @@ module keypress(
 	//Take in 4 bit col sync for 4 cycle
     always_ff @(posedge clk, posedge ~nrst) begin
         if (~nrst)
-            map <= 15'b0;
+            map <= 16'b0;
 		else if (en) begin
 			if (r_sync[0] & sample)
 				map[3:0] <= ~c_sync[3:0];

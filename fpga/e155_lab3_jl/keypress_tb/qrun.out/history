@@ -1,0 +1,24 @@
+- Entry: 1
+  Time: Wed Sep 23 06:08:52 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -clean -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/keypress_tb/keypress_tb.f 
+- Entry: 2
+  Time: Wed Sep 23 06:09:46 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/keypress_tb/keypress_tb.f 
+- Entry: 3
+  Time: Wed Sep 23 06:10:40 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/keypress_tb/keypress_tb.f 
+- Entry: 4
+  Time: Wed Sep 23 07:00:15 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/keypress_tb/keypress_tb.f 
+- Entry: 5
+  Time: Wed Sep 23 07:06:35 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/keypress_tb/keypress_tb.f 
+- Entry: 6
+  Time: Wed Sep 23 07:16:03 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/keypress_tb/keypress_tb.f 
+- Entry: 7
+  Time: Wed Sep 23 07:17:17 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/keypress_tb/keypress_tb.f 
+- Entry: 8
+  Time: Wed Sep 23 07:19:24 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/keypress_tb/keypress_tb.f 
