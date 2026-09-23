@@ -1,3 +1,27 @@
 - Entry: 1
   Time: Wed Sep 23 11:33:41 2026
   Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -clean -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/debounce_fsm_tb/debounce_fsm_tb.f 
+- Entry: 2
+  Time: Wed Sep 23 11:35:48 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/debounce_fsm_tb/debounce_fsm_tb.f 
+- Entry: 3
+  Time: Wed Sep 23 11:36:03 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/debounce_fsm_tb/debounce_fsm_tb.f 
+- Entry: 4
+  Time: Wed Sep 23 11:49:15 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/debounce_fsm_tb/debounce_fsm_tb.f 
+- Entry: 5
+  Time: Wed Sep 23 11:51:07 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/debounce_fsm_tb/debounce_fsm_tb.f 
+- Entry: 6
+  Time: Wed Sep 23 11:56:50 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/debounce_fsm_tb/debounce_fsm_tb.f 
+- Entry: 7
+  Time: Wed Sep 23 11:59:52 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/debounce_fsm_tb/debounce_fsm_tb.f 
+- Entry: 8
+  Time: Wed Sep 23 12:01:06 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/debounce_fsm_tb/debounce_fsm_tb.f 
+- Entry: 9
+  Time: Wed Sep 23 12:03:38 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/debounce_fsm_tb/debounce_fsm_tb.f 

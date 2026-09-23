@@ -1,1 +1,1 @@
-qrun -clean -f "C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/debounce_fsm_tb/debounce_fsm_tb.f"
+qrun -f "C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/debounce_fsm_tb/debounce_fsm_tb.f"
