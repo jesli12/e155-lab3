@@ -1,8 +1,8 @@
 // Jessica Li  |  jesli@g.hmc.edu
 // 09/23/2026
-// This is a test bench for the sync submodule used in the top-level module of lab 3.
+// This is a test bench for the keypress submodule used in the top-level module of lab 3.
 /* The following tests include:
-	1. Sim Waveforms show all 
+	1. Sim Waveforms show diagonal key presses individual and show both no press and multipress reactions 
 */
 
 `timescale 1 ns/1 ns
@@ -42,9 +42,9 @@ module keypress_tb();
 		#1_600_000;
 		#1_600_000;
 		#1_600_000;
-		nreset = 0;
-		#22
-		nreset = 1;
+		//nreset = 0;
+		//#22
+		//nreset = 1;
 		#600_000 // time left for scanned row to deactivate (and counter resets)
 		r_sync = 4'b0001;                
 		c_sync = 4'b1110;
@@ -52,10 +52,12 @@ module keypress_tb();
 		
 		#1_600_000;
 		#1_600_000;
+		r_sync = 4'b0001;                
+		c_sync = 4'b1111;
 		#1_600_000;
-		nreset = 0;
-		#22
-		nreset = 1;
+		//nreset = 0;
+		//#22
+		//nreset = 1;
 		#600_000
 		r_sync = 4'b0010;
 		c_sync = 4'b1101;
@@ -63,32 +65,39 @@ module keypress_tb();
 		
 		#1_600_000;
 		#1_600_000;
+		r_sync = 4'b0010;                
+		c_sync = 4'b1111;
 		#1_600_000;
-		nreset = 0;
-		#22
-		nreset = 1;
+		//nreset = 0;
+		//#22
+		//nreset = 1;
 		#600_000
 		r_sync = 4'b0100;
 		c_sync = 4'b1011;
         #1_000_000;
 		
 		#1_600_000;
+		#1_600_000
+		r_sync = 4'b0100;                
+		c_sync = 4'b1111;
 		#1_600_000;
-		#1_600_000;
-		nreset = 0;
-		#22
-		nreset = 1;
+		//nreset = 0;
+		//#22
+		//nreset = 1;
 		#600_000
 		r_sync = 4'b1000;
 		c_sync = 4'b0111;
         #1_000_000;
+		
 		#1_600_000;
 		#1_600_000;
+		r_sync = 4'b1000;                
+		c_sync = 4'b1111;
 		#1_600_000;
 		
-		nreset = 0;
-		#22
-		nreset = 1;
+		//nreset = 0;
+		//#22
+		//nreset = 1;
 		#200; // for delay to offset (not have actions on ticks)
         r_sync = 4'b0001;                
 		c_sync = 4'b1010;  //multi press
