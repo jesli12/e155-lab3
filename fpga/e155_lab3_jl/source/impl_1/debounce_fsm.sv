@@ -1,10 +1,10 @@
-// Jessica Li  |  jesli@g.hmc.edu
-// 09/20/2026 
+// Jessica Li  |  jesli@g.hmc. 
+// 09/22/2026 
 // This is a submodule that contains a FSM that communicates with the main canonicl FSM on when the keypad's switches have been debounced
 // (post debounce wait time, key press signals are stabilized)
 
-module debounce(
-	input   logic   [3:0] col, 
+module debounce_fsm(
+	input   logic   [15:0] keymap, 
 	input 	logic 	 clk, nreset, enable,
 	output  logic   d_en
 );
@@ -25,17 +25,17 @@ module debounce(
 	) debounce_counter (
 		.osc (clk), 
 		.nrst (~(state == IDLE)),  // in state idle, counter <= 0
-		.en (~(state == IDLE)), // in any other state, counter increment
+		.en ((state == WAIT)), // in any other state, counter increment
 		.count (count_num) 
 	);
 	
 	always_comb
 		case (state)
-			IDLE: nextstate = (~(col == 4'b1111)) ? WAIT : IDLE;
-			WAIT: if (col == 4'b1111) nextstate = IDLE; // a bounce
-				else if (count_num[19]&~(col == 4'b1111)) nextstate = PRESSED;
-				else nextstate = WAIT;
-			PRESSED: nextstate = (~(col == 4'b1111)) ? PRESSED : IDLE;
+			IDLE: nextstate = (~(keymap == 16'b0000000000000000)) ? WAIT : IDLE; // raw keymap shows smth is pressed
+			WAIT: if (keymap == 16'b0000000000000000) nextstate = IDLE; // a bounce
+				else if (count_num[19]&~(keymap == 16'b0000000000000000)) nextstate = PRESSED;
+				else nextstate = WAIT; // stay in wait (not resetting debounce counter)
+			PRESSED: nextstate = (~(keymap == 16'b0000000000000000)) ? PRESSED : IDLE;
 			default: nextstate = IDLE;
 		endcase
 

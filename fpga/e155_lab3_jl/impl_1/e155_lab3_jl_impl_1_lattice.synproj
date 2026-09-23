@@ -40,7 +40,6 @@
 -lib pmi -vhd "C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.vhd"
 
 # Source Files
--sver "../source/impl_1/debounce.sv"
 -sver "../source/impl_1/lab3top_jl.sv"
 -sver "../source/impl_1/scanner.sv"
 -sver "../source/impl_1/sev_seg.sv"
@@ -48,6 +47,7 @@
 -sver "../source/impl_1/sync.sv"
 -sver "../source/impl_1/keypress_fsm.sv"
 -sver "../source/impl_1/keypress.sv"
+-sver "../source/impl_1/debounce_fsm.sv"
 -path ".."
 -top lab3top_jl
 # Output Configuration

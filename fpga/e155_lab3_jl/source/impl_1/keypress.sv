@@ -7,22 +7,27 @@ module keypress(
 	input 	logic 	[3:0] r_sync,
 	output  logic   one_press,
 	output  logic   [1:0] col_index, //pressed column = col_sync[col_index]
-	output  logic   [3:0] key_next  
+	output  logic   [3:0] key_next,
+	output  logic   [15:0] map
 );
-	logic 	[15:0] map;
+	logic	[16:0] sad_ellen_count;  // Classmate helped me find & solve original timing error
+	logic	sample;
 
-	//Take in 4 bit col sync for 4 cycles  // MEED FIXING TO NOT DISPLAY RANDOM NUMBERS AFTER THE THIRD KEY
+	counter #(.WIDTH(17), .MAX_COUNT(80000)) counter_sad_ellen(.osc(clk), .nrst, .en, .count(sad_ellen_count));
+	assign sample = (sad_ellen_count == 17'd50000);
+	
+	//Take in 4 bit col sync for 4 cycle
     always_ff @(posedge clk) begin
         if (~nrst)
             map <= 15'b0;
 		else if (en) begin
-			if (r_sync[0])
+			if (r_sync[0] & sample)
 				map[3:0] <= ~c_sync[3:0];
-			else if (r_sync[1])
+			else if (r_sync[1] & sample)
 				map[7:4] <= ~c_sync[3:0];
-			else if (r_sync[2])
+			else if (r_sync[2] & sample)
 				map[11:8] <= ~c_sync[3:0];
-			else if (r_sync[3])
+			else if (r_sync[3] & sample)
 				map[15:12] <= ~c_sync[3:0];
 		end
 	end
