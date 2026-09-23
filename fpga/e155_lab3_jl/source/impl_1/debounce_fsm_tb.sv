@@ -20,7 +20,7 @@ module debounce_fsm_tb();
         .clk(osc),
         .nreset,
 		.enable,
-        .d_en,
+        .d_en
     );
 
   // generate clock
@@ -33,8 +33,9 @@ module debounce_fsm_tb();
 
   // apply stimuli and check outputs
   initial begin
-    reset = 0;
-    #22 reset = 1;
+    nreset = 0;
+    #22 nreset = 1;
+	
 	
 
     // a full clock cycle (#10)

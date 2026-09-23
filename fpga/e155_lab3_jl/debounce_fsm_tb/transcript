@@ -1,0 +1,104 @@
+# //  Questa Lattice OEM Edition-64
+# //  Version 2025.2 win64 May 31 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# do C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/debounce_fsm_tb/debounce_fsm_tb.vdo
+# ** Note: (qrun-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# Creating library 'qrun.out/work'.
+# Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# Start time: 11:33:42 on Sep 23,2026
+# 
+# vlog -reportprogress 300 -L work -sv -L pmi_work -L ovi_ice40up C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/lab3top_jl.sv C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/scanner.sv C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/sev_seg.sv C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/counter.sv C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/sync.sv C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress_fsm.sv C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress.sv C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/debounce_fsm.sv C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/dual_display.sv C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/debounce_fsm_tb.sv -work qrun.out/work -statslog qrun.out/stats_log -csession=incr 
+# 
+# ** Note: (vlog-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# -- Compiling module lab3top_jl
+# 
+# -- Compiling module scanner
+# 
+# -- Compiling module sev_seg
+# 
+# -- Compiling module counter
+# 
+# -- Compiling module sync
+# 
+# -- Compiling module keypress_fsm
+# 
+# -- Compiling module keypress
+# 
+# -- Compiling module debounce_fsm
+# 
+# -- Compiling module dual_display
+# 
+# -- Compiling module debounce_fsm_tb
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	lab3top_jl
+# 
+# 	debounce_fsm_tb
+# 
+# End time: 11:33:42 on Sep 23,2026, Elapsed time: 0:00:00
+# 
+# Errors: 0, Warnings: 0
+# 
+# Questa Lattice OEM Edition-64 vopt 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
+# 
+# Start time: 11:33:42 on Sep 23,2026
+# 
+# vopt -reportprogress 300 -L work "+acc" "+noacc+pmi_work.*" "+noacc+ovi_ice40up.*" -L pmi_work -L ovi_ice40up debounce_fsm_tb -suppress vopt-7033 -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=3 
+# 
+# ** Note: (vopt-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	debounce_fsm_tb
+# 
+# 
+# 
+# Analyzing design...
+# 
+# -- Loading module debounce_fsm_tb
+# 
+# -- Loading module debounce_fsm
+# 
+# -- Loading module counter
+# 
+# ** Warning: (vopt-2108) Cannot find module '*' specified in +noacc option.
+# 
+# ** Warning: (vopt-2108) Cannot find module '*' specified in +noacc option.
+# 
+# Optimizing 3 design-units (inlining 0/3 module instances):
+# 
+# -- Optimizing module debounce_fsm(fast)
+# 
+# -- Optimizing module debounce_fsm_tb(fast)
+# 
+# -- Optimizing module counter(fast)
+# 
+# Optimized design name is qrun_opt
+# 
+# End time: 11:33:42 on Sep 23,2026, Elapsed time: 0:00:00
+# 
+# Errors: 0, Warnings: 3
+# 
+vsim -L work -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do {view wave} -do {add wave /*} -do {run -all} -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log

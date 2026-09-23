@@ -1,0 +1,10 @@
+C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/lab3top_jl.sv
+C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/scanner.sv
+C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/sev_seg.sv
+C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/counter.sv
+C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/sync.sv
+C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress_fsm.sv
+C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress.sv
+C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/debounce_fsm.sv
+C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/dual_display.sv
+C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/debounce_fsm_tb.sv
