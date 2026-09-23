@@ -1,6 +1,18 @@
 - Entry: 1
-  Time: Wed Sep 23 12:46:42 2026
+  Time: Wed Sep 23 13:18:25 2026
   Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -clean -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/keypress_fsm_tb/keypress_fsm_tb.f 
 - Entry: 2
-  Time: Wed Sep 23 12:47:57 2026
+  Time: Wed Sep 23 13:21:22 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/keypress_fsm_tb/keypress_fsm_tb.f 
+- Entry: 3
+  Time: Wed Sep 23 13:23:09 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/keypress_fsm_tb/keypress_fsm_tb.f 
+- Entry: 4
+  Time: Wed Sep 23 13:25:38 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/keypress_fsm_tb/keypress_fsm_tb.f 
+- Entry: 5
+  Time: Wed Sep 23 13:28:11 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/keypress_fsm_tb/keypress_fsm_tb.f 
+- Entry: 6
+  Time: Wed Sep 23 13:30:08 2026
   Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/keypress_fsm_tb/keypress_fsm_tb.f 

@@ -1,8 +1,8 @@
 // Jessica Li  |  jesli@g.hmc.edu
 // 09/23/2026
-// This is a test bench for the keypress fsm submodule used in the top-level module of lab 3.
+// This is a test bench for the top module.
 /* The following tests include:
-	1. Sim Waveforms show diagonal key presses individual and show both no press and multipress reactions 
+	1. Sim Waveforms show 
 */
 
 `timescale 1 ns/1 ns

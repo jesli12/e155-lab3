@@ -49,7 +49,7 @@ module lab3top_jl(
 	keypress press_logic(.clk(int_osc), .nrst(nreset), .en(enable), .c_sync(col_sync), .r_sync(row), .one_press(one_key), .col_index, .key_next , .map(keymap));
 	
 	// main keypress fsm
-	keypress_fsm main_fsm(.clk(int_osc), .nrst(nreset), .en(enable),.one_key,.key_next, .d_en, .d0, .d1, .db_led(debug_led));
+	keypress_fsm main_fsm(.clk(int_osc), .nrst(nreset), .en(enable), .one_key, .key_next, .d_en, .d0, .d1, .db_led(debug_led));
 
 	// Sev Seg DISPLAY 
 	dual_display dual(.int_osc, .nreset, .enable,.d0, .d1, .pwr, .seg);

@@ -13,5 +13,5 @@
     <GlbInc value=""/>
     <Macro value=""/>
     <Udo value=""/>
-    <TopModule instance="" language="" name="keypress_fsm_tb"/>
+    <TopModule instance="" language="VERILOG" name="keypress_fsm_tb"/>
 </RadiantSimulationProject>
