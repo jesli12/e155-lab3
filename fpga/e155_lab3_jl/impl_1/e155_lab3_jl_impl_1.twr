@@ -1,6 +1,6 @@
 Lattice Timing Report -  Setup  and Hold, Version Radiant Software (64-bit) 2026.1.0.37.0
 
-Tue Sep 22 23:18:04 2026
+Wed Sep 23 01:38:33 2026
 
 Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
 Copyright (c) 1995 AT&T Corp.   All rights reserved.
@@ -52,7 +52,7 @@ create_clock -name {int_osc} -period 20.8333 [get_pins {hf_osc/CLKHF }]
 
 1.2  Constraint Coverage
 ---------------------------
-Constraint Coverage: 85.8526%
+Constraint Coverage: 85.2742%
 
 
 1.3  Overall Summary
@@ -70,13 +70,13 @@ Clocked but unconstrained timing start points
 -------------------------------------------------------------------
          Listing 7 Start Points         |           Type           
 -------------------------------------------------------------------
-main_fsm/db_led_i0/Q                    |          No required time
-main_fsm/db_led_i1/Q                    |          No required time
-main_fsm/db_led_i2/Q                    |          No required time
 main_fsm/d1_i0_i0/Q                     |          No required time
 main_fsm/d1_i0_i1/Q                     |          No required time
-main_fsm/d1_i0_i2/Q                     |          No required time
+main_fsm/db_led_i2/Q                    |          No required time
 main_fsm/d1_i0_i3/Q                     |          No required time
+main_fsm/d1_i0_i2/Q                     |          No required time
+main_fsm/db_led_i1/Q                    |          No required time
+main_fsm/db_led_i0/Q                    |          No required time
 -------------------------------------------------------------------
                                         |                          
 Number of unconstrained timing start po |                          
@@ -88,30 +88,30 @@ Clocked but unconstrained timing end points
 -------------------------------------------------------------------
          Listing 10 End Points          |           Type           
 -------------------------------------------------------------------
-{bouncer/state_FSM_i2/SR   bouncer/state_FSM_i1/SR}                           
+{press_logic/map_i0_i9/SR   press_logic/map_i0_i8/SR}                           
                                         |           No arrival time
-{segment_counter/count__i1/SP   segment_counter/count__i0/SP}                           
+{press_logic/map_i0_i10/SR   press_logic/map_i0_i11/SR}                           
                                         |           No arrival time
-{segment_counter/count__i1/SR   segment_counter/count__i0/SR}                           
+{press_logic/map_i0_i12/SR   press_logic/map_i0_i13/SR}                           
                                         |           No arrival time
-{segment_counter/count__i2/SP   segment_counter/count__i3/SP}                           
+{press_logic/map_i0_i14/SR   press_logic/map_i0_i15/SR}                           
                                         |           No arrival time
-{segment_counter/count__i2/SR   segment_counter/count__i3/SR}                           
+{press_logic/map_i0_i1/SR   press_logic/map_i0_i0/SR}                           
                                         |           No arrival time
-{segment_counter/count__i4/SP   segment_counter/count__i5/SP}                           
+{press_logic/map_i0_i2/SR   press_logic/map_i0_i3/SR}                           
                                         |           No arrival time
-{segment_counter/count__i4/SR   segment_counter/count__i5/SR}                           
+{press_logic/map_i0_i4/SR   press_logic/map_i0_i5/SR}                           
                                         |           No arrival time
-{segment_counter/count__i6/SP   segment_counter/count__i7/SP}                           
+{press_logic/map_i0_i6/SR   press_logic/map_i0_i7/SR}                           
                                         |           No arrival time
-{segment_counter/count__i6/SR   segment_counter/count__i7/SR}                           
+{press_logic/counter_ellen/count__i15/SP   press_logic/counter_ellen/count__i14/SP}                           
                                         |           No arrival time
-{segment_counter/count__i8/SP   segment_counter/count__i9/SP}                           
+{press_logic/counter_ellen/count__i15/SR   press_logic/counter_ellen/count__i14/SR}                           
                                         |           No arrival time
 -------------------------------------------------------------------
                                         |                          
 Number of unconstrained timing end poin |                          
-ts                                      |                        87
+ts                                      |                        97
                                         |                          
 -------------------------------------------------------------------
 
@@ -185,16 +185,16 @@ Clock Domain Crossing
 -------------------------------------------------------
           Listing 10 End Points          |    Slack    
 -------------------------------------------------------
-main_fsm/press_logic/map__i13/D          |    1.628 ns 
-main_fsm/press_logic/map__i12/D          |    1.628 ns 
-main_fsm/press_logic/map__i15/D          |    1.628 ns 
-main_fsm/press_logic/map__i14/D          |    1.628 ns 
-main_fsm/press_logic/map__i2/D           |    3.055 ns 
-main_fsm/press_logic/map__i3/D           |    3.055 ns 
-main_fsm/press_logic/map__i1/D           |    3.267 ns 
-main_fsm/press_logic/map__i8/D           |    3.346 ns 
-main_fsm/press_logic/map__i11/D          |    3.346 ns 
-main_fsm/press_logic/map__i10/D          |    3.346 ns 
+press_logic/map_i0_i14/D                 |    1.602 ns 
+press_logic/map_i0_i15/D                 |    1.602 ns 
+press_logic/map_i0_i12/D                 |    1.602 ns 
+press_logic/map_i0_i13/D                 |    1.602 ns 
+press_logic/map_i0_i10/D                 |    1.733 ns 
+press_logic/map_i0_i11/D                 |    1.733 ns 
+press_logic/map_i0_i9/D                  |    1.733 ns 
+press_logic/map_i0_i8/D                  |    1.733 ns 
+press_logic/map_i0_i1/D                  |    2.513 ns 
+press_logic/map_i0_i0/D                  |    2.513 ns 
 -------------------------------------------------------
                                          |             
 Setup # of endpoints with negative slack:|           0 
@@ -217,701 +217,712 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : main_fsm/press_logic/counter_sad_ellen/count__i3/Q  (SLICE_R17C14D)
-Path End         : main_fsm/press_logic/map__i13/D  (SLICE_R15C9B)
+Path Begin       : scanning/scanner_counter/count__i11/Q  (SLICE_R14C9A)
+Path End         : press_logic/map_i0_i14/D  (SLICE_R13C11D)
 Source Clock     : int_osc (R)
 Destination Clock: int_osc (R)
-Logic Level      : 7
-Delay Ratio      : 78.4% (route), 21.6% (logic)
+Logic Level      : 8
+Delay Ratio      : 75.9% (route), 24.1% (logic)
 Clock Skew       : 0.000 ns 
 Setup Constraint : 20.833 ns 
-Path Slack       : 1.628 ns  (Passed)
+Path Slack       : 1.602 ns  (Passed)
 
 
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  72      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY           5.499                  5.499  72      
-{main_fsm/press_logic/counter_sad_ellen/count__i3/CK   main_fsm/press_logic/counter_sad_ellen/count__i2/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  73      
+col_synchronizer/int_osc                                     NET DELAY           5.499                  5.499  73      
+{scanning/scanner_counter/count__i11/CK   scanning/scanner_counter/count__i12/CK}
                                                              CLOCK PIN           0.000                  5.499  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-main_fsm/press_logic/counter_sad_ellen/count__i3/CK->main_fsm/press_logic/counter_sad_ellen/count__i3/Q
-                                          SLICE_R17C14D      CLK_TO_Q0_DELAY     1.388                  6.887  3       
-main_fsm/press_logic/counter_sad_ellen/sad_ellen_count[3]
-                                                             NET DELAY           2.353                  9.240  3       
-main_fsm/press_logic/i5_3_lut/A->main_fsm/press_logic/i5_3_lut/Z
-                                          SLICE_R18C16D      D0_TO_F0_DELAY      0.449                  9.689  1       
-main_fsm/press_logic/n14                                     NET DELAY           2.763                 12.452  1       
-main_fsm/press_logic/i8_4_lut/C->main_fsm/press_logic/i8_4_lut/Z
-                                          SLICE_R17C15A      D1_TO_F1_DELAY      0.449                 12.901  1       
-main_fsm/press_logic/n2814                                   NET DELAY           2.168                 15.069  1       
-main_fsm/press_logic/i1_4_lut/A->main_fsm/press_logic/i1_4_lut/Z
-                                          SLICE_R17C15B      D1_TO_F1_DELAY      0.449                 15.518  5       
-main_fsm/press_logic/n1116                                   NET DELAY           3.278                 18.796  5       
-main_fsm/press_logic/i1_2_lut_3_lut_4_lut_4_lut_adj_5/B->main_fsm/press_logic/i1_2_lut_3_lut_4_lut_4_lut_adj_5/Z
-                                          SLICE_R14C11D      D0_TO_F0_DELAY      0.449                 19.245  2       
-main_fsm/press_logic/n1073                                   NET DELAY           2.168                 21.413  2       
-main_fsm/press_logic/i3_4_lut/A->main_fsm/press_logic/i3_4_lut/Z
-                                          SLICE_R14C10C      D1_TO_F1_DELAY      0.449                 21.862  4       
-main_fsm/press_logic/n771                                    NET DELAY           2.168                 24.030  4       
-main_fsm/press_logic/i944_4_lut/D->main_fsm/press_logic/i944_4_lut/Z
-                                          SLICE_R15C9B       D0_TO_F0_DELAY      0.476                 24.506  1       
-main_fsm/press_logic/n1152                                   NET DELAY           0.000                 24.506  1       
-main_fsm/press_logic/map__i13/D                              ENDPOINT            0.000                 24.506  1       
+scanning/scanner_counter/count__i11/CK->scanning/scanner_counter/count__i11/Q
+                                          SLICE_R14C9A       CLK_TO_Q0_DELAY     1.388                  6.887  5       
+scanning/scanner_counter/scan_count[11]                      NET DELAY           2.075                  8.962  5       
+scanning/i1_2_lut_3_lut_adj_12/A->scanning/i1_2_lut_3_lut_adj_12/Z
+                                          SLICE_R14C9C       B1_TO_F1_DELAY      0.449                  9.411  2       
+scanning/scanner_counter/n980                                NET DELAY           3.080                 12.491  2       
+scanning/i2_4_lut/D->scanning/i2_4_lut/Z  SLICE_R13C11A      B0_TO_F0_DELAY      0.476                 12.967  1       
+scanning/n2653                                               NET DELAY           0.304                 13.271  1       
+scanning/i1824_4_lut/C->scanning/i1824_4_lut/Z
+                                          SLICE_R13C11A      C1_TO_F1_DELAY      0.449                 13.720  4       
+scanning/n1997                                               NET DELAY           2.485                 16.205  4       
+scanning/i1860_3_lut/C->scanning/i1860_3_lut/Z
+                                          SLICE_R13C10C      B0_TO_F0_DELAY      0.449                 16.654  2       
+scanning/n2033                                               NET DELAY           2.168                 18.822  2       
+scanning/i2897_4_lut/D->scanning/i2897_4_lut/Z
+                                          SLICE_R14C10C      D1_TO_F1_DELAY      0.449                 19.271  2       
+scanning/row_c[3]                                            NET DELAY           2.168                 21.439  2       
+press_logic/i3_4_lut_adj_21/C->press_logic/i3_4_lut_adj_21/Z
+                                          SLICE_R13C10D      D1_TO_F1_DELAY      0.449                 21.888  4       
+press_logic/n748                                             NET DELAY           2.168                 24.056  4       
+press_logic/i903_3_lut/C->press_logic/i903_3_lut/Z
+                                          SLICE_R13C11D      D0_TO_F0_DELAY      0.476                 24.532  1       
+press_logic/n1079                                            NET DELAY           0.000                 24.532  1       
+press_logic/map_i0_i14/D                                     ENDPOINT            0.000                 24.532  1       
 
 
 Destination Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
                                                              CONSTRAINT          0.000                 20.833  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  72      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY           5.499                 26.332  72      
-{main_fsm/press_logic/map__i13/CK   main_fsm/press_logic/map__i12/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  73      
+col_synchronizer/int_osc                                     NET DELAY           5.499                 26.332  73      
+{press_logic/map_i0_i14/CK   press_logic/map_i0_i15/CK}
                                                              CLOCK PIN           0.000                 26.332  1       
                                                              Uncertainty      -(0.000)                 26.332  
                                                              Setup time       -(0.198)                 26.134  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
 Required Time                                                                                          26.134  
-Arrival Time                                                                                        -(24.505)  
+Arrival Time                                                                                        -(24.531)  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Path Slack  (Passed)                                                                                    1.628  
+Path Slack  (Passed)                                                                                    1.602  
 
 
 
 
 ++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : main_fsm/press_logic/counter_sad_ellen/count__i3/Q  (SLICE_R17C14D)
-Path End         : main_fsm/press_logic/map__i12/D  (SLICE_R15C9B)
+Path Begin       : scanning/scanner_counter/count__i11/Q  (SLICE_R14C9A)
+Path End         : press_logic/map_i0_i15/D  (SLICE_R13C11D)
 Source Clock     : int_osc (R)
 Destination Clock: int_osc (R)
-Logic Level      : 7
-Delay Ratio      : 78.4% (route), 21.6% (logic)
+Logic Level      : 8
+Delay Ratio      : 75.9% (route), 24.1% (logic)
 Clock Skew       : 0.000 ns 
 Setup Constraint : 20.833 ns 
-Path Slack       : 1.628 ns  (Passed)
+Path Slack       : 1.602 ns  (Passed)
 
 
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  72      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY           5.499                  5.499  72      
-{main_fsm/press_logic/counter_sad_ellen/count__i3/CK   main_fsm/press_logic/counter_sad_ellen/count__i2/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  73      
+col_synchronizer/int_osc                                     NET DELAY           5.499                  5.499  73      
+{scanning/scanner_counter/count__i11/CK   scanning/scanner_counter/count__i12/CK}
                                                              CLOCK PIN           0.000                  5.499  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-main_fsm/press_logic/counter_sad_ellen/count__i3/CK->main_fsm/press_logic/counter_sad_ellen/count__i3/Q
-                                          SLICE_R17C14D      CLK_TO_Q0_DELAY     1.388                  6.887  3       
-main_fsm/press_logic/counter_sad_ellen/sad_ellen_count[3]
-                                                             NET DELAY           2.353                  9.240  3       
-main_fsm/press_logic/i5_3_lut/A->main_fsm/press_logic/i5_3_lut/Z
-                                          SLICE_R18C16D      D0_TO_F0_DELAY      0.449                  9.689  1       
-main_fsm/press_logic/n14                                     NET DELAY           2.763                 12.452  1       
-main_fsm/press_logic/i8_4_lut/C->main_fsm/press_logic/i8_4_lut/Z
-                                          SLICE_R17C15A      D1_TO_F1_DELAY      0.449                 12.901  1       
-main_fsm/press_logic/n2814                                   NET DELAY           2.168                 15.069  1       
-main_fsm/press_logic/i1_4_lut/A->main_fsm/press_logic/i1_4_lut/Z
-                                          SLICE_R17C15B      D1_TO_F1_DELAY      0.449                 15.518  5       
-main_fsm/press_logic/n1116                                   NET DELAY           3.278                 18.796  5       
-main_fsm/press_logic/i1_2_lut_3_lut_4_lut_4_lut_adj_5/B->main_fsm/press_logic/i1_2_lut_3_lut_4_lut_4_lut_adj_5/Z
-                                          SLICE_R14C11D      D0_TO_F0_DELAY      0.449                 19.245  2       
-main_fsm/press_logic/n1073                                   NET DELAY           2.168                 21.413  2       
-main_fsm/press_logic/i3_4_lut/A->main_fsm/press_logic/i3_4_lut/Z
-                                          SLICE_R14C10C      D1_TO_F1_DELAY      0.449                 21.862  4       
-main_fsm/press_logic/n771                                    NET DELAY           2.168                 24.030  4       
-main_fsm/press_logic/i942_4_lut/D->main_fsm/press_logic/i942_4_lut/Z
-                                          SLICE_R15C9B       D1_TO_F1_DELAY      0.476                 24.506  1       
-main_fsm/press_logic/n1150                                   NET DELAY           0.000                 24.506  1       
-main_fsm/press_logic/map__i12/D                              ENDPOINT            0.000                 24.506  1       
+scanning/scanner_counter/count__i11/CK->scanning/scanner_counter/count__i11/Q
+                                          SLICE_R14C9A       CLK_TO_Q0_DELAY     1.388                  6.887  5       
+scanning/scanner_counter/scan_count[11]                      NET DELAY           2.075                  8.962  5       
+scanning/i1_2_lut_3_lut_adj_12/A->scanning/i1_2_lut_3_lut_adj_12/Z
+                                          SLICE_R14C9C       B1_TO_F1_DELAY      0.449                  9.411  2       
+scanning/scanner_counter/n980                                NET DELAY           3.080                 12.491  2       
+scanning/i2_4_lut/D->scanning/i2_4_lut/Z  SLICE_R13C11A      B0_TO_F0_DELAY      0.476                 12.967  1       
+scanning/n2653                                               NET DELAY           0.304                 13.271  1       
+scanning/i1824_4_lut/C->scanning/i1824_4_lut/Z
+                                          SLICE_R13C11A      C1_TO_F1_DELAY      0.449                 13.720  4       
+scanning/n1997                                               NET DELAY           2.485                 16.205  4       
+scanning/i1860_3_lut/C->scanning/i1860_3_lut/Z
+                                          SLICE_R13C10C      B0_TO_F0_DELAY      0.449                 16.654  2       
+scanning/n2033                                               NET DELAY           2.168                 18.822  2       
+scanning/i2897_4_lut/D->scanning/i2897_4_lut/Z
+                                          SLICE_R14C10C      D1_TO_F1_DELAY      0.449                 19.271  2       
+scanning/row_c[3]                                            NET DELAY           2.168                 21.439  2       
+press_logic/i3_4_lut_adj_21/C->press_logic/i3_4_lut_adj_21/Z
+                                          SLICE_R13C10D      D1_TO_F1_DELAY      0.449                 21.888  4       
+press_logic/n748                                             NET DELAY           2.168                 24.056  4       
+press_logic/i902_3_lut/C->press_logic/i902_3_lut/Z
+                                          SLICE_R13C11D      D1_TO_F1_DELAY      0.476                 24.532  1       
+press_logic/n1078                                            NET DELAY           0.000                 24.532  1       
+press_logic/map_i0_i15/D                                     ENDPOINT            0.000                 24.532  1       
 
 
 Destination Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
                                                              CONSTRAINT          0.000                 20.833  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  72      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY           5.499                 26.332  72      
-{main_fsm/press_logic/map__i13/CK   main_fsm/press_logic/map__i12/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  73      
+col_synchronizer/int_osc                                     NET DELAY           5.499                 26.332  73      
+{press_logic/map_i0_i14/CK   press_logic/map_i0_i15/CK}
                                                              CLOCK PIN           0.000                 26.332  1       
                                                              Uncertainty      -(0.000)                 26.332  
                                                              Setup time       -(0.198)                 26.134  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
 Required Time                                                                                          26.134  
-Arrival Time                                                                                        -(24.505)  
+Arrival Time                                                                                        -(24.531)  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Path Slack  (Passed)                                                                                    1.628  
+Path Slack  (Passed)                                                                                    1.602  
 
 
 
 
 ++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : main_fsm/press_logic/counter_sad_ellen/count__i3/Q  (SLICE_R17C14D)
-Path End         : main_fsm/press_logic/map__i15/D  (SLICE_R15C10A)
+Path Begin       : scanning/scanner_counter/count__i11/Q  (SLICE_R14C9A)
+Path End         : press_logic/map_i0_i12/D  (SLICE_R12C11B)
 Source Clock     : int_osc (R)
 Destination Clock: int_osc (R)
-Logic Level      : 7
-Delay Ratio      : 78.4% (route), 21.6% (logic)
+Logic Level      : 8
+Delay Ratio      : 75.9% (route), 24.1% (logic)
 Clock Skew       : 0.000 ns 
 Setup Constraint : 20.833 ns 
-Path Slack       : 1.628 ns  (Passed)
+Path Slack       : 1.602 ns  (Passed)
 
 
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  72      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY           5.499                  5.499  72      
-{main_fsm/press_logic/counter_sad_ellen/count__i3/CK   main_fsm/press_logic/counter_sad_ellen/count__i2/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  73      
+col_synchronizer/int_osc                                     NET DELAY           5.499                  5.499  73      
+{scanning/scanner_counter/count__i11/CK   scanning/scanner_counter/count__i12/CK}
                                                              CLOCK PIN           0.000                  5.499  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-main_fsm/press_logic/counter_sad_ellen/count__i3/CK->main_fsm/press_logic/counter_sad_ellen/count__i3/Q
-                                          SLICE_R17C14D      CLK_TO_Q0_DELAY     1.388                  6.887  3       
-main_fsm/press_logic/counter_sad_ellen/sad_ellen_count[3]
-                                                             NET DELAY           2.353                  9.240  3       
-main_fsm/press_logic/i5_3_lut/A->main_fsm/press_logic/i5_3_lut/Z
-                                          SLICE_R18C16D      D0_TO_F0_DELAY      0.449                  9.689  1       
-main_fsm/press_logic/n14                                     NET DELAY           2.763                 12.452  1       
-main_fsm/press_logic/i8_4_lut/C->main_fsm/press_logic/i8_4_lut/Z
-                                          SLICE_R17C15A      D1_TO_F1_DELAY      0.449                 12.901  1       
-main_fsm/press_logic/n2814                                   NET DELAY           2.168                 15.069  1       
-main_fsm/press_logic/i1_4_lut/A->main_fsm/press_logic/i1_4_lut/Z
-                                          SLICE_R17C15B      D1_TO_F1_DELAY      0.449                 15.518  5       
-main_fsm/press_logic/n1116                                   NET DELAY           3.278                 18.796  5       
-main_fsm/press_logic/i1_2_lut_3_lut_4_lut_4_lut_adj_5/B->main_fsm/press_logic/i1_2_lut_3_lut_4_lut_4_lut_adj_5/Z
-                                          SLICE_R14C11D      D0_TO_F0_DELAY      0.449                 19.245  2       
-main_fsm/press_logic/n1073                                   NET DELAY           2.168                 21.413  2       
-main_fsm/press_logic/i3_4_lut/A->main_fsm/press_logic/i3_4_lut/Z
-                                          SLICE_R14C10C      D1_TO_F1_DELAY      0.449                 21.862  4       
-main_fsm/press_logic/n771                                    NET DELAY           2.168                 24.030  4       
-main_fsm/press_logic/i948_4_lut/D->main_fsm/press_logic/i948_4_lut/Z
-                                          SLICE_R15C10A      D0_TO_F0_DELAY      0.476                 24.506  1       
-main_fsm/press_logic/n1156                                   NET DELAY           0.000                 24.506  1       
-main_fsm/press_logic/map__i15/D                              ENDPOINT            0.000                 24.506  1       
+scanning/scanner_counter/count__i11/CK->scanning/scanner_counter/count__i11/Q
+                                          SLICE_R14C9A       CLK_TO_Q0_DELAY     1.388                  6.887  5       
+scanning/scanner_counter/scan_count[11]                      NET DELAY           2.075                  8.962  5       
+scanning/i1_2_lut_3_lut_adj_12/A->scanning/i1_2_lut_3_lut_adj_12/Z
+                                          SLICE_R14C9C       B1_TO_F1_DELAY      0.449                  9.411  2       
+scanning/scanner_counter/n980                                NET DELAY           3.080                 12.491  2       
+scanning/i2_4_lut/D->scanning/i2_4_lut/Z  SLICE_R13C11A      B0_TO_F0_DELAY      0.476                 12.967  1       
+scanning/n2653                                               NET DELAY           0.304                 13.271  1       
+scanning/i1824_4_lut/C->scanning/i1824_4_lut/Z
+                                          SLICE_R13C11A      C1_TO_F1_DELAY      0.449                 13.720  4       
+scanning/n1997                                               NET DELAY           2.485                 16.205  4       
+scanning/i1860_3_lut/C->scanning/i1860_3_lut/Z
+                                          SLICE_R13C10C      B0_TO_F0_DELAY      0.449                 16.654  2       
+scanning/n2033                                               NET DELAY           2.168                 18.822  2       
+scanning/i2897_4_lut/D->scanning/i2897_4_lut/Z
+                                          SLICE_R14C10C      D1_TO_F1_DELAY      0.449                 19.271  2       
+scanning/row_c[3]                                            NET DELAY           2.168                 21.439  2       
+press_logic/i3_4_lut_adj_21/C->press_logic/i3_4_lut_adj_21/Z
+                                          SLICE_R13C10D      D1_TO_F1_DELAY      0.449                 21.888  4       
+press_logic/n748                                             NET DELAY           2.168                 24.056  4       
+press_logic/i905_3_lut/C->press_logic/i905_3_lut/Z
+                                          SLICE_R12C11B      D0_TO_F0_DELAY      0.476                 24.532  1       
+press_logic/n1081                                            NET DELAY           0.000                 24.532  1       
+press_logic/map_i0_i12/D                                     ENDPOINT            0.000                 24.532  1       
 
 
 Destination Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
                                                              CONSTRAINT          0.000                 20.833  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  72      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY           5.499                 26.332  72      
-{main_fsm/press_logic/map__i15/CK   main_fsm/press_logic/map__i14/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  73      
+col_synchronizer/int_osc                                     NET DELAY           5.499                 26.332  73      
+{press_logic/map_i0_i12/CK   press_logic/map_i0_i13/CK}
                                                              CLOCK PIN           0.000                 26.332  1       
                                                              Uncertainty      -(0.000)                 26.332  
                                                              Setup time       -(0.198)                 26.134  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
 Required Time                                                                                          26.134  
-Arrival Time                                                                                        -(24.505)  
+Arrival Time                                                                                        -(24.531)  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Path Slack  (Passed)                                                                                    1.628  
+Path Slack  (Passed)                                                                                    1.602  
 
 
 
 
 ++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : main_fsm/press_logic/counter_sad_ellen/count__i3/Q  (SLICE_R17C14D)
-Path End         : main_fsm/press_logic/map__i14/D  (SLICE_R15C10A)
+Path Begin       : scanning/scanner_counter/count__i11/Q  (SLICE_R14C9A)
+Path End         : press_logic/map_i0_i13/D  (SLICE_R12C11B)
 Source Clock     : int_osc (R)
 Destination Clock: int_osc (R)
-Logic Level      : 7
-Delay Ratio      : 78.4% (route), 21.6% (logic)
+Logic Level      : 8
+Delay Ratio      : 75.9% (route), 24.1% (logic)
 Clock Skew       : 0.000 ns 
 Setup Constraint : 20.833 ns 
-Path Slack       : 1.628 ns  (Passed)
+Path Slack       : 1.602 ns  (Passed)
 
 
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  72      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY           5.499                  5.499  72      
-{main_fsm/press_logic/counter_sad_ellen/count__i3/CK   main_fsm/press_logic/counter_sad_ellen/count__i2/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  73      
+col_synchronizer/int_osc                                     NET DELAY           5.499                  5.499  73      
+{scanning/scanner_counter/count__i11/CK   scanning/scanner_counter/count__i12/CK}
                                                              CLOCK PIN           0.000                  5.499  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-main_fsm/press_logic/counter_sad_ellen/count__i3/CK->main_fsm/press_logic/counter_sad_ellen/count__i3/Q
-                                          SLICE_R17C14D      CLK_TO_Q0_DELAY     1.388                  6.887  3       
-main_fsm/press_logic/counter_sad_ellen/sad_ellen_count[3]
-                                                             NET DELAY           2.353                  9.240  3       
-main_fsm/press_logic/i5_3_lut/A->main_fsm/press_logic/i5_3_lut/Z
-                                          SLICE_R18C16D      D0_TO_F0_DELAY      0.449                  9.689  1       
-main_fsm/press_logic/n14                                     NET DELAY           2.763                 12.452  1       
-main_fsm/press_logic/i8_4_lut/C->main_fsm/press_logic/i8_4_lut/Z
-                                          SLICE_R17C15A      D1_TO_F1_DELAY      0.449                 12.901  1       
-main_fsm/press_logic/n2814                                   NET DELAY           2.168                 15.069  1       
-main_fsm/press_logic/i1_4_lut/A->main_fsm/press_logic/i1_4_lut/Z
-                                          SLICE_R17C15B      D1_TO_F1_DELAY      0.449                 15.518  5       
-main_fsm/press_logic/n1116                                   NET DELAY           3.278                 18.796  5       
-main_fsm/press_logic/i1_2_lut_3_lut_4_lut_4_lut_adj_5/B->main_fsm/press_logic/i1_2_lut_3_lut_4_lut_4_lut_adj_5/Z
-                                          SLICE_R14C11D      D0_TO_F0_DELAY      0.449                 19.245  2       
-main_fsm/press_logic/n1073                                   NET DELAY           2.168                 21.413  2       
-main_fsm/press_logic/i3_4_lut/A->main_fsm/press_logic/i3_4_lut/Z
-                                          SLICE_R14C10C      D1_TO_F1_DELAY      0.449                 21.862  4       
-main_fsm/press_logic/n771                                    NET DELAY           2.168                 24.030  4       
-main_fsm/press_logic/i946_4_lut/D->main_fsm/press_logic/i946_4_lut/Z
-                                          SLICE_R15C10A      D1_TO_F1_DELAY      0.476                 24.506  1       
-main_fsm/press_logic/n1154                                   NET DELAY           0.000                 24.506  1       
-main_fsm/press_logic/map__i14/D                              ENDPOINT            0.000                 24.506  1       
+scanning/scanner_counter/count__i11/CK->scanning/scanner_counter/count__i11/Q
+                                          SLICE_R14C9A       CLK_TO_Q0_DELAY     1.388                  6.887  5       
+scanning/scanner_counter/scan_count[11]                      NET DELAY           2.075                  8.962  5       
+scanning/i1_2_lut_3_lut_adj_12/A->scanning/i1_2_lut_3_lut_adj_12/Z
+                                          SLICE_R14C9C       B1_TO_F1_DELAY      0.449                  9.411  2       
+scanning/scanner_counter/n980                                NET DELAY           3.080                 12.491  2       
+scanning/i2_4_lut/D->scanning/i2_4_lut/Z  SLICE_R13C11A      B0_TO_F0_DELAY      0.476                 12.967  1       
+scanning/n2653                                               NET DELAY           0.304                 13.271  1       
+scanning/i1824_4_lut/C->scanning/i1824_4_lut/Z
+                                          SLICE_R13C11A      C1_TO_F1_DELAY      0.449                 13.720  4       
+scanning/n1997                                               NET DELAY           2.485                 16.205  4       
+scanning/i1860_3_lut/C->scanning/i1860_3_lut/Z
+                                          SLICE_R13C10C      B0_TO_F0_DELAY      0.449                 16.654  2       
+scanning/n2033                                               NET DELAY           2.168                 18.822  2       
+scanning/i2897_4_lut/D->scanning/i2897_4_lut/Z
+                                          SLICE_R14C10C      D1_TO_F1_DELAY      0.449                 19.271  2       
+scanning/row_c[3]                                            NET DELAY           2.168                 21.439  2       
+press_logic/i3_4_lut_adj_21/C->press_logic/i3_4_lut_adj_21/Z
+                                          SLICE_R13C10D      D1_TO_F1_DELAY      0.449                 21.888  4       
+press_logic/n748                                             NET DELAY           2.168                 24.056  4       
+press_logic/i904_3_lut/C->press_logic/i904_3_lut/Z
+                                          SLICE_R12C11B      D1_TO_F1_DELAY      0.476                 24.532  1       
+press_logic/n1080                                            NET DELAY           0.000                 24.532  1       
+press_logic/map_i0_i13/D                                     ENDPOINT            0.000                 24.532  1       
 
 
 Destination Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
                                                              CONSTRAINT          0.000                 20.833  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  72      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY           5.499                 26.332  72      
-{main_fsm/press_logic/map__i15/CK   main_fsm/press_logic/map__i14/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  73      
+col_synchronizer/int_osc                                     NET DELAY           5.499                 26.332  73      
+{press_logic/map_i0_i12/CK   press_logic/map_i0_i13/CK}
                                                              CLOCK PIN           0.000                 26.332  1       
                                                              Uncertainty      -(0.000)                 26.332  
                                                              Setup time       -(0.198)                 26.134  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
 Required Time                                                                                          26.134  
-Arrival Time                                                                                        -(24.505)  
+Arrival Time                                                                                        -(24.531)  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Path Slack  (Passed)                                                                                    1.628  
+Path Slack  (Passed)                                                                                    1.602  
 
 
 
 
 ++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : main_fsm/press_logic/counter_sad_ellen/count__i3/Q  (SLICE_R17C14D)
-Path End         : main_fsm/press_logic/map__i2/D  (SLICE_R15C13B)
+Path Begin       : scanning/scanner_counter/count__i7/Q  (SLICE_R17C9A)
+Path End         : press_logic/map_i0_i10/D  (SLICE_R11C12B)
 Source Clock     : int_osc (R)
 Destination Clock: int_osc (R)
-Logic Level      : 6
-Delay Ratio      : 79.2% (route), 20.8% (logic)
+Logic Level      : 9
+Delay Ratio      : 73.1% (route), 26.9% (logic)
 Clock Skew       : 0.000 ns 
 Setup Constraint : 20.833 ns 
-Path Slack       : 3.055 ns  (Passed)
+Path Slack       : 1.733 ns  (Passed)
 
 
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  72      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY           5.499                  5.499  72      
-{main_fsm/press_logic/counter_sad_ellen/count__i3/CK   main_fsm/press_logic/counter_sad_ellen/count__i2/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  73      
+col_synchronizer/int_osc                                     NET DELAY           5.499                  5.499  73      
+{scanning/scanner_counter/count__i7/CK   scanning/scanner_counter/count__i8/CK}
                                                              CLOCK PIN           0.000                  5.499  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-main_fsm/press_logic/counter_sad_ellen/count__i3/CK->main_fsm/press_logic/counter_sad_ellen/count__i3/Q
-                                          SLICE_R17C14D      CLK_TO_Q0_DELAY     1.388                  6.887  3       
-main_fsm/press_logic/counter_sad_ellen/sad_ellen_count[3]
-                                                             NET DELAY           2.353                  9.240  3       
-main_fsm/press_logic/i5_3_lut/A->main_fsm/press_logic/i5_3_lut/Z
-                                          SLICE_R18C16D      D0_TO_F0_DELAY      0.449                  9.689  1       
-main_fsm/press_logic/n14                                     NET DELAY           2.763                 12.452  1       
-main_fsm/press_logic/i8_4_lut/C->main_fsm/press_logic/i8_4_lut/Z
-                                          SLICE_R17C15A      D1_TO_F1_DELAY      0.449                 12.901  1       
-main_fsm/press_logic/n2814                                   NET DELAY           2.168                 15.069  1       
-main_fsm/press_logic/i1_4_lut/A->main_fsm/press_logic/i1_4_lut/Z
-                                          SLICE_R17C15B      D1_TO_F1_DELAY      0.449                 15.518  5       
-main_fsm/press_logic/n1116                                   NET DELAY           3.873                 19.391  5       
-main_fsm/press_logic/i461_2_lut_3_lut/B->main_fsm/press_logic/i461_2_lut_3_lut/Z
-                                          SLICE_R14C12C      D0_TO_F0_DELAY      0.449                 19.840  4       
-main_fsm/press_logic/n669                                    NET DELAY           2.763                 22.603  4       
-main_fsm/press_logic/i922_4_lut/D->main_fsm/press_logic/i922_4_lut/Z
-                                          SLICE_R15C13B      D0_TO_F0_DELAY      0.476                 23.079  1       
-main_fsm/press_logic/n1130                                   NET DELAY           0.000                 23.079  1       
-main_fsm/press_logic/map__i2/D                               ENDPOINT            0.000                 23.079  1       
+scanning/scanner_counter/count__i7/CK->scanning/scanner_counter/count__i7/Q
+                                          SLICE_R17C9A       CLK_TO_Q0_DELAY     1.388                  6.887  4       
+scanning/scanner_counter/scan_count[7]                       NET DELAY           3.252                 10.139  4       
+scanning/i2_3_lut_4_lut/C->scanning/i2_3_lut_4_lut/Z
+                                          SLICE_R14C9C       A0_TO_F0_DELAY      0.449                 10.588  1       
+scanning/n2661                                               NET DELAY           2.551                 13.139  1       
+scanning/i1_4_lut/C->scanning/i1_4_lut/Z  SLICE_R14C10A      A1_TO_F1_DELAY      0.476                 13.615  1       
+scanning/n4                                                  NET DELAY           0.304                 13.919  1       
+scanning/i1_4_lut_adj_11/D->scanning/i1_4_lut_adj_11/Z
+                                          SLICE_R14C10B      C0_TO_F0_DELAY      0.476                 14.395  4       
+scanning/n2870                                               NET DELAY           0.304                 14.699  4       
+scanning/i1_2_lut_adj_14/B->scanning/i1_2_lut_adj_14/Z
+                                          SLICE_R14C10B      C1_TO_F1_DELAY      0.449                 15.148  2       
+scanning/n2015                                               NET DELAY           2.763                 17.911  2       
+scanning/i2908_4_lut/B->scanning/i2908_4_lut/Z
+                                          SLICE_R13C10C      D1_TO_F1_DELAY      0.449                 18.360  4       
+scanning/row_c[0]                                            NET DELAY           2.168                 20.528  4       
+press_logic/i1_2_lut_3_lut/B->press_logic/i1_2_lut_3_lut/Z
+                                          SLICE_R12C11C      D0_TO_F0_DELAY      0.476                 21.004  5       
+press_logic/n1047                                            NET DELAY           0.304                 21.308  5       
+press_logic/i1_3_lut_4_lut/C->press_logic/i1_3_lut_4_lut/Z
+                                          SLICE_R12C11C      C1_TO_F1_DELAY      0.449                 21.757  4       
+press_logic/n744                                             NET DELAY           2.168                 23.925  4       
+press_logic/i907_3_lut/C->press_logic/i907_3_lut/Z
+                                          SLICE_R11C12B      D0_TO_F0_DELAY      0.476                 24.401  1       
+press_logic/n1083                                            NET DELAY           0.000                 24.401  1       
+press_logic/map_i0_i10/D                                     ENDPOINT            0.000                 24.401  1       
 
 
 Destination Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
                                                              CONSTRAINT          0.000                 20.833  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  72      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY           5.499                 26.332  72      
-{main_fsm/press_logic/map__i2/CK   main_fsm/press_logic/map__i3/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  73      
+col_synchronizer/int_osc                                     NET DELAY           5.499                 26.332  73      
+{press_logic/map_i0_i10/CK   press_logic/map_i0_i11/CK}
                                                              CLOCK PIN           0.000                 26.332  1       
                                                              Uncertainty      -(0.000)                 26.332  
                                                              Setup time       -(0.198)                 26.134  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
 Required Time                                                                                          26.134  
-Arrival Time                                                                                        -(23.078)  
+Arrival Time                                                                                        -(24.400)  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Path Slack  (Passed)                                                                                    3.055  
+Path Slack  (Passed)                                                                                    1.733  
 
 
 
 
 ++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : main_fsm/press_logic/counter_sad_ellen/count__i3/Q  (SLICE_R17C14D)
-Path End         : main_fsm/press_logic/map__i3/D  (SLICE_R15C13B)
+Path Begin       : scanning/scanner_counter/count__i7/Q  (SLICE_R17C9A)
+Path End         : press_logic/map_i0_i11/D  (SLICE_R11C12B)
 Source Clock     : int_osc (R)
 Destination Clock: int_osc (R)
-Logic Level      : 6
-Delay Ratio      : 79.2% (route), 20.8% (logic)
+Logic Level      : 9
+Delay Ratio      : 73.1% (route), 26.9% (logic)
 Clock Skew       : 0.000 ns 
 Setup Constraint : 20.833 ns 
-Path Slack       : 3.055 ns  (Passed)
+Path Slack       : 1.733 ns  (Passed)
 
 
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  72      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY           5.499                  5.499  72      
-{main_fsm/press_logic/counter_sad_ellen/count__i3/CK   main_fsm/press_logic/counter_sad_ellen/count__i2/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  73      
+col_synchronizer/int_osc                                     NET DELAY           5.499                  5.499  73      
+{scanning/scanner_counter/count__i7/CK   scanning/scanner_counter/count__i8/CK}
                                                              CLOCK PIN           0.000                  5.499  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-main_fsm/press_logic/counter_sad_ellen/count__i3/CK->main_fsm/press_logic/counter_sad_ellen/count__i3/Q
-                                          SLICE_R17C14D      CLK_TO_Q0_DELAY     1.388                  6.887  3       
-main_fsm/press_logic/counter_sad_ellen/sad_ellen_count[3]
-                                                             NET DELAY           2.353                  9.240  3       
-main_fsm/press_logic/i5_3_lut/A->main_fsm/press_logic/i5_3_lut/Z
-                                          SLICE_R18C16D      D0_TO_F0_DELAY      0.449                  9.689  1       
-main_fsm/press_logic/n14                                     NET DELAY           2.763                 12.452  1       
-main_fsm/press_logic/i8_4_lut/C->main_fsm/press_logic/i8_4_lut/Z
-                                          SLICE_R17C15A      D1_TO_F1_DELAY      0.449                 12.901  1       
-main_fsm/press_logic/n2814                                   NET DELAY           2.168                 15.069  1       
-main_fsm/press_logic/i1_4_lut/A->main_fsm/press_logic/i1_4_lut/Z
-                                          SLICE_R17C15B      D1_TO_F1_DELAY      0.449                 15.518  5       
-main_fsm/press_logic/n1116                                   NET DELAY           3.873                 19.391  5       
-main_fsm/press_logic/i461_2_lut_3_lut/B->main_fsm/press_logic/i461_2_lut_3_lut/Z
-                                          SLICE_R14C12C      D0_TO_F0_DELAY      0.449                 19.840  4       
-main_fsm/press_logic/n669                                    NET DELAY           2.763                 22.603  4       
-main_fsm/press_logic/i924_4_lut/D->main_fsm/press_logic/i924_4_lut/Z
-                                          SLICE_R15C13B      D1_TO_F1_DELAY      0.476                 23.079  1       
-main_fsm/press_logic/n1132                                   NET DELAY           0.000                 23.079  1       
-main_fsm/press_logic/map__i3/D                               ENDPOINT            0.000                 23.079  1       
+scanning/scanner_counter/count__i7/CK->scanning/scanner_counter/count__i7/Q
+                                          SLICE_R17C9A       CLK_TO_Q0_DELAY     1.388                  6.887  4       
+scanning/scanner_counter/scan_count[7]                       NET DELAY           3.252                 10.139  4       
+scanning/i2_3_lut_4_lut/C->scanning/i2_3_lut_4_lut/Z
+                                          SLICE_R14C9C       A0_TO_F0_DELAY      0.449                 10.588  1       
+scanning/n2661                                               NET DELAY           2.551                 13.139  1       
+scanning/i1_4_lut/C->scanning/i1_4_lut/Z  SLICE_R14C10A      A1_TO_F1_DELAY      0.476                 13.615  1       
+scanning/n4                                                  NET DELAY           0.304                 13.919  1       
+scanning/i1_4_lut_adj_11/D->scanning/i1_4_lut_adj_11/Z
+                                          SLICE_R14C10B      C0_TO_F0_DELAY      0.476                 14.395  4       
+scanning/n2870                                               NET DELAY           0.304                 14.699  4       
+scanning/i1_2_lut_adj_14/B->scanning/i1_2_lut_adj_14/Z
+                                          SLICE_R14C10B      C1_TO_F1_DELAY      0.449                 15.148  2       
+scanning/n2015                                               NET DELAY           2.763                 17.911  2       
+scanning/i2908_4_lut/B->scanning/i2908_4_lut/Z
+                                          SLICE_R13C10C      D1_TO_F1_DELAY      0.449                 18.360  4       
+scanning/row_c[0]                                            NET DELAY           2.168                 20.528  4       
+press_logic/i1_2_lut_3_lut/B->press_logic/i1_2_lut_3_lut/Z
+                                          SLICE_R12C11C      D0_TO_F0_DELAY      0.476                 21.004  5       
+press_logic/n1047                                            NET DELAY           0.304                 21.308  5       
+press_logic/i1_3_lut_4_lut/C->press_logic/i1_3_lut_4_lut/Z
+                                          SLICE_R12C11C      C1_TO_F1_DELAY      0.449                 21.757  4       
+press_logic/n744                                             NET DELAY           2.168                 23.925  4       
+press_logic/i906_3_lut/C->press_logic/i906_3_lut/Z
+                                          SLICE_R11C12B      D1_TO_F1_DELAY      0.476                 24.401  1       
+press_logic/n1082                                            NET DELAY           0.000                 24.401  1       
+press_logic/map_i0_i11/D                                     ENDPOINT            0.000                 24.401  1       
 
 
 Destination Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
                                                              CONSTRAINT          0.000                 20.833  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  72      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY           5.499                 26.332  72      
-{main_fsm/press_logic/map__i2/CK   main_fsm/press_logic/map__i3/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  73      
+col_synchronizer/int_osc                                     NET DELAY           5.499                 26.332  73      
+{press_logic/map_i0_i10/CK   press_logic/map_i0_i11/CK}
                                                              CLOCK PIN           0.000                 26.332  1       
                                                              Uncertainty      -(0.000)                 26.332  
                                                              Setup time       -(0.198)                 26.134  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
 Required Time                                                                                          26.134  
-Arrival Time                                                                                        -(23.078)  
+Arrival Time                                                                                        -(24.400)  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Path Slack  (Passed)                                                                                    3.055  
+Path Slack  (Passed)                                                                                    1.733  
 
 
 
 
 ++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : main_fsm/press_logic/counter_sad_ellen/count__i3/Q  (SLICE_R17C14D)
-Path End         : main_fsm/press_logic/map__i1/D  (SLICE_R15C11B)
+Path Begin       : scanning/scanner_counter/count__i7/Q  (SLICE_R17C9A)
+Path End         : press_logic/map_i0_i9/D  (SLICE_R11C12A)
 Source Clock     : int_osc (R)
 Destination Clock: int_osc (R)
-Logic Level      : 6
-Delay Ratio      : 78.9% (route), 21.1% (logic)
+Logic Level      : 9
+Delay Ratio      : 73.1% (route), 26.9% (logic)
 Clock Skew       : 0.000 ns 
 Setup Constraint : 20.833 ns 
-Path Slack       : 3.267 ns  (Passed)
+Path Slack       : 1.733 ns  (Passed)
 
 
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  72      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY           5.499                  5.499  72      
-{main_fsm/press_logic/counter_sad_ellen/count__i3/CK   main_fsm/press_logic/counter_sad_ellen/count__i2/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  73      
+col_synchronizer/int_osc                                     NET DELAY           5.499                  5.499  73      
+{scanning/scanner_counter/count__i7/CK   scanning/scanner_counter/count__i8/CK}
                                                              CLOCK PIN           0.000                  5.499  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-main_fsm/press_logic/counter_sad_ellen/count__i3/CK->main_fsm/press_logic/counter_sad_ellen/count__i3/Q
-                                          SLICE_R17C14D      CLK_TO_Q0_DELAY     1.388                  6.887  3       
-main_fsm/press_logic/counter_sad_ellen/sad_ellen_count[3]
-                                                             NET DELAY           2.353                  9.240  3       
-main_fsm/press_logic/i5_3_lut/A->main_fsm/press_logic/i5_3_lut/Z
-                                          SLICE_R18C16D      D0_TO_F0_DELAY      0.449                  9.689  1       
-main_fsm/press_logic/n14                                     NET DELAY           2.763                 12.452  1       
-main_fsm/press_logic/i8_4_lut/C->main_fsm/press_logic/i8_4_lut/Z
-                                          SLICE_R17C15A      D1_TO_F1_DELAY      0.449                 12.901  1       
-main_fsm/press_logic/n2814                                   NET DELAY           2.168                 15.069  1       
-main_fsm/press_logic/i1_4_lut/A->main_fsm/press_logic/i1_4_lut/Z
-                                          SLICE_R17C15B      D1_TO_F1_DELAY      0.449                 15.518  5       
-main_fsm/press_logic/n1116                                   NET DELAY           3.873                 19.391  5       
-main_fsm/press_logic/i461_2_lut_3_lut/B->main_fsm/press_logic/i461_2_lut_3_lut/Z
-                                          SLICE_R14C12C      D0_TO_F0_DELAY      0.449                 19.840  4       
-main_fsm/press_logic/n669                                    NET DELAY           2.551                 22.391  4       
-main_fsm/press_logic/i920_4_lut/D->main_fsm/press_logic/i920_4_lut/Z
-                                          SLICE_R15C11B      A0_TO_F0_DELAY      0.476                 22.867  1       
-main_fsm/press_logic/n1128                                   NET DELAY           0.000                 22.867  1       
-main_fsm/press_logic/map__i1/D                               ENDPOINT            0.000                 22.867  1       
+scanning/scanner_counter/count__i7/CK->scanning/scanner_counter/count__i7/Q
+                                          SLICE_R17C9A       CLK_TO_Q0_DELAY     1.388                  6.887  4       
+scanning/scanner_counter/scan_count[7]                       NET DELAY           3.252                 10.139  4       
+scanning/i2_3_lut_4_lut/C->scanning/i2_3_lut_4_lut/Z
+                                          SLICE_R14C9C       A0_TO_F0_DELAY      0.449                 10.588  1       
+scanning/n2661                                               NET DELAY           2.551                 13.139  1       
+scanning/i1_4_lut/C->scanning/i1_4_lut/Z  SLICE_R14C10A      A1_TO_F1_DELAY      0.476                 13.615  1       
+scanning/n4                                                  NET DELAY           0.304                 13.919  1       
+scanning/i1_4_lut_adj_11/D->scanning/i1_4_lut_adj_11/Z
+                                          SLICE_R14C10B      C0_TO_F0_DELAY      0.476                 14.395  4       
+scanning/n2870                                               NET DELAY           0.304                 14.699  4       
+scanning/i1_2_lut_adj_14/B->scanning/i1_2_lut_adj_14/Z
+                                          SLICE_R14C10B      C1_TO_F1_DELAY      0.449                 15.148  2       
+scanning/n2015                                               NET DELAY           2.763                 17.911  2       
+scanning/i2908_4_lut/B->scanning/i2908_4_lut/Z
+                                          SLICE_R13C10C      D1_TO_F1_DELAY      0.449                 18.360  4       
+scanning/row_c[0]                                            NET DELAY           2.168                 20.528  4       
+press_logic/i1_2_lut_3_lut/B->press_logic/i1_2_lut_3_lut/Z
+                                          SLICE_R12C11C      D0_TO_F0_DELAY      0.476                 21.004  5       
+press_logic/n1047                                            NET DELAY           0.304                 21.308  5       
+press_logic/i1_3_lut_4_lut/C->press_logic/i1_3_lut_4_lut/Z
+                                          SLICE_R12C11C      C1_TO_F1_DELAY      0.449                 21.757  4       
+press_logic/n744                                             NET DELAY           2.168                 23.925  4       
+press_logic/i908_3_lut/C->press_logic/i908_3_lut/Z
+                                          SLICE_R11C12A      D0_TO_F0_DELAY      0.476                 24.401  1       
+press_logic/n1084                                            NET DELAY           0.000                 24.401  1       
+press_logic/map_i0_i9/D                                      ENDPOINT            0.000                 24.401  1       
 
 
 Destination Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
                                                              CONSTRAINT          0.000                 20.833  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  72      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY           5.499                 26.332  72      
-{main_fsm/press_logic/map__i1/CK   main_fsm/press_logic/map__i0/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  73      
+col_synchronizer/int_osc                                     NET DELAY           5.499                 26.332  73      
+{press_logic/map_i0_i9/CK   press_logic/map_i0_i8/CK}
                                                              CLOCK PIN           0.000                 26.332  1       
                                                              Uncertainty      -(0.000)                 26.332  
                                                              Setup time       -(0.198)                 26.134  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
 Required Time                                                                                          26.134  
-Arrival Time                                                                                        -(22.866)  
+Arrival Time                                                                                        -(24.400)  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Path Slack  (Passed)                                                                                    3.267  
+Path Slack  (Passed)                                                                                    1.733  
 
 
 
 
 ++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : main_fsm/scanning/scanner_counter/count__i10/Q  (SLICE_R13C10C)
-Path End         : main_fsm/press_logic/map__i8/D  (SLICE_R15C11A)
+Path Begin       : scanning/scanner_counter/count__i7/Q  (SLICE_R17C9A)
+Path End         : press_logic/map_i0_i8/D  (SLICE_R11C12A)
 Source Clock     : int_osc (R)
 Destination Clock: int_osc (R)
-Logic Level      : 7
-Delay Ratio      : 76.1% (route), 23.9% (logic)
+Logic Level      : 9
+Delay Ratio      : 73.1% (route), 26.9% (logic)
 Clock Skew       : 0.000 ns 
 Setup Constraint : 20.833 ns 
-Path Slack       : 3.346 ns  (Passed)
+Path Slack       : 1.733 ns  (Passed)
 
 
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  72      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY           5.499                  5.499  72      
-{main_fsm/scanning/scanner_counter/count__i10/CK   main_fsm/scanning/scanner_counter/count__i11/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  73      
+col_synchronizer/int_osc                                     NET DELAY           5.499                  5.499  73      
+{scanning/scanner_counter/count__i7/CK   scanning/scanner_counter/count__i8/CK}
                                                              CLOCK PIN           0.000                  5.499  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-main_fsm/scanning/scanner_counter/count__i10/CK->main_fsm/scanning/scanner_counter/count__i10/Q
-                                          SLICE_R13C10C      CLK_TO_Q0_DELAY     1.388                  6.887  6       
-main_fsm/scanning/scanner_counter/scan_count[10]
-                                                             NET DELAY           2.670                  9.557  6       
-main_fsm/scanning/scanner_counter/i1954_2_lut_3_lut/C->main_fsm/scanning/scanner_counter/i1954_2_lut_3_lut/Z
-                                          SLICE_R13C12C      B1_TO_F1_DELAY      0.449                 10.006  1       
-main_fsm/scanning/scanner_counter/n2157                      NET DELAY           2.763                 12.769  1       
-main_fsm/scanning/scanner_counter/i2_4_lut_adj_12/D->main_fsm/scanning/scanner_counter/i2_4_lut_adj_12/Z
-                                          SLICE_R14C12A      D1_TO_F1_DELAY      0.476                 13.245  1       
-main_fsm/scanning/scanner_counter/n2755                      NET DELAY           0.304                 13.549  1       
-main_fsm/scanning/i2068_4_lut/C->main_fsm/scanning/i2068_4_lut/Z
-                                          SLICE_R14C12B      C0_TO_F0_DELAY      0.449                 13.998  2       
-main_fsm/scanning/n2271                                      NET DELAY           2.763                 16.761  2       
-main_fsm/scanning/i2990_3_lut_4_lut/C->main_fsm/scanning/i2990_3_lut_4_lut/Z
-                                          SLICE_R13C11B      D0_TO_F0_DELAY      0.449                 17.210  3       
-main_fsm/press_logic/row_c[2]                                NET DELAY           2.485                 19.695  3       
-main_fsm/press_logic/i1_3_lut/A->main_fsm/press_logic/i1_3_lut/Z
-                                          SLICE_R14C11D      B1_TO_F1_DELAY      0.449                 20.144  4       
-main_fsm/press_logic/n767                                    NET DELAY           2.168                 22.312  4       
-main_fsm/press_logic/i934_4_lut/D->main_fsm/press_logic/i934_4_lut/Z
-                                          SLICE_R15C11A      D1_TO_F1_DELAY      0.476                 22.788  1       
-main_fsm/press_logic/n1142                                   NET DELAY           0.000                 22.788  1       
-main_fsm/press_logic/map__i8/D                               ENDPOINT            0.000                 22.788  1       
+scanning/scanner_counter/count__i7/CK->scanning/scanner_counter/count__i7/Q
+                                          SLICE_R17C9A       CLK_TO_Q0_DELAY     1.388                  6.887  4       
+scanning/scanner_counter/scan_count[7]                       NET DELAY           3.252                 10.139  4       
+scanning/i2_3_lut_4_lut/C->scanning/i2_3_lut_4_lut/Z
+                                          SLICE_R14C9C       A0_TO_F0_DELAY      0.449                 10.588  1       
+scanning/n2661                                               NET DELAY           2.551                 13.139  1       
+scanning/i1_4_lut/C->scanning/i1_4_lut/Z  SLICE_R14C10A      A1_TO_F1_DELAY      0.476                 13.615  1       
+scanning/n4                                                  NET DELAY           0.304                 13.919  1       
+scanning/i1_4_lut_adj_11/D->scanning/i1_4_lut_adj_11/Z
+                                          SLICE_R14C10B      C0_TO_F0_DELAY      0.476                 14.395  4       
+scanning/n2870                                               NET DELAY           0.304                 14.699  4       
+scanning/i1_2_lut_adj_14/B->scanning/i1_2_lut_adj_14/Z
+                                          SLICE_R14C10B      C1_TO_F1_DELAY      0.449                 15.148  2       
+scanning/n2015                                               NET DELAY           2.763                 17.911  2       
+scanning/i2908_4_lut/B->scanning/i2908_4_lut/Z
+                                          SLICE_R13C10C      D1_TO_F1_DELAY      0.449                 18.360  4       
+scanning/row_c[0]                                            NET DELAY           2.168                 20.528  4       
+press_logic/i1_2_lut_3_lut/B->press_logic/i1_2_lut_3_lut/Z
+                                          SLICE_R12C11C      D0_TO_F0_DELAY      0.476                 21.004  5       
+press_logic/n1047                                            NET DELAY           0.304                 21.308  5       
+press_logic/i1_3_lut_4_lut/C->press_logic/i1_3_lut_4_lut/Z
+                                          SLICE_R12C11C      C1_TO_F1_DELAY      0.449                 21.757  4       
+press_logic/n744                                             NET DELAY           2.168                 23.925  4       
+press_logic/i909_3_lut/C->press_logic/i909_3_lut/Z
+                                          SLICE_R11C12A      D1_TO_F1_DELAY      0.476                 24.401  1       
+press_logic/n1085                                            NET DELAY           0.000                 24.401  1       
+press_logic/map_i0_i8/D                                      ENDPOINT            0.000                 24.401  1       
 
 
 Destination Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
                                                              CONSTRAINT          0.000                 20.833  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  72      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY           5.499                 26.332  72      
-{main_fsm/press_logic/map__i9/CK   main_fsm/press_logic/map__i8/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  73      
+col_synchronizer/int_osc                                     NET DELAY           5.499                 26.332  73      
+{press_logic/map_i0_i9/CK   press_logic/map_i0_i8/CK}
                                                              CLOCK PIN           0.000                 26.332  1       
                                                              Uncertainty      -(0.000)                 26.332  
                                                              Setup time       -(0.198)                 26.134  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
 Required Time                                                                                          26.134  
-Arrival Time                                                                                        -(22.787)  
+Arrival Time                                                                                        -(24.400)  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Path Slack  (Passed)                                                                                    3.346  
+Path Slack  (Passed)                                                                                    1.733  
 
 
 
 
 ++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : main_fsm/scanning/scanner_counter/count__i10/Q  (SLICE_R13C10C)
-Path End         : main_fsm/press_logic/map__i11/D  (SLICE_R15C10D)
+Path Begin       : scanning/scanner_counter/count__i7/Q  (SLICE_R17C9A)
+Path End         : press_logic/map_i0_i1/D  (SLICE_R11C11A)
 Source Clock     : int_osc (R)
 Destination Clock: int_osc (R)
-Logic Level      : 7
-Delay Ratio      : 76.1% (route), 23.9% (logic)
+Logic Level      : 8
+Delay Ratio      : 74.6% (route), 25.4% (logic)
 Clock Skew       : 0.000 ns 
 Setup Constraint : 20.833 ns 
-Path Slack       : 3.346 ns  (Passed)
+Path Slack       : 2.513 ns  (Passed)
 
 
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  72      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY           5.499                  5.499  72      
-{main_fsm/scanning/scanner_counter/count__i10/CK   main_fsm/scanning/scanner_counter/count__i11/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  73      
+col_synchronizer/int_osc                                     NET DELAY           5.499                  5.499  73      
+{scanning/scanner_counter/count__i7/CK   scanning/scanner_counter/count__i8/CK}
                                                              CLOCK PIN           0.000                  5.499  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-main_fsm/scanning/scanner_counter/count__i10/CK->main_fsm/scanning/scanner_counter/count__i10/Q
-                                          SLICE_R13C10C      CLK_TO_Q0_DELAY     1.388                  6.887  6       
-main_fsm/scanning/scanner_counter/scan_count[10]
-                                                             NET DELAY           2.670                  9.557  6       
-main_fsm/scanning/scanner_counter/i1954_2_lut_3_lut/C->main_fsm/scanning/scanner_counter/i1954_2_lut_3_lut/Z
-                                          SLICE_R13C12C      B1_TO_F1_DELAY      0.449                 10.006  1       
-main_fsm/scanning/scanner_counter/n2157                      NET DELAY           2.763                 12.769  1       
-main_fsm/scanning/scanner_counter/i2_4_lut_adj_12/D->main_fsm/scanning/scanner_counter/i2_4_lut_adj_12/Z
-                                          SLICE_R14C12A      D1_TO_F1_DELAY      0.476                 13.245  1       
-main_fsm/scanning/scanner_counter/n2755                      NET DELAY           0.304                 13.549  1       
-main_fsm/scanning/i2068_4_lut/C->main_fsm/scanning/i2068_4_lut/Z
-                                          SLICE_R14C12B      C0_TO_F0_DELAY      0.449                 13.998  2       
-main_fsm/scanning/n2271                                      NET DELAY           2.763                 16.761  2       
-main_fsm/scanning/i2990_3_lut_4_lut/C->main_fsm/scanning/i2990_3_lut_4_lut/Z
-                                          SLICE_R13C11B      D0_TO_F0_DELAY      0.449                 17.210  3       
-main_fsm/press_logic/row_c[2]                                NET DELAY           2.485                 19.695  3       
-main_fsm/press_logic/i1_3_lut/A->main_fsm/press_logic/i1_3_lut/Z
-                                          SLICE_R14C11D      B1_TO_F1_DELAY      0.449                 20.144  4       
-main_fsm/press_logic/n767                                    NET DELAY           2.168                 22.312  4       
-main_fsm/press_logic/i940_4_lut/D->main_fsm/press_logic/i940_4_lut/Z
-                                          SLICE_R15C10D      D0_TO_F0_DELAY      0.476                 22.788  1       
-main_fsm/press_logic/n1148                                   NET DELAY           0.000                 22.788  1       
-main_fsm/press_logic/map__i11/D                              ENDPOINT            0.000                 22.788  1       
+scanning/scanner_counter/count__i7/CK->scanning/scanner_counter/count__i7/Q
+                                          SLICE_R17C9A       CLK_TO_Q0_DELAY     1.388                  6.887  4       
+scanning/scanner_counter/scan_count[7]                       NET DELAY           3.252                 10.139  4       
+scanning/i2_3_lut_4_lut/C->scanning/i2_3_lut_4_lut/Z
+                                          SLICE_R14C9C       A0_TO_F0_DELAY      0.449                 10.588  1       
+scanning/n2661                                               NET DELAY           2.551                 13.139  1       
+scanning/i1_4_lut/C->scanning/i1_4_lut/Z  SLICE_R14C10A      A1_TO_F1_DELAY      0.476                 13.615  1       
+scanning/n4                                                  NET DELAY           0.304                 13.919  1       
+scanning/i1_4_lut_adj_11/D->scanning/i1_4_lut_adj_11/Z
+                                          SLICE_R14C10B      C0_TO_F0_DELAY      0.476                 14.395  4       
+scanning/n2870                                               NET DELAY           0.304                 14.699  4       
+scanning/i1_2_lut_adj_14/B->scanning/i1_2_lut_adj_14/Z
+                                          SLICE_R14C10B      C1_TO_F1_DELAY      0.449                 15.148  2       
+scanning/n2015                                               NET DELAY           2.763                 17.911  2       
+scanning/i2908_4_lut/B->scanning/i2908_4_lut/Z
+                                          SLICE_R13C10C      D1_TO_F1_DELAY      0.449                 18.360  4       
+scanning/row_c[0]                                            NET DELAY           2.168                 20.528  4       
+press_logic/i1864_2_lut/A->press_logic/i1864_2_lut/Z
+                                          SLICE_R12C10B      D1_TO_F1_DELAY      0.449                 20.977  4       
+press_logic/n2037                                            NET DELAY           2.168                 23.145  4       
+press_logic/i901_3_lut_4_lut/A->press_logic/i901_3_lut_4_lut/Z
+                                          SLICE_R11C11A      D0_TO_F0_DELAY      0.476                 23.621  1       
+press_logic/n1077                                            NET DELAY           0.000                 23.621  1       
+press_logic/map_i0_i1/D                                      ENDPOINT            0.000                 23.621  1       
 
 
 Destination Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
                                                              CONSTRAINT          0.000                 20.833  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  72      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY           5.499                 26.332  72      
-{main_fsm/press_logic/map__i11/CK   main_fsm/press_logic/map__i10/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  73      
+col_synchronizer/int_osc                                     NET DELAY           5.499                 26.332  73      
+{press_logic/map_i0_i1/CK   press_logic/map_i0_i0/CK}
                                                              CLOCK PIN           0.000                 26.332  1       
                                                              Uncertainty      -(0.000)                 26.332  
                                                              Setup time       -(0.198)                 26.134  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
 Required Time                                                                                          26.134  
-Arrival Time                                                                                        -(22.787)  
+Arrival Time                                                                                        -(23.620)  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Path Slack  (Passed)                                                                                    3.346  
+Path Slack  (Passed)                                                                                    2.513  
 
 
 
 
 ++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : main_fsm/scanning/scanner_counter/count__i10/Q  (SLICE_R13C10C)
-Path End         : main_fsm/press_logic/map__i10/D  (SLICE_R15C10D)
+Path Begin       : scanning/scanner_counter/count__i7/Q  (SLICE_R17C9A)
+Path End         : press_logic/map_i0_i0/D  (SLICE_R11C11A)
 Source Clock     : int_osc (R)
 Destination Clock: int_osc (R)
-Logic Level      : 7
-Delay Ratio      : 76.1% (route), 23.9% (logic)
+Logic Level      : 8
+Delay Ratio      : 74.6% (route), 25.4% (logic)
 Clock Skew       : 0.000 ns 
 Setup Constraint : 20.833 ns 
-Path Slack       : 3.346 ns  (Passed)
+Path Slack       : 2.513 ns  (Passed)
 
 
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  72      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY           5.499                  5.499  72      
-{main_fsm/scanning/scanner_counter/count__i10/CK   main_fsm/scanning/scanner_counter/count__i11/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  73      
+col_synchronizer/int_osc                                     NET DELAY           5.499                  5.499  73      
+{scanning/scanner_counter/count__i7/CK   scanning/scanner_counter/count__i8/CK}
                                                              CLOCK PIN           0.000                  5.499  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-main_fsm/scanning/scanner_counter/count__i10/CK->main_fsm/scanning/scanner_counter/count__i10/Q
-                                          SLICE_R13C10C      CLK_TO_Q0_DELAY     1.388                  6.887  6       
-main_fsm/scanning/scanner_counter/scan_count[10]
-                                                             NET DELAY           2.670                  9.557  6       
-main_fsm/scanning/scanner_counter/i1954_2_lut_3_lut/C->main_fsm/scanning/scanner_counter/i1954_2_lut_3_lut/Z
-                                          SLICE_R13C12C      B1_TO_F1_DELAY      0.449                 10.006  1       
-main_fsm/scanning/scanner_counter/n2157                      NET DELAY           2.763                 12.769  1       
-main_fsm/scanning/scanner_counter/i2_4_lut_adj_12/D->main_fsm/scanning/scanner_counter/i2_4_lut_adj_12/Z
-                                          SLICE_R14C12A      D1_TO_F1_DELAY      0.476                 13.245  1       
-main_fsm/scanning/scanner_counter/n2755                      NET DELAY           0.304                 13.549  1       
-main_fsm/scanning/i2068_4_lut/C->main_fsm/scanning/i2068_4_lut/Z
-                                          SLICE_R14C12B      C0_TO_F0_DELAY      0.449                 13.998  2       
-main_fsm/scanning/n2271                                      NET DELAY           2.763                 16.761  2       
-main_fsm/scanning/i2990_3_lut_4_lut/C->main_fsm/scanning/i2990_3_lut_4_lut/Z
-                                          SLICE_R13C11B      D0_TO_F0_DELAY      0.449                 17.210  3       
-main_fsm/press_logic/row_c[2]                                NET DELAY           2.485                 19.695  3       
-main_fsm/press_logic/i1_3_lut/A->main_fsm/press_logic/i1_3_lut/Z
-                                          SLICE_R14C11D      B1_TO_F1_DELAY      0.449                 20.144  4       
-main_fsm/press_logic/n767                                    NET DELAY           2.168                 22.312  4       
-main_fsm/press_logic/i938_4_lut/D->main_fsm/press_logic/i938_4_lut/Z
-                                          SLICE_R15C10D      D1_TO_F1_DELAY      0.476                 22.788  1       
-main_fsm/press_logic/n1146                                   NET DELAY           0.000                 22.788  1       
-main_fsm/press_logic/map__i10/D                              ENDPOINT            0.000                 22.788  1       
+scanning/scanner_counter/count__i7/CK->scanning/scanner_counter/count__i7/Q
+                                          SLICE_R17C9A       CLK_TO_Q0_DELAY     1.388                  6.887  4       
+scanning/scanner_counter/scan_count[7]                       NET DELAY           3.252                 10.139  4       
+scanning/i2_3_lut_4_lut/C->scanning/i2_3_lut_4_lut/Z
+                                          SLICE_R14C9C       A0_TO_F0_DELAY      0.449                 10.588  1       
+scanning/n2661                                               NET DELAY           2.551                 13.139  1       
+scanning/i1_4_lut/C->scanning/i1_4_lut/Z  SLICE_R14C10A      A1_TO_F1_DELAY      0.476                 13.615  1       
+scanning/n4                                                  NET DELAY           0.304                 13.919  1       
+scanning/i1_4_lut_adj_11/D->scanning/i1_4_lut_adj_11/Z
+                                          SLICE_R14C10B      C0_TO_F0_DELAY      0.476                 14.395  4       
+scanning/n2870                                               NET DELAY           0.304                 14.699  4       
+scanning/i1_2_lut_adj_14/B->scanning/i1_2_lut_adj_14/Z
+                                          SLICE_R14C10B      C1_TO_F1_DELAY      0.449                 15.148  2       
+scanning/n2015                                               NET DELAY           2.763                 17.911  2       
+scanning/i2908_4_lut/B->scanning/i2908_4_lut/Z
+                                          SLICE_R13C10C      D1_TO_F1_DELAY      0.449                 18.360  4       
+scanning/row_c[0]                                            NET DELAY           2.168                 20.528  4       
+press_logic/i1864_2_lut/A->press_logic/i1864_2_lut/Z
+                                          SLICE_R12C10B      D1_TO_F1_DELAY      0.449                 20.977  4       
+press_logic/n2037                                            NET DELAY           2.168                 23.145  4       
+press_logic/i895_3_lut_4_lut/A->press_logic/i895_3_lut_4_lut/Z
+                                          SLICE_R11C11A      D1_TO_F1_DELAY      0.476                 23.621  1       
+press_logic/n1071                                            NET DELAY           0.000                 23.621  1       
+press_logic/map_i0_i0/D                                      ENDPOINT            0.000                 23.621  1       
 
 
 Destination Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
                                                              CONSTRAINT          0.000                 20.833  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  72      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY           5.499                 26.332  72      
-{main_fsm/press_logic/map__i11/CK   main_fsm/press_logic/map__i10/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 20.833  73      
+col_synchronizer/int_osc                                     NET DELAY           5.499                 26.332  73      
+{press_logic/map_i0_i1/CK   press_logic/map_i0_i0/CK}
                                                              CLOCK PIN           0.000                 26.332  1       
                                                              Uncertainty      -(0.000)                 26.332  
                                                              Setup time       -(0.198)                 26.134  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
 Required Time                                                                                          26.134  
-Arrival Time                                                                                        -(22.787)  
+Arrival Time                                                                                        -(23.620)  
 ----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
-Path Slack  (Passed)                                                                                    3.346  
+Path Slack  (Passed)                                                                                    2.513  
 
 
 
@@ -933,16 +944,16 @@ Path Slack  (Passed)                                                            
 -------------------------------------------------------
           Listing 10 End Points          |    Slack    
 -------------------------------------------------------
-main_fsm/d1_i0_i2/D                      |    1.743 ns 
+main_fsm/db_led_i0/D                     |    1.743 ns 
 main_fsm/d1_i0_i3/D                      |    1.743 ns 
-main_fsm/state_FSM_i1/D                  |    1.743 ns 
+main_fsm/d1_i0_i2/D                      |    1.743 ns 
 main_fsm/state_FSM_i0/D                  |    1.743 ns 
 main_fsm/db_led_i2/D                     |    1.743 ns 
-main_fsm/db_led_i0/D                     |    1.743 ns 
-main_fsm/db_led_i1/D                     |    1.743 ns 
-bouncer/state_FSM_i2/D                   |    1.743 ns 
-bouncer/debounce_counter/count__i15/D    |    1.913 ns 
-bouncer/debounce_counter/count__i19/D    |    1.913 ns 
+main_fsm/d1_i0_i0/D                      |    1.743 ns 
+main_fsm/d1_i0_i1/D                      |    1.743 ns 
+debouncer/debounce_counter/count__i17/D  |    1.743 ns 
+debouncer/debounce_counter/count__i9/D   |    1.743 ns 
+debouncer/state_FSM_i2/D                 |    1.743 ns 
 -------------------------------------------------------
                                          |             
 Hold # of endpoints with negative slack: |           0 
@@ -965,8 +976,8 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : main_fsm/d0_i0_i2/Q  (SLICE_R16C8A)
-Path End         : main_fsm/d1_i0_i2/D  (SLICE_R16C8C)
+Path Begin       : main_fsm/state_FSM_i2/Q  (SLICE_R14C15C)
+Path End         : main_fsm/db_led_i0/D  (SLICE_R14C15B)
 Source Clock     : int_osc (R)
 Destination Clock: int_osc (R)
 Logic Level      : 2
@@ -979,32 +990,31 @@ Path Slack       : 1.743 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  73      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY        3.084                  3.084  73      
-{main_fsm/d0_i0_i3/CK   main_fsm/d0_i0_i2/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  74      
+col_synchronizer/int_osc                                     NET DELAY        3.084                  3.084  74      
+{main_fsm/state_FSM_i1/CK   main_fsm/state_FSM_i2/CK}
                                                              CLOCK PIN        0.000                  3.084  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-main_fsm/d0_i0_i2/CK->main_fsm/d0_i0_i2/Q
-                                          SLICE_R16C8A       CLK_TO_Q1_DELAY  0.779                  3.863  2       
-main_fsm/d0[2]                                               NET DELAY        0.712                  4.575  2       
-SLICE_117/D0->SLICE_117/F0                SLICE_R16C8C       D0_TO_F0_DELAY   0.252                  4.827  1       
-d0[2].sig_011.FeedThruLUT                                    NET DELAY        0.000                  4.827  1       
-main_fsm/d1_i0_i2/D                                          ENDPOINT         0.000                  4.827  1       
+main_fsm/state_FSM_i2/CK->main_fsm/state_FSM_i2/Q
+                                          SLICE_R14C15C      CLK_TO_Q1_DELAY  0.779                  3.863  4       
+main_fsm/state[0]                                            NET DELAY        0.712                  4.575  4       
+main_fsm/i1531_2_lut/A->main_fsm/i1531_2_lut/Z
+                                          SLICE_R14C15B      D1_TO_F1_DELAY   0.252                  4.827  1       
+main_fsm/debug_led_c_2__N_163[0]                             NET DELAY        0.000                  4.827  1       
+main_fsm/db_led_i0/D                                         ENDPOINT         0.000                  4.827  1       
 
 
 Destination Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
                                                              CONSTRAINT       0.000                  0.000  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  73      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY        3.084                  3.084  73      
-{main_fsm/d1_i0_i2/CK   main_fsm/d1_i0_i3/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  74      
+col_synchronizer/int_osc                                     NET DELAY        3.084                  3.084  74      
+{main_fsm/db_led_i1/CK   main_fsm/db_led_i0/CK}
                                                              CLOCK PIN        0.000                  3.084  1       
                                                              Uncertainty      0.000                  3.084  
                                                              Hold time        0.000                  3.084  
@@ -1019,8 +1029,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : main_fsm/d0_i0_i3/Q  (SLICE_R16C8A)
-Path End         : main_fsm/d1_i0_i3/D  (SLICE_R16C8C)
+Path Begin       : main_fsm/d0_i0_i3/Q  (SLICE_R15C5B)
+Path End         : main_fsm/d1_i0_i3/D  (SLICE_R15C4D)
 Source Clock     : int_osc (R)
 Destination Clock: int_osc (R)
 Logic Level      : 2
@@ -1033,10 +1043,9 @@ Path Slack       : 1.743 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  73      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY        3.084                  3.084  73      
-{main_fsm/d0_i0_i3/CK   main_fsm/d0_i0_i2/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  74      
+col_synchronizer/int_osc                                     NET DELAY        3.084                  3.084  74      
+{main_fsm/d0_i0_i2/CK   main_fsm/d0_i0_i3/CK}
                                                              CLOCK PIN        0.000                  3.084  1       
 
 
@@ -1044,10 +1053,10 @@ Data Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
 main_fsm/d0_i0_i3/CK->main_fsm/d0_i0_i3/Q
-                                          SLICE_R16C8A       CLK_TO_Q0_DELAY  0.779                  3.863  2       
-main_fsm/d0[3]                                               NET DELAY        0.712                  4.575  2       
-SLICE_117/D1->SLICE_117/F1                SLICE_R16C8C       D1_TO_F1_DELAY   0.252                  4.827  1       
-d0[3].sig_012.FeedThruLUT                                    NET DELAY        0.000                  4.827  1       
+                                          SLICE_R15C5B       CLK_TO_Q1_DELAY  0.779                  3.863  2       
+dual/d0[3]                                                   NET DELAY        0.712                  4.575  2       
+SLICE_132/D0->SLICE_132/F0                SLICE_R15C4D       D0_TO_F0_DELAY   0.252                  4.827  1       
+d0[3].sig_001.FeedThruLUT                                    NET DELAY        0.000                  4.827  1       
 main_fsm/d1_i0_i3/D                                          ENDPOINT         0.000                  4.827  1       
 
 
@@ -1055,10 +1064,9 @@ Destination Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
                                                              CONSTRAINT       0.000                  0.000  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  73      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY        3.084                  3.084  73      
-{main_fsm/d1_i0_i2/CK   main_fsm/d1_i0_i3/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  74      
+col_synchronizer/int_osc                                     NET DELAY        3.084                  3.084  74      
+{main_fsm/d1_i0_i3/CK   main_fsm/d1_i0_i2/CK}
                                                              CLOCK PIN        0.000                  3.084  1       
                                                              Uncertainty      0.000                  3.084  
                                                              Hold time        0.000                  3.084  
@@ -1073,8 +1081,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : main_fsm/state_FSM_i2/Q  (SLICE_R16C14D)
-Path End         : main_fsm/state_FSM_i1/D  (SLICE_R16C14D)
+Path Begin       : main_fsm/d0_i0_i2/Q  (SLICE_R15C5B)
+Path End         : main_fsm/d1_i0_i2/D  (SLICE_R15C4D)
 Source Clock     : int_osc (R)
 Destination Clock: int_osc (R)
 Logic Level      : 2
@@ -1087,33 +1095,30 @@ Path Slack       : 1.743 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  73      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY        3.084                  3.084  73      
-{main_fsm/state_FSM_i1/CK   main_fsm/state_FSM_i2/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  74      
+col_synchronizer/int_osc                                     NET DELAY        3.084                  3.084  74      
+{main_fsm/d0_i0_i2/CK   main_fsm/d0_i0_i3/CK}
                                                              CLOCK PIN        0.000                  3.084  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-main_fsm/state_FSM_i2/CK->main_fsm/state_FSM_i2/Q
-                                          SLICE_R16C14D      CLK_TO_Q1_DELAY  0.779                  3.863  4       
-main_fsm/state[0]                                            NET DELAY        0.712                  4.575  4       
-main_fsm/i53_2_lut_3_lut/C->main_fsm/i53_2_lut_3_lut/Z
-                                          SLICE_R16C14D      D0_TO_F0_DELAY   0.252                  4.827  1       
-main_fsm/state_1__N_63                                       NET DELAY        0.000                  4.827  1       
-main_fsm/state_FSM_i1/D                                      ENDPOINT         0.000                  4.827  1       
+main_fsm/d0_i0_i2/CK->main_fsm/d0_i0_i2/Q
+                                          SLICE_R15C5B       CLK_TO_Q0_DELAY  0.779                  3.863  2       
+dual/d0[2]                                                   NET DELAY        0.712                  4.575  2       
+SLICE_132/D1->SLICE_132/F1                SLICE_R15C4D       D1_TO_F1_DELAY   0.252                  4.827  1       
+d0[2].sig_002.FeedThruLUT                                    NET DELAY        0.000                  4.827  1       
+main_fsm/d1_i0_i2/D                                          ENDPOINT         0.000                  4.827  1       
 
 
 Destination Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
                                                              CONSTRAINT       0.000                  0.000  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  73      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY        3.084                  3.084  73      
-{main_fsm/state_FSM_i1/CK   main_fsm/state_FSM_i2/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  74      
+col_synchronizer/int_osc                                     NET DELAY        3.084                  3.084  74      
+{main_fsm/d1_i0_i3/CK   main_fsm/d1_i0_i2/CK}
                                                              CLOCK PIN        0.000                  3.084  1       
                                                              Uncertainty      0.000                  3.084  
                                                              Hold time        0.000                  3.084  
@@ -1128,8 +1133,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : main_fsm/state_FSM_i0/Q  (SLICE_R16C14B)
-Path End         : main_fsm/state_FSM_i0/D  (SLICE_R16C14B)
+Path Begin       : main_fsm/state_FSM_i0/Q  (SLICE_R14C15A)
+Path End         : main_fsm/state_FSM_i0/D  (SLICE_R14C15A)
 Source Clock     : int_osc (R)
 Destination Clock: int_osc (R)
 Logic Level      : 2
@@ -1142,9 +1147,8 @@ Path Slack       : 1.743 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  73      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY        3.084                  3.084  73      
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  74      
+col_synchronizer/int_osc                                     NET DELAY        3.084                  3.084  74      
 {main_fsm/state_FSM_i0/CK   main_fsm/db_led_i2/CK}
                                                              CLOCK PIN        0.000                  3.084  1       
 
@@ -1153,11 +1157,11 @@ Data Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
 main_fsm/state_FSM_i0/CK->main_fsm/state_FSM_i0/Q
-                                          SLICE_R16C14B      CLK_TO_Q0_DELAY  0.779                  3.863  2       
+                                          SLICE_R14C15A      CLK_TO_Q0_DELAY  0.779                  3.863  2       
 main_fsm/state[2]                                            NET DELAY        0.712                  4.575  2       
-main_fsm/i412_3_lut/A->main_fsm/i412_3_lut/Z
-                                          SLICE_R16C14B      D0_TO_F0_DELAY   0.252                  4.827  1       
-main_fsm/n620                                                NET DELAY        0.000                  4.827  1       
+main_fsm/i408_3_lut/A->main_fsm/i408_3_lut/Z
+                                          SLICE_R14C15A      D0_TO_F0_DELAY   0.252                  4.827  1       
+main_fsm/n584                                                NET DELAY        0.000                  4.827  1       
 main_fsm/state_FSM_i0/D                                      ENDPOINT         0.000                  4.827  1       
 
 
@@ -1165,9 +1169,8 @@ Destination Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
                                                              CONSTRAINT       0.000                  0.000  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  73      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY        3.084                  3.084  73      
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  74      
+col_synchronizer/int_osc                                     NET DELAY        3.084                  3.084  74      
 {main_fsm/state_FSM_i0/CK   main_fsm/db_led_i2/CK}
                                                              CLOCK PIN        0.000                  3.084  1       
                                                              Uncertainty      0.000                  3.084  
@@ -1183,8 +1186,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : main_fsm/state_FSM_i1/Q  (SLICE_R16C14D)
-Path End         : main_fsm/db_led_i2/D  (SLICE_R16C14B)
+Path Begin       : main_fsm/state_FSM_i2/Q  (SLICE_R14C15C)
+Path End         : main_fsm/db_led_i2/D  (SLICE_R14C15A)
 Source Clock     : int_osc (R)
 Destination Clock: int_osc (R)
 Logic Level      : 2
@@ -1197,9 +1200,8 @@ Path Slack       : 1.743 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  73      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY        3.084                  3.084  73      
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  74      
+col_synchronizer/int_osc                                     NET DELAY        3.084                  3.084  74      
 {main_fsm/state_FSM_i1/CK   main_fsm/state_FSM_i2/CK}
                                                              CLOCK PIN        0.000                  3.084  1       
 
@@ -1207,12 +1209,12 @@ main_fsm/press_logic/counter_sad_ellen/int_osc
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-main_fsm/state_FSM_i1/CK->main_fsm/state_FSM_i1/Q
-                                          SLICE_R16C14D      CLK_TO_Q0_DELAY  0.779                  3.863  8       
-main_fsm/state[1]                                            NET DELAY        0.712                  4.575  8       
-main_fsm/i2980_2_lut/B->main_fsm/i2980_2_lut/Z
-                                          SLICE_R16C14B      D1_TO_F1_DELAY   0.252                  4.827  1       
-main_fsm/n2203                                               NET DELAY        0.000                  4.827  1       
+main_fsm/state_FSM_i2/CK->main_fsm/state_FSM_i2/Q
+                                          SLICE_R14C15C      CLK_TO_Q1_DELAY  0.779                  3.863  4       
+main_fsm/state[0]                                            NET DELAY        0.712                  4.575  4       
+main_fsm/i2900_2_lut/A->main_fsm/i2900_2_lut/Z
+                                          SLICE_R14C15A      D1_TO_F1_DELAY   0.252                  4.827  1       
+main_fsm/n1955                                               NET DELAY        0.000                  4.827  1       
 main_fsm/db_led_i2/D                                         ENDPOINT         0.000                  4.827  1       
 
 
@@ -1220,9 +1222,8 @@ Destination Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
                                                              CONSTRAINT       0.000                  0.000  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  73      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY        3.084                  3.084  73      
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  74      
+col_synchronizer/int_osc                                     NET DELAY        3.084                  3.084  74      
 {main_fsm/state_FSM_i0/CK   main_fsm/db_led_i2/CK}
                                                              CLOCK PIN        0.000                  3.084  1       
                                                              Uncertainty      0.000                  3.084  
@@ -1238,8 +1239,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : main_fsm/state_FSM_i2/Q  (SLICE_R16C14D)
-Path End         : main_fsm/db_led_i0/D  (SLICE_R16C14A)
+Path Begin       : main_fsm/d0_i0_i0/Q  (SLICE_R15C5A)
+Path End         : main_fsm/d1_i0_i0/D  (SLICE_R15C4B)
 Source Clock     : int_osc (R)
 Destination Clock: int_osc (R)
 Logic Level      : 2
@@ -1252,33 +1253,30 @@ Path Slack       : 1.743 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  73      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY        3.084                  3.084  73      
-{main_fsm/state_FSM_i1/CK   main_fsm/state_FSM_i2/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  74      
+col_synchronizer/int_osc                                     NET DELAY        3.084                  3.084  74      
+{main_fsm/d0_i0_i0/CK   main_fsm/d0_i0_i1/CK}
                                                              CLOCK PIN        0.000                  3.084  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-main_fsm/state_FSM_i2/CK->main_fsm/state_FSM_i2/Q
-                                          SLICE_R16C14D      CLK_TO_Q1_DELAY  0.779                  3.863  4       
-main_fsm/state[0]                                            NET DELAY        0.712                  4.575  4       
-main_fsm/i1756_2_lut/A->main_fsm/i1756_2_lut/Z
-                                          SLICE_R16C14A      D0_TO_F0_DELAY   0.252                  4.827  1       
-main_fsm/debug_led_c_2__N_147[0]                             NET DELAY        0.000                  4.827  1       
-main_fsm/db_led_i0/D                                         ENDPOINT         0.000                  4.827  1       
+main_fsm/d0_i0_i0/CK->main_fsm/d0_i0_i0/Q
+                                          SLICE_R15C5A       CLK_TO_Q0_DELAY  0.779                  3.863  2       
+dual/d0[0]                                                   NET DELAY        0.712                  4.575  2       
+SLICE_129/D0->SLICE_129/F0                SLICE_R15C4B       D0_TO_F0_DELAY   0.252                  4.827  1       
+d0[0].sig_000.FeedThruLUT                                    NET DELAY        0.000                  4.827  1       
+main_fsm/d1_i0_i0/D                                          ENDPOINT         0.000                  4.827  1       
 
 
 Destination Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
                                                              CONSTRAINT       0.000                  0.000  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  73      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY        3.084                  3.084  73      
-{main_fsm/db_led_i0/CK   main_fsm/db_led_i1/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  74      
+col_synchronizer/int_osc                                     NET DELAY        3.084                  3.084  74      
+{main_fsm/d1_i0_i0/CK   main_fsm/d1_i0_i1/CK}
                                                              CLOCK PIN        0.000                  3.084  1       
                                                              Uncertainty      0.000                  3.084  
                                                              Hold time        0.000                  3.084  
@@ -1293,8 +1291,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : main_fsm/state_FSM_i1/Q  (SLICE_R16C14D)
-Path End         : main_fsm/db_led_i1/D  (SLICE_R16C14A)
+Path Begin       : main_fsm/d0_i0_i1/Q  (SLICE_R15C5A)
+Path End         : main_fsm/d1_i0_i1/D  (SLICE_R15C4B)
 Source Clock     : int_osc (R)
 Destination Clock: int_osc (R)
 Logic Level      : 2
@@ -1307,33 +1305,30 @@ Path Slack       : 1.743 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  73      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY        3.084                  3.084  73      
-{main_fsm/state_FSM_i1/CK   main_fsm/state_FSM_i2/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  74      
+col_synchronizer/int_osc                                     NET DELAY        3.084                  3.084  74      
+{main_fsm/d0_i0_i0/CK   main_fsm/d0_i0_i1/CK}
                                                              CLOCK PIN        0.000                  3.084  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-main_fsm/state_FSM_i1/CK->main_fsm/state_FSM_i1/Q
-                                          SLICE_R16C14D      CLK_TO_Q0_DELAY  0.779                  3.863  8       
-main_fsm/state[1]                                            NET DELAY        0.712                  4.575  8       
-main_fsm.SLICE_104/D1->main_fsm.SLICE_104/F1
-                                          SLICE_R16C14A      D1_TO_F1_DELAY   0.252                  4.827  1       
-main_fsm.state[1].sig_009.FeedThruLUT                        NET DELAY        0.000                  4.827  1       
-main_fsm/db_led_i1/D                                         ENDPOINT         0.000                  4.827  1       
+main_fsm/d0_i0_i1/CK->main_fsm/d0_i0_i1/Q
+                                          SLICE_R15C5A       CLK_TO_Q1_DELAY  0.779                  3.863  2       
+dual/d0[1]                                                   NET DELAY        0.712                  4.575  2       
+SLICE_129/D1->SLICE_129/F1                SLICE_R15C4B       D1_TO_F1_DELAY   0.252                  4.827  1       
+d0[1].sig_003.FeedThruLUT                                    NET DELAY        0.000                  4.827  1       
+main_fsm/d1_i0_i1/D                                          ENDPOINT         0.000                  4.827  1       
 
 
 Destination Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
                                                              CONSTRAINT       0.000                  0.000  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  73      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY        3.084                  3.084  73      
-{main_fsm/db_led_i0/CK   main_fsm/db_led_i1/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  74      
+col_synchronizer/int_osc                                     NET DELAY        3.084                  3.084  74      
+{main_fsm/d1_i0_i0/CK   main_fsm/d1_i0_i1/CK}
                                                              CLOCK PIN        0.000                  3.084  1       
                                                              Uncertainty      0.000                  3.084  
                                                              Hold time        0.000                  3.084  
@@ -1348,8 +1343,8 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : bouncer/state_FSM_i2/Q  (SLICE_R19C11A)
-Path End         : bouncer/state_FSM_i2/D  (SLICE_R19C11A)
+Path Begin       : debouncer/debounce_counter/count__i20/Q  (SLICE_R22C12D)
+Path End         : debouncer/debounce_counter/count__i17/D  (SLICE_R22C12A)
 Source Clock     : int_osc (R)
 Destination Clock: int_osc (R)
 Logic Level      : 2
@@ -1362,33 +1357,31 @@ Path Slack       : 1.743 ns  (Passed)
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  73      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY        3.084                  3.084  73      
-{bouncer/state_FSM_i2/CK   bouncer/state_FSM_i1/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  74      
+col_synchronizer/int_osc                                     NET DELAY        3.084                  3.084  74      
+{debouncer/debounce_counter/count__i19/CK   debouncer/debounce_counter/count__i20/CK}
                                                              CLOCK PIN        0.000                  3.084  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-bouncer/state_FSM_i2/CK->bouncer/state_FSM_i2/Q
-                                          SLICE_R19C11A      CLK_TO_Q0_DELAY  0.779                  3.863  4       
-bouncer/n10                                                  NET DELAY        0.712                  4.575  4       
-bouncer/i364_4_lut_4_lut/A->bouncer/i364_4_lut_4_lut/Z
-                                          SLICE_R19C11A      D0_TO_F0_DELAY   0.252                  4.827  1       
-bouncer/n572                                                 NET DELAY        0.000                  4.827  1       
-bouncer/state_FSM_i2/D                                       ENDPOINT         0.000                  4.827  1       
+debouncer/debounce_counter/count__i20/CK->debouncer/debounce_counter/count__i20/Q
+                                          SLICE_R22C12D      CLK_TO_Q1_DELAY  0.779                  3.863  23      
+debouncer/debounce_counter/count_num[19]                     NET DELAY        0.712                  4.575  23      
+debouncer/debounce_counter/i1658_2_lut/B->debouncer/debounce_counter/i1658_2_lut/Z
+                                          SLICE_R22C12A      D0_TO_F0_DELAY   0.252                  4.827  1       
+debouncer/debounce_counter/n27[16]                           NET DELAY        0.000                  4.827  1       
+debouncer/debounce_counter/count__i17/D                      ENDPOINT         0.000                  4.827  1       
 
 
 Destination Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
                                                              CONSTRAINT       0.000                  0.000  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  73      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY        3.084                  3.084  73      
-{bouncer/state_FSM_i2/CK   bouncer/state_FSM_i1/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  74      
+col_synchronizer/int_osc                                     NET DELAY        3.084                  3.084  74      
+{debouncer/debounce_counter/count__i17/CK   debouncer/debounce_counter/count__i18/CK}
                                                              CLOCK PIN        0.000                  3.084  1       
                                                              Uncertainty      0.000                  3.084  
                                                              Hold time        0.000                  3.084  
@@ -1403,110 +1396,106 @@ Path Slack  (Passed)                                                            
 
 ++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : bouncer/debounce_counter/count__i20/Q  (SLICE_R22C11B)
-Path End         : bouncer/debounce_counter/count__i15/D  (SLICE_R22C11C)
+Path Begin       : debouncer/debounce_counter/count__i20/Q  (SLICE_R22C12D)
+Path End         : debouncer/debounce_counter/count__i9/D  (SLICE_R22C11B)
 Source Clock     : int_osc (R)
 Destination Clock: int_osc (R)
 Logic Level      : 2
-Delay Ratio      : 46.1% (route), 53.9% (logic)
+Delay Ratio      : 40.8% (route), 59.2% (logic)
 Clock Skew       : 0.000 ns 
 Hold Constraint  : 0.000 ns 
-Path Slack       : 1.913 ns  (Passed)
+Path Slack       : 1.743 ns  (Passed)
 
 
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  73      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY        3.084                  3.084  73      
-{bouncer/debounce_counter/count__i20/CK   bouncer/debounce_counter/count__i19/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  74      
+col_synchronizer/int_osc                                     NET DELAY        3.084                  3.084  74      
+{debouncer/debounce_counter/count__i19/CK   debouncer/debounce_counter/count__i20/CK}
                                                              CLOCK PIN        0.000                  3.084  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-bouncer/debounce_counter/count__i20/CK->bouncer/debounce_counter/count__i20/Q
-                                          SLICE_R22C11B      CLK_TO_Q0_DELAY  0.779                  3.863  23      
-bouncer/debounce_counter/count_num[19]                       NET DELAY        0.882                  4.745  23      
-bouncer/debounce_counter/i1876_2_lut/B->bouncer/debounce_counter/i1876_2_lut/Z
-                                          SLICE_R22C11C      C1_TO_F1_DELAY   0.252                  4.997  1       
-bouncer/debounce_counter/n27[14]                             NET DELAY        0.000                  4.997  1       
-bouncer/debounce_counter/count__i15/D                        ENDPOINT         0.000                  4.997  1       
+debouncer/debounce_counter/count__i20/CK->debouncer/debounce_counter/count__i20/Q
+                                          SLICE_R22C12D      CLK_TO_Q1_DELAY  0.779                  3.863  23      
+debouncer/debounce_counter/count_num[19]                     NET DELAY        0.712                  4.575  23      
+debouncer/debounce_counter/i1650_2_lut/B->debouncer/debounce_counter/i1650_2_lut/Z
+                                          SLICE_R22C11B      D0_TO_F0_DELAY   0.252                  4.827  1       
+debouncer/debounce_counter/n27[8]                            NET DELAY        0.000                  4.827  1       
+debouncer/debounce_counter/count__i9/D                       ENDPOINT         0.000                  4.827  1       
 
 
 Destination Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
                                                              CONSTRAINT       0.000                  0.000  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  73      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY        3.084                  3.084  73      
-{bouncer/debounce_counter/count__i16/CK   bouncer/debounce_counter/count__i15/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  74      
+col_synchronizer/int_osc                                     NET DELAY        3.084                  3.084  74      
+{debouncer/debounce_counter/count__i9/CK   debouncer/debounce_counter/count__i10/CK}
                                                              CLOCK PIN        0.000                  3.084  1       
                                                              Uncertainty      0.000                  3.084  
                                                              Hold time        0.000                  3.084  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
 Required Time                                                                                       -3.084  
-Arrival Time                                                                                         4.997  
+Arrival Time                                                                                         4.827  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-Path Slack  (Passed)                                                                                 1.913  
+Path Slack  (Passed)                                                                                 1.743  
 
 
 
 
 ++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
-Path Begin       : bouncer/debounce_counter/count__i20/Q  (SLICE_R22C11B)
-Path End         : bouncer/debounce_counter/count__i19/D  (SLICE_R22C11B)
+Path Begin       : debouncer/state_FSM_i2/Q  (SLICE_R16C12A)
+Path End         : debouncer/state_FSM_i2/D  (SLICE_R16C12A)
 Source Clock     : int_osc (R)
 Destination Clock: int_osc (R)
 Logic Level      : 2
-Delay Ratio      : 46.1% (route), 53.9% (logic)
+Delay Ratio      : 40.8% (route), 59.2% (logic)
 Clock Skew       : 0.000 ns 
 Hold Constraint  : 0.000 ns 
-Path Slack       : 1.913 ns  (Passed)
+Path Slack       : 1.743 ns  (Passed)
 
 
 Source Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  73      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY        3.084                  3.084  73      
-{bouncer/debounce_counter/count__i20/CK   bouncer/debounce_counter/count__i19/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  74      
+col_synchronizer/int_osc                                     NET DELAY        3.084                  3.084  74      
+{debouncer/state_FSM_i2/CK   debouncer/state_FSM_i1/CK}
                                                              CLOCK PIN        0.000                  3.084  1       
 
 
 Data Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-bouncer/debounce_counter/count__i20/CK->bouncer/debounce_counter/count__i20/Q
-                                          SLICE_R22C11B      CLK_TO_Q0_DELAY  0.779                  3.863  23      
-bouncer/debounce_counter/count_num[19]                       NET DELAY        0.882                  4.745  23      
-bouncer/debounce_counter/i1880_2_lut/B->bouncer/debounce_counter/i1880_2_lut/Z
-                                          SLICE_R22C11B      C1_TO_F1_DELAY   0.252                  4.997  1       
-bouncer/debounce_counter/n27[18]                             NET DELAY        0.000                  4.997  1       
-bouncer/debounce_counter/count__i19/D                        ENDPOINT         0.000                  4.997  1       
+debouncer/state_FSM_i2/CK->debouncer/state_FSM_i2/Q
+                                          SLICE_R16C12A      CLK_TO_Q0_DELAY  0.779                  3.863  4       
+debouncer/n10                                                NET DELAY        0.712                  4.575  4       
+debouncer/i360_4_lut_4_lut/A->debouncer/i360_4_lut_4_lut/Z
+                                          SLICE_R16C12A      D0_TO_F0_DELAY   0.252                  4.827  1       
+debouncer/n536                                               NET DELAY        0.000                  4.827  1       
+debouncer/state_FSM_i2/D                                     ENDPOINT         0.000                  4.827  1       
 
 
 Destination Clock Path
 Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
                                                              CONSTRAINT       0.000                  0.000  1       
-hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  73      
-main_fsm/press_logic/counter_sad_ellen/int_osc
-                                                             NET DELAY        3.084                  3.084  73      
-{bouncer/debounce_counter/count__i20/CK   bouncer/debounce_counter/count__i19/CK}
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  74      
+col_synchronizer/int_osc                                     NET DELAY        3.084                  3.084  74      
+{debouncer/state_FSM_i2/CK   debouncer/state_FSM_i1/CK}
                                                              CLOCK PIN        0.000                  3.084  1       
                                                              Uncertainty      0.000                  3.084  
                                                              Hold time        0.000                  3.084  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
 Required Time                                                                                       -3.084  
-Arrival Time                                                                                         4.997  
+Arrival Time                                                                                         4.827  
 ----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
-Path Slack  (Passed)                                                                                 1.913  
+Path Slack  (Passed)                                                                                 1.743  
 
 
 

@@ -32,5 +32,4 @@ module sev_seg(
 			default: segment = 7'b1111111;
 		endcase
 	
-
 endmodule

@@ -1,23 +1,26 @@
 // Jessica Li  |  jesli@g.hmc.edu
-// 09/21/2026 
-// Submodule for single press logic and uses combinational logic to decode
+// 09/22/2026 
+// Submodule for single press logic and reading keypad into a 16 bit map
 module keypress(
 	input   logic   clk, nrst, en,
 	input 	logic 	[3:0] c_sync,
 	input 	logic 	[3:0] r_sync,
 	output  logic   one_press,
-	output  logic   [1:0] col_index, //pressed column = col_sync[col_index]
+	output  logic   [1:0] col_index, //pressed column = col_sync[col_index] [not used]
 	output  logic   [3:0] key_next,
 	output  logic   [15:0] map
 );
-	logic	[16:0] sad_ellen_count;  // Classmate helped me find & solve original timing error
+	logic	[16:0] ellen_count;  // Classmate helped me find & solve original timing error
 	logic	sample;
 
-	counter #(.WIDTH(17), .MAX_COUNT(80000)) counter_sad_ellen(.osc(clk), .nrst, .en, .count(sad_ellen_count));
-	assign sample = (sad_ellen_count == 17'd50000);
-	
+	// Update cols once per row exertion:
+		// Jessica, where did this max_count come from? scanner's max_count/4 = 320000/4 = 80000, # of clk ticks that each row is exerted for
+		// sample is only true for one clk tick during each row exertion (and avoids edges)
+	counter #(.WIDTH(17), .MAX_COUNT(80000)) counter_ellen(.osc(clk), .nrst, .en, .count(ellen_count));
+	assign sample = (ellen_count == 17'd50000);
+			
 	//Take in 4 bit col sync for 4 cycle
-    always_ff @(posedge clk) begin
+    always_ff @(posedge clk, posedge ~nrst) begin
         if (~nrst)
             map <= 15'b0;
 		else if (en) begin
