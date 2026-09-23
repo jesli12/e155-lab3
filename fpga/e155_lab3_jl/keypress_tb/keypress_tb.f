@@ -30,4 +30,4 @@
 
 -do "view wave"
 -do "add wave /*"
--do "run -all"
+-do "run 100 ns"

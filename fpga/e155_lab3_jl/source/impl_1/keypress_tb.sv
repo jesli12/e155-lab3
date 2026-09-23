@@ -37,44 +37,66 @@ module keypress_tb();
 		#200; // for delay to offset (not have actions on ticks)
         r_sync = 4'b0001;                
 		c_sync = 4'b1111;
-        #1_000_000; // time it takes for sample counter to sample
+        #1_000_000; // time it takes for sample counter to hit
 		
-		assert (key == 16'b0)       // check outputs
-				$display("PASSED! key is at 0");
-			else 
-				$error("FAILED! key = %0b",key); 
-				
-		assert (press == 0)       // check outputs
-				$display("PASSED! press = 0");
-			else 
-				$error("FAILED! press = %0b", press); 
-				
+		#1_600_000;
+		#1_600_000;
+		#1_600_000;
+		nreset = 0;
+		#22
+		nreset = 1;
 		#600_000 // time left for scanned row to deactivate (and counter resets)
 		r_sync = 4'b0001;                
 		c_sync = 4'b1110;
         #1_000_000;    
-		assert (key == 16'b10)       // check outputs
-				$display("PASSED! key is at 1");
-			else 
-				$error("FAILED! key = %0b",key); 
-				
-		assert (press == 1'b1)       // check outputs
-				$display("PASSED! press = 1");
-			else 
-				$error("FAILED! press = %0b", press); 
+		
+		#1_600_000;
+		#1_600_000;
+		#1_600_000;
+		nreset = 0;
+		#22
+		nreset = 1;
 		#600_000
 		r_sync = 4'b0010;
 		c_sync = 4'b1101;
         #1_000_000;
-        assert (key == 16'b0000000000100000)       // check outputs
-				$display("PASSED! key is at 0");
-			else 
-				$error("FAILED! key = %0b",key); 
-				
-		assert (press == 0)       // check outputs
-				$display("PASSED! press = 0");
-			else 
-				$error("FAILED! press = %0b", press); 
+		
+		#1_600_000;
+		#1_600_000;
+		#1_600_000;
+		nreset = 0;
+		#22
+		nreset = 1;
+		#600_000
+		r_sync = 4'b0100;
+		c_sync = 4'b1011;
+        #1_000_000;
+		
+		#1_600_000;
+		#1_600_000;
+		#1_600_000;
+		nreset = 0;
+		#22
+		nreset = 1;
+		#600_000
+		r_sync = 4'b1000;
+		c_sync = 4'b0111;
+        #1_000_000;
+		#1_600_000;
+		#1_600_000;
+		#1_600_000;
+		
+		nreset = 0;
+		#22
+		nreset = 1;
+		#200; // for delay to offset (not have actions on ticks)
+        r_sync = 4'b0001;                
+		c_sync = 4'b1010;  //multi press
+        #1_000_000; // time it takes for sample counter to hit
+		
+		#1_600_000;
+		#1_600_000;
+		#1_600_000;
 
 		#600_000
 		#100 

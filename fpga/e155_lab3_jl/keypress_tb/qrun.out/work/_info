@@ -7,6 +7,12 @@ R0
 R0
 R0
 R0
+R0
+R0
+R0
+R0
+R0
+R0
 !s11f vlog 2025.2 2025.05, May 31 2025
 13
 !s112 1.1
@@ -142,23 +148,23 @@ R11
 vkeypress_tb
 R2
 R3
-!s110 1790173164
+Z12 !s110 1790185003
 !i10b 1
-!s100 V3K0BG@31]i`]1TBMKb`m0
-IdaO18nYS]nXNNQ2g]lJV22
+!s100 2M0l`n0O8@9CnY79hDM`i0
+Iz29T7bzfQ?U:^a^k4A5dR0
 S1
 R1
-w1790173135
+w1790184981
 8C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress_tb.sv
 FC:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress_tb.sv
-!i122 6
-L0 10 74
+!i122 12
+L0 10 96
 R5
 R6
 r1
 !s85 0
 31
-!s108 1790173164.000000
+!s108 1790185003.000000
 R8
 R9
 !i113 0
@@ -192,8 +198,8 @@ R11
 Tqrun_opt
 !i145 1
 !i144 0
-!s110 1790173165
-V;6[lh5zlOiM]I:<P06]E40
+R12
+V`zOe`HVk>>IOC55@jIHL30
 04 11 4 work keypress_tb fast 0
 R0
 !s12f OEM25U3 
