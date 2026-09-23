@@ -8,7 +8,7 @@ Package: SG48
 Performance Grade:  High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 2026.1.0.37.0
-Mapped on: Wed Sep 23 01:11:15 2026
+Mapped on: Wed Sep 23 01:38:22 2026
 
 Design Information
 ------------------
@@ -24,8 +24,8 @@ Design Summary
 
    Number of slice registers: 131 out of  5280 (2%)
    Number of I/O registers:      4 out of   117 (3%)
-   Number of LUT4s:           373 out of  5280 (7%)
-      Number of logic LUT4s:             264
+   Number of LUT4s:           369 out of  5280 (7%)
+      Number of logic LUT4s:             260
       Number of inserted feedthru LUT4s:  13
       Number of ripple logic:             48 (96 LUT4s)
    Number of IO sites used:   22 out of 39 (56%)
@@ -54,10 +54,10 @@ Design Summary
    Number of Clock Enables:  4
       Net VCC_net: 1 loads, 0 SLICEs
       Net n1157: 20 loads, 20 SLICEs
-      Net n1196: 70 loads, 70 SLICEs
+      Net n1149: 70 loads, 70 SLICEs
       Net main_fsm.state[1]: 8 loads, 8 SLICEs
    Number of LSRs:  2
-      Net n115: 20 loads, 20 SLICEs
+      Net n74: 20 loads, 20 SLICEs
       Net n10_N_174: 107 loads, 107 SLICEs
    Top 10 highest fanout non-clock nets:
 
@@ -70,15 +70,15 @@ Design Summary
 Design Summary (cont)
 ---------------------
       Net n10_N_174: 107 loads
-      Net n1196: 70 loads
-      Net segment_counter.n4_adj_205: 28 loads
-      Net scanning.scanner_counter.n2717: 25 loads
-      Net bouncer.count_num[19]: 23 loads
-      Net n115: 23 loads
+      Net n1149: 70 loads
+      Net dual.segment_counter.n4_adj_195: 28 loads
+      Net scanning.scanner_counter.n2677: 25 loads
+      Net debouncer.count_num[19]: 23 loads
+      Net n74: 23 loads
       Net n1157: 20 loads
+      Net keymap[0]: 18 loads
       Net press_logic.counter_ellen.n4: 17 loads
-      Net keymap[9]: 16 loads
-      Net keymap[0]: 15 loads
+      Net keymap[4]: 13 loads
 
 
 
@@ -172,6 +172,8 @@ OSC 1:                                 Pin/Node Value
 ASIC Components
 ---------------
 
+Instance Name: hf_osc
+         Type: HFOSC
 Instance Name: col_synchronizer/n1_i2
          Type: IOLOGIC
 Instance Name: col_synchronizer/n1_i1
@@ -180,8 +182,6 @@ Instance Name: col_synchronizer/n1_i0
          Type: IOLOGIC
 Instance Name: col_synchronizer/n1_i3
          Type: IOLOGIC
-Instance Name: hf_osc
-         Type: HFOSC
 
 Constraint Summary
 ------------------
@@ -203,8 +203,8 @@ Run Time and Memory Usage
 Run Time and Memory Usage (cont)
 --------------------------------
    Total REAL Time: 0 secs
-   Peak Memory Usage: 71 MB
-Checksum -- map: 63fb56ee81c191e311b051a4843859a62618530
+   Peak Memory Usage: 70 MB
+Checksum -- map: 4aa7e3e6a39115c63eaf97043057514fe426a3b
 
 
 

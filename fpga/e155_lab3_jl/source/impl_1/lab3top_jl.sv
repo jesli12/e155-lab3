@@ -14,25 +14,23 @@ module lab3top_jl(
 	//**************** internal connections declarations ****************
 	logic int_osc;
 	logic [3:0] col_sync;
-	logic [3:0] row_sync;
-	assign row_sync = row; // left in case sync-ing rows to delay from col_sync is necessary
 	
 		// dual sev-seg display ports
 	logic [3:0] disp; // this is the single set of switches that get sent into the single seven segment module
 	logic [27:0] seg_count;
-	logic [3:0] d0;
-	logic [3:0] d1;
 	
+		// debouncer submodule output
 	logic d_en;
 	
-		// keypress submodule
+		// keypress submodule outputs
 	logic   one_key;
 	logic   [1:0] col_index; //pressed column = col_sync[col_index] [not used]
 	logic   [3:0] key_next;
 	logic   [15:0] keymap;
 	
-		// keypress_fsm ports (main fsm: scan --> press --> hold)
-	
+		// keypress_fsm internal outputs (main fsm: scan --> press --> hold)
+	logic [3:0] d0;
+	logic [3:0] d1;
 	
 	// **************** SUBMODULE INSTANTIATIONS ****************
 	// Internal high-speed oscillator, 48 MHz clock generated in FPGA by HSOSC primitive
@@ -43,36 +41,17 @@ module lab3top_jl(
 
 	// col input synchronizer (col asynch inputs need to be sync-ed)
 	sync col_synchronizer(.clk(int_osc), .d(col_raw), .q(col_sync)); // synchronize all col inputs
-		// no need for row sync, since it is already synchronous output
-		// sync row_synchronizer(.clk(int_osc), .d(row_raw), .q(row_sync));
 		
 	// debounce enables d_en
-	debounce_fsm bouncer(.keymap, .clk(int_osc), .nreset, .enable, .d_en);
+	debounce_fsm debouncer(.keymap, .clk(int_osc), .nreset, .enable, .d_en);
 
 	// keypress logic (creates key map and outputs if one key is true and what that key is (key_next))
-	keypress press_logic(.clk(int_osc), .nrst(nreset), .en(enable), .c_sync(col_sync), .r_sync(row_sync), .one_press(one_key), .col_index, .key_next , .map(keymap));
+	keypress press_logic(.clk(int_osc), .nrst(nreset), .en(enable), .c_sync(col_sync), .r_sync(row), .one_press(one_key), .col_index, .key_next , .map(keymap));
 	
 	// main keypress fsm
 	keypress_fsm main_fsm(.clk(int_osc), .nrst(nreset), .en(enable),.one_key,.key_next, .d_en, .d0, .d1, .db_led(debug_led));
-	
 
-	// **************** Sev Seg DISPLAY *****************************************************************
-	// counter for timing multiplexer (120 Hz)
-	counter #(
-		.WIDTH(28),
-		.MAX_COUNT(400_000) // MAX_COUNT = 200_000 = a signal on/off frequency of 120 Hz
-	) segment_counter (
-		.osc (int_osc), 
-		.nrst (nreset),  
-		.en (enable),
-		.count (seg_count) // purposely ignored, no use
-	);
-	
-	// switch-to-7 segment display module
-	sev_seg segment_decoder(.switch (disp), .segment(seg));
-	
-	assign pwr = (seg_count < 200_000)? 2'b01 : 2'b10;
-	assign disp = (seg_count < 200_000)? d0 : d1;	   // MUX: seg_clk == 0 --> sw1 + first display on, seg_clk ==1 --> sw2 + second display on (see above)
-	
+	// Sev Seg DISPLAY 
+	dual_display dual(.int_osc, .nreset, .enable,.d0, .d1, .pwr, .seg);
 
 endmodule

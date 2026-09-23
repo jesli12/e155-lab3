@@ -48,6 +48,7 @@
 -sver "../source/impl_1/keypress_fsm.sv"
 -sver "../source/impl_1/keypress.sv"
 -sver "../source/impl_1/debounce_fsm.sv"
+-sver "../source/impl_1/dual_display.sv"
 -path ".."
 -top lab3top_jl
 # Output Configuration
