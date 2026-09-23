@@ -5,23 +5,18 @@
 
 module keypress_fsm(
 	input   logic   clk, nrst, en,
-	input 	logic 	[3:0] c_sync,
-	input   logic   [3:0] r_sync,
+	input   logic   one_key,
+	input   logic   [3:0] key_next,
 	input   logic   d_en,
-
 	output  logic   [3:0] d0,
 	output  logic   [3:0] d1,
-	output  logic   [2:0] db_led,
-	output  logic   [15:0] keymap
+	output  logic   [2:0] db_led  // debug led outputs
 );
 	typedef enum logic [2:0] {SCAN = 3'b001, PRESS = 3'b010,
 							  HOLD = 3'b100} statetype;
 	statetype state, nextstate;
-	logic one_key;
-	logic [3:0] key_next;
-	logic [1:0] col_index; // unused
 	
-	keypress press_logic(.clk, .nrst, .en, .c_sync, .r_sync, .one_press(one_key), .col_index, .key_next , .map(keymap));
+	logic [3:0] d_write; // mid register to prevent double, used in output logic
 	
 	// keypress fsm
 	always_ff @(posedge clk, posedge ~nrst)
@@ -35,8 +30,6 @@ module keypress_fsm(
 			HOLD: nextstate = (~one_key) ? SCAN : HOLD;           
 			default: nextstate = SCAN;
 		endcase
-
-	logic [3:0] d_write; // mid register to prevent double
 
 	// state output logic
 	always_ff @(posedge clk, posedge ~nrst)

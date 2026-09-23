@@ -24,10 +24,17 @@ module lab3top_jl(
 	logic [3:0] d1;
 	
 	logic d_en;
-
-		// keypress_fsm ports (main fsm: scan --> press --> hold)
-	logic [15:0] keymap;
 	
+		// keypress submodule
+	logic   one_key;
+	logic   [1:0] col_index; //pressed column = col_sync[col_index] [not used]
+	logic   [3:0] key_next;
+	logic   [15:0] keymap;
+	
+		// keypress_fsm ports (main fsm: scan --> press --> hold)
+	
+	
+	// **************** SUBMODULE INSTANTIATIONS ****************
 	// Internal high-speed oscillator, 48 MHz clock generated in FPGA by HSOSC primitive
 	HSOSC hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
 	
@@ -36,17 +43,20 @@ module lab3top_jl(
 
 	// col input synchronizer (col asynch inputs need to be sync-ed)
 	sync col_synchronizer(.clk(int_osc), .d(col_raw), .q(col_sync)); // synchronize all col inputs
-	// no need for row sync, since it is already synchronous output
-	// sync row_synchronizer(.clk(int_osc), .d(row_raw), .q(row_sync));  
-	
+		// no need for row sync, since it is already synchronous output
+		// sync row_synchronizer(.clk(int_osc), .d(row_raw), .q(row_sync));
+		
 	// debounce enables d_en
 	debounce_fsm bouncer(.keymap, .clk(int_osc), .nreset, .enable, .d_en);
+
+	// keypress logic (creates key map and outputs if one key is true and what that key is (key_next))
+	keypress press_logic(.clk(int_osc), .nrst(nreset), .en(enable), .c_sync(col_sync), .r_sync(row_sync), .one_press(one_key), .col_index, .key_next , .map(keymap));
 	
 	// main keypress fsm
-	keypress_fsm main_fsm(.clk(int_osc), .nrst(nreset), .en(enable), .c_sync(col_sync), .r_sync(row_sync), .d_en, .d0, .d1, .db_led(debug_led), .keymap);
+	keypress_fsm main_fsm(.clk(int_osc), .nrst(nreset), .en(enable),.one_key,.key_next, .d_en, .d0, .d1, .db_led(debug_led));
 	
 
-	// ****************Sev Seg DISPLAY *****************************************************************
+	// **************** Sev Seg DISPLAY *****************************************************************
 	// counter for timing multiplexer (120 Hz)
 	counter #(
 		.WIDTH(28),

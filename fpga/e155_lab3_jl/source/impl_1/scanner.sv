@@ -28,6 +28,7 @@ module scanner
 	assign rows = (scan_count < (MAX_COUNT/4))? 4'b0001 : 
 					(scan_count < (MAX_COUNT/2))? 4'b0010 : 
 					(scan_count < ((MAX_COUNT*3)/4))? 4'b0100 : 
-					(scan_count < (MAX_COUNT))? 4'b1000 : 4'b0001;
+					(scan_count < (MAX_COUNT))? 4'b1000 : 
+					4'b0001;
 
 endmodule

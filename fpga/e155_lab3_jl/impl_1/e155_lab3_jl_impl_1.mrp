@@ -8,7 +8,7 @@ Package: SG48
 Performance Grade:  High-Performance_1.2V
 
 Mapper:    version Radiant Software (64-bit) 2026.1.0.37.0
-Mapped on: Wed Sep 23 00:36:47 2026
+Mapped on: Wed Sep 23 01:11:15 2026
 
 Design Information
 ------------------
@@ -24,8 +24,8 @@ Design Summary
 
    Number of slice registers: 131 out of  5280 (2%)
    Number of I/O registers:      4 out of   117 (3%)
-   Number of LUT4s:           372 out of  5280 (7%)
-      Number of logic LUT4s:             263
+   Number of LUT4s:           373 out of  5280 (7%)
+      Number of logic LUT4s:             264
       Number of inserted feedthru LUT4s:  13
       Number of ripple logic:             48 (96 LUT4s)
    Number of IO sites used:   22 out of 39 (56%)
@@ -53,12 +53,12 @@ Design Summary
       Net int_osc: 135 loads, 135 rising, 0 falling (Driver: Pin hf_osc/CLKHF)
    Number of Clock Enables:  4
       Net VCC_net: 1 loads, 0 SLICEs
-      Net n1237: 70 loads, 70 SLICEs
-      Net n1208: 20 loads, 20 SLICEs
+      Net n1157: 20 loads, 20 SLICEs
+      Net n1196: 70 loads, 70 SLICEs
       Net main_fsm.state[1]: 8 loads, 8 SLICEs
    Number of LSRs:  2
-      Net n10_N_156: 91 loads, 91 SLICEs
-      Net n108: 20 loads, 20 SLICEs
+      Net n115: 20 loads, 20 SLICEs
+      Net n10_N_174: 107 loads, 107 SLICEs
    Top 10 highest fanout non-clock nets:
 
                                     Page 1
@@ -69,16 +69,16 @@ Design Summary
 
 Design Summary (cont)
 ---------------------
-      Net n10_N_156: 91 loads
-      Net n1237: 70 loads
-      Net segment_counter.n4: 28 loads
-      Net scanning.scanner_counter.n2832: 25 loads
+      Net n10_N_174: 107 loads
+      Net n1196: 70 loads
+      Net segment_counter.n4_adj_205: 28 loads
+      Net scanning.scanner_counter.n2717: 25 loads
       Net bouncer.count_num[19]: 23 loads
-      Net n108: 23 loads
-      Net n1208: 20 loads
-      Net nreset_c: 18 loads
-      Net main_fsm.press_logic.counter_sad_ellen.n4: 17 loads
-      Net keymap[4]: 16 loads
+      Net n115: 23 loads
+      Net n1157: 20 loads
+      Net press_logic.counter_ellen.n4: 17 loads
+      Net keymap[9]: 16 loads
+      Net keymap[0]: 15 loads
 
 
 
@@ -172,8 +172,6 @@ OSC 1:                                 Pin/Node Value
 ASIC Components
 ---------------
 
-Instance Name: hf_osc
-         Type: HFOSC
 Instance Name: col_synchronizer/n1_i2
          Type: IOLOGIC
 Instance Name: col_synchronizer/n1_i1
@@ -182,6 +180,8 @@ Instance Name: col_synchronizer/n1_i0
          Type: IOLOGIC
 Instance Name: col_synchronizer/n1_i3
          Type: IOLOGIC
+Instance Name: hf_osc
+         Type: HFOSC
 
 Constraint Summary
 ------------------
@@ -203,8 +203,8 @@ Run Time and Memory Usage
 Run Time and Memory Usage (cont)
 --------------------------------
    Total REAL Time: 0 secs
-   Peak Memory Usage: 70 MB
-Checksum -- map: 7f312b7d7a4791ce82e8dd915b09347da66d4c41
+   Peak Memory Usage: 71 MB
+Checksum -- map: 63fb56ee81c191e311b051a4843859a62618530
 
 
 
