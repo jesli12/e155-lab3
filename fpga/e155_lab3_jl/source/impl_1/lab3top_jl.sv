@@ -9,39 +9,44 @@ module lab3top_jl(
 	output  logic  [1:0] pwr,
 	output  logic  [6:0] seg,
 	output  logic  [3:0] row,
-	output  logic  [2:0] debug_led
+	output  logic  [2:0] debug_led // displays which of the 3 states in main fsm is active
 );
-	// internal connections declarations
+	//**************** internal connections declarations ****************
 	logic int_osc;
-	logic [3:0] disp; // this is the single set of switches that get sent into the single seven segment module
-	logic [27:0] seg_count;
-	
-	logic [3:0] d0;
-	logic [3:0] d1;
-	logic d_en;
-	
-	logic [15:0] keymap;
-	
 	logic [3:0] col_sync;
 	logic [3:0] row_sync;
-	// logic [3:0] row_raw;
-	assign row_sync = row;
+	assign row_sync = row; // left in case sync-ing rows to delay from col_sync is necessary
+	
+		// dual sev-seg display ports
+	logic [3:0] disp; // this is the single set of switches that get sent into the single seven segment module
+	logic [27:0] seg_count;
+	logic [3:0] d0;
+	logic [3:0] d1;
+	
+	logic d_en;
+
+		// keypress_fsm ports (main fsm: scan --> press --> hold)
+	logic [15:0] keymap;
 	
 	// Internal high-speed oscillator, 48 MHz clock generated in FPGA by HSOSC primitive
 	HSOSC hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(int_osc));
+	
+	// Scanner (row exerter) (scanning at 150 Hz)
+	scanner #(.WIDTH(25), .MAX_COUNT(320000)) scanning(.int_osc, .nreset, .enable, .rows(row));
 
-	// col input synchronizer
+	// col input synchronizer (col asynch inputs need to be sync-ed)
 	sync col_synchronizer(.clk(int_osc), .d(col_raw), .q(col_sync)); // synchronize all col inputs
+	// no need for row sync, since it is already synchronous output
 	// sync row_synchronizer(.clk(int_osc), .d(row_raw), .q(row_sync));  
 	
-	// main keypress fsm
-	keypress_fsm main_fsm(.clk(int_osc), .nrst(nreset), .en(enable), .c_sync(col_sync), .r_sync(row_sync), .d_en, .row_exert(row), .d0, .d1, .db_led(debug_led), .keymap);
-	
 	// debounce enables d_en
-	debounce_fsm bouncer(.keymap, .clk(int_osc), .nreset, .enable,.d_en);
+	debounce_fsm bouncer(.keymap, .clk(int_osc), .nreset, .enable, .d_en);
+	
+	// main keypress fsm
+	keypress_fsm main_fsm(.clk(int_osc), .nrst(nreset), .en(enable), .c_sync(col_sync), .r_sync(row_sync), .d_en, .d0, .d1, .db_led(debug_led), .keymap);
 	
 
-	// Sev Seg DISPLAY *****************************************************************
+	// ****************Sev Seg DISPLAY *****************************************************************
 	// counter for timing multiplexer (120 Hz)
 	counter #(
 		.WIDTH(28),
