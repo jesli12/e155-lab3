@@ -1,0 +1,40 @@
+---------------------------------------------------
+Report for cell top_keypad_display
+   Instance path: top_keypad_display
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        157        100.0
+                               LUTGATE	         89        100.0
+                                LUTCCU	         68        100.0
+                                 IOBUF	         18        100.0
+                                PFUREG	         91        100.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                             clock_gen	          1        57.3
+                           display_mux	          1         8.9
+                        keypad_scanner	          1        19.7
+---------------------------------------------------
+Report for cell keypad_scanner
+   Instance path: top_keypad_display/u_keypad_scanner
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         31        19.7
+                               LUTGATE	         31        34.8
+                                PFUREG	         16        17.6
+---------------------------------------------------
+Report for cell clock_gen
+   Instance path: top_keypad_display/u_clock_gen
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         90        57.3
+                               LUTGATE	         22        24.7
+                                LUTCCU	         68        100.0
+                                PFUREG	         66        72.5
+---------------------------------------------------
+Report for cell display_mux
+   Instance path: top_keypad_display/u_display_mux
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         14         8.9
+                               LUTGATE	         14        15.7
+                                PFUREG	          1         1.1

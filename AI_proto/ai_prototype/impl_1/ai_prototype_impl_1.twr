@@ -1,0 +1,1923 @@
+Lattice Timing Report -  Setup  and Hold, Version Radiant Software (64-bit) 2026.1.0.37.0
+
+Wed Sep 23 15:25:28 2026
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2026 Lattice Semiconductor Corporation,  All rights reserved.
+
+Command line:    timing -sethld -v 10 -u 10 -endpoints 10 -nperend 1 -sp High-Performance_1.2V -hsp m -pwrprd -html -rpt ai_prototype_impl_1.twr ai_prototype_impl_1.udb -gui -msgset C:/Users/jesli/Documents/GitHub/e155-lab3/AI_proto/ai_prototype/promote.xml
+
+-----------------------------------------
+Design:          top_keypad_display
+Family:          iCE40UP
+Device:          iCE40UP5K
+Package:         SG48
+Performance:     High-Performance_1.2V
+Package Status:                     Preliminary    Version 1.5
+**Performance Hardware Data Status :   Advanced Version 1.0
+-----------------------------------------
+
+
+=====================================================================
+                    Table of Contents
+=====================================================================
+    1  Timing Overview
+        1.1  SDC Constraints
+        1.2  Constraint Coverage
+        1.3  Overall Summary
+        1.4  Unconstrained Report
+        1.5  Combinational Loop
+    2  Setup at Speed Grade High-Performance_1.2V Corner at 100 Degrees
+        2.1  Clock Summary
+        2.2  Endpoint slacks
+        2.3  Detailed Report
+    3  Hold at Speed Grade m Corner at -40 Degrees
+        3.1  Endpoint slacks
+        3.2  Detailed Report
+
+=====================================================================
+                    End of Table of Contents
+=====================================================================
+
+==============================================
+1  Timing Overview
+==============================================
+
+1.1  SDC Constraints
+=====================
+create_clock -name {clk} -period 41.6667 [get_pins {u_clock_gen/u_hsosc/CLKHF }] 
+
+1.2  Constraint Coverage
+---------------------------
+Constraint Coverage: 85.6913%
+
+
+1.3  Overall Summary
+---------------------------
+ Setup at Speed Grade High-Performance_1.2V Corner at 100 Degrees     Timing Errors: 0 endpoints;  Total Negative Slack: 0.000 ns 
+ Hold at Speed Grade m Corner at -40 Degrees                          Timing Errors: 0 endpoints;  Total Negative Slack: 0.000 ns 
+
+1.4  Unconstrained Report
+===========================
+
+1.4.1  Unconstrained Start/End Points
+--------------------------------------
+
+Clocked but unconstrained timing start points
+-------------------------------------------------------------------
+         Listing 4 Start Points         |           Type           
+-------------------------------------------------------------------
+older_key_i0_i3/Q                       |          No required time
+older_key_i0_i2/Q                       |          No required time
+older_key_i0_i0/Q                       |          No required time
+older_key_i0_i1/Q                       |          No required time
+-------------------------------------------------------------------
+                                        |                          
+Number of unconstrained timing start po |                          
+ints                                    |                         4
+                                        |                          
+-------------------------------------------------------------------
+
+Clocked but unconstrained timing end points
+-------------------------------------------------------------------
+         Listing 10 End Points          |           Type           
+-------------------------------------------------------------------
+{recent_key_i0_i0/SR   recent_key_i0_i1/SR}                           
+                                        |           No arrival time
+{recent_key_i0_i3/SR   recent_key_i0_i2/SR}                           
+                                        |           No arrival time
+{u_keypad_scanner/key_code_i0_i0/SR   u_keypad_scanner/key_code_i0_i1/SR}                           
+                                        |           No arrival time
+{u_keypad_scanner/key_valid_c/SR   u_keypad_scanner/state__i1/SR}                           
+                                        |           No arrival time
+{u_keypad_scanner/row_sync_1_i0/SR   u_keypad_scanner/row_sync_1_i3/SR}                           
+                                        |           No arrival time
+{u_keypad_scanner/row_sync_1_i1/SR   u_keypad_scanner/row_sync_1_i2/SR}                           
+                                        |           No arrival time
+{u_keypad_scanner/col_idx_i0_i1/SR   u_keypad_scanner/col_idx_i0_i0/SR}                           
+                                        |           No arrival time
+u_keypad_scanner/row_sync_0_i3/D        |           No arrival time
+u_keypad_scanner/row_sync_0_i2/D        |           No arrival time
+{u_keypad_scanner/row_sync_0_i2/SR   u_keypad_scanner/row_sync_0_i3/SR}                           
+                                        |           No arrival time
+-------------------------------------------------------------------
+                                        |                          
+Number of unconstrained timing end poin |                          
+ts                                      |                        17
+                                        |                          
+-------------------------------------------------------------------
+
+1.4.2  Start/End Points Without Timing Constraints
+---------------------------------------------------
+
+I/O ports without constraint
+----------------------------
+Possible constraints to use on I/O ports are:
+set_input_delay,
+set_output_delay,
+set_max_delay,
+create_clock,
+create_generated_clock,
+...
+
+-------------------------------------------------------------------
+     Listing 10 Start or End Points     |           Type           
+-------------------------------------------------------------------
+rst_n                                   |                     input
+kp_rows[3]                              |                     input
+kp_rows[2]                              |                     input
+kp_rows[1]                              |                     input
+kp_rows[0]                              |                     input
+kp_cols[3]                              |                    output
+kp_cols[2]                              |                    output
+kp_cols[1]                              |                    output
+kp_cols[0]                              |                    output
+digit_select[1]                         |                    output
+-------------------------------------------------------------------
+                                        |                          
+Number of I/O ports without constraint  |                        18
+                                        |                          
+-------------------------------------------------------------------
+
+Nets without clock definition
+Define a clock on a top level port or a generated clock on a clock divider pin associated with this net(s).
+--------------------------------------------------
+There is no instance satisfying reporting criteria
+
+
+
+1.5  Combinational Loop
+========================
+None
+
+===============================================================
+2  Setup at Speed Grade High-Performance_1.2V Corner at 100 Degrees
+===============================================================
+
+2.1  Clock Summary
+=======================
+
+2.1.1 Clock "clk"
+=======================
+create_clock -name {clk} -period 41.6667 [get_pins {u_clock_gen/u_hsosc/CLKHF }] 
+
+Single Clock Domain
+-------------------------------------------------------------------------------------------------------
+               Clock clk                |                    |       Period       |     Frequency      
+-------------------------------------------------------------------------------------------------------
+ From clk                               |             Target |          41.667 ns |         24.000 MHz 
+                                        | Actual (all paths) |          20.792 ns |         48.095 MHz 
+u_clock_gen/u_hsosc/CLKHF (MPW)         |   (50% duty cycle) |          20.792 ns |         48.095 MHz 
+-------------------------------------------------------------------------------------------------------
+
+Clock Domain Crossing
+
+2.2  Endpoint slacks
+=======================
+-------------------------------------------------------
+          Listing 10 End Points          |    Slack    
+-------------------------------------------------------
+u_clock_gen/scan_cnt_109__i31/D          |   26.049 ns 
+u_clock_gen/mux_cnt_110__i31/D           |   26.049 ns 
+u_clock_gen/mux_cnt_110__i0/SR           |   26.585 ns 
+{u_clock_gen/mux_cnt_110__i1/SR   u_clock_gen/mux_cnt_110__i2/SR}              
+                                         |   26.585 ns 
+{u_clock_gen/mux_cnt_110__i3/SR   u_clock_gen/mux_cnt_110__i4/SR}              
+                                         |   26.585 ns 
+{u_clock_gen/mux_cnt_110__i5/SR   u_clock_gen/mux_cnt_110__i6/SR}              
+                                         |   26.585 ns 
+u_clock_gen/scan_cnt_109__i30/D          |   26.881 ns 
+u_clock_gen/mux_cnt_110__i30/D           |   26.881 ns 
+u_clock_gen/scan_cnt_109__i29/D          |   27.158 ns 
+u_clock_gen/mux_cnt_110__i29/D           |   27.158 ns 
+-------------------------------------------------------
+                                         |             
+Setup # of endpoints with negative slack:|           0 
+                                         |             
+-------------------------------------------------------
+
+2.3  Detailed Report
+=======================
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Detail report of critical paths
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_clock_gen/scan_cnt_109__i0/Q  (SLICE_R16C5A)
+Path End         : u_clock_gen/scan_cnt_109__i31/D  (SLICE_R16C9A)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 33
+Delay Ratio      : 31.8% (route), 68.2% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 41.666 ns 
+Path Slack       : 26.048 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                  0.000  50      
+u_display_mux/clk                                            NET DELAY               5.499                  5.499  50      
+u_clock_gen/scan_cnt_109__i0/CK                              CLOCK PIN               0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+u_clock_gen/scan_cnt_109__i0/CK->u_clock_gen/scan_cnt_109__i0/Q
+                                          SLICE_R16C5A       CLK_TO_Q1_DELAY         1.388                  6.887  2       
+u_clock_gen/scan_cnt[0]                                      NET DELAY               2.022                  8.909  2       
+u_clock_gen/scan_cnt_109_add_4_1/C1->u_clock_gen/scan_cnt_109_add_4_1/CO1
+                                          SLICE_R16C5A       C1_TO_COUT1_DELAY       0.343                  9.252  2       
+u_clock_gen/n866                                             NET DELAY               0.000                  9.252  2       
+u_clock_gen/scan_cnt_109_add_4_3/CI0->u_clock_gen/scan_cnt_109_add_4_3/CO0
+                                          SLICE_R16C5B       CIN0_TO_COUT0_DELAY     0.277                  9.529  2       
+u_clock_gen/n2138                                            NET DELAY               0.000                  9.529  2       
+u_clock_gen/scan_cnt_109_add_4_3/CI1->u_clock_gen/scan_cnt_109_add_4_3/CO1
+                                          SLICE_R16C5B       CIN1_TO_COUT1_DELAY     0.277                  9.806  2       
+u_clock_gen/n868                                             NET DELAY               0.000                  9.806  2       
+u_clock_gen/scan_cnt_109_add_4_5/CI0->u_clock_gen/scan_cnt_109_add_4_5/CO0
+                                          SLICE_R16C5C       CIN0_TO_COUT0_DELAY     0.277                 10.083  2       
+u_clock_gen/n2141                                            NET DELAY               0.000                 10.083  2       
+u_clock_gen/scan_cnt_109_add_4_5/CI1->u_clock_gen/scan_cnt_109_add_4_5/CO1
+                                          SLICE_R16C5C       CIN1_TO_COUT1_DELAY     0.277                 10.360  2       
+u_clock_gen/n870                                             NET DELAY               0.000                 10.360  2       
+u_clock_gen/scan_cnt_109_add_4_7/CI0->u_clock_gen/scan_cnt_109_add_4_7/CO0
+                                          SLICE_R16C5D       CIN0_TO_COUT0_DELAY     0.277                 10.637  2       
+u_clock_gen/n2144                                            NET DELAY               0.000                 10.637  2       
+u_clock_gen/scan_cnt_109_add_4_7/CI1->u_clock_gen/scan_cnt_109_add_4_7/CO1
+                                          SLICE_R16C5D       CIN1_TO_COUT1_DELAY     0.277                 10.914  2       
+u_clock_gen/n872                                             NET DELAY               0.555                 11.469  2       
+u_clock_gen/scan_cnt_109_add_4_9/CI0->u_clock_gen/scan_cnt_109_add_4_9/CO0
+                                          SLICE_R16C6A       CIN0_TO_COUT0_DELAY     0.277                 11.746  2       
+u_clock_gen/n2147                                            NET DELAY               0.000                 11.746  2       
+u_clock_gen/scan_cnt_109_add_4_9/CI1->u_clock_gen/scan_cnt_109_add_4_9/CO1
+                                          SLICE_R16C6A       CIN1_TO_COUT1_DELAY     0.277                 12.023  2       
+u_clock_gen/n874                                             NET DELAY               0.000                 12.023  2       
+u_clock_gen/scan_cnt_109_add_4_11/CI0->u_clock_gen/scan_cnt_109_add_4_11/CO0
+                                          SLICE_R16C6B       CIN0_TO_COUT0_DELAY     0.277                 12.300  2       
+u_clock_gen/n2150                                            NET DELAY               0.000                 12.300  2       
+u_clock_gen/scan_cnt_109_add_4_11/CI1->u_clock_gen/scan_cnt_109_add_4_11/CO1
+                                          SLICE_R16C6B       CIN1_TO_COUT1_DELAY     0.277                 12.577  2       
+u_clock_gen/n876                                             NET DELAY               0.000                 12.577  2       
+u_clock_gen/scan_cnt_109_add_4_13/CI0->u_clock_gen/scan_cnt_109_add_4_13/CO0
+                                          SLICE_R16C6C       CIN0_TO_COUT0_DELAY     0.277                 12.854  2       
+u_clock_gen/n2153                                            NET DELAY               0.000                 12.854  2       
+u_clock_gen/scan_cnt_109_add_4_13/CI1->u_clock_gen/scan_cnt_109_add_4_13/CO1
+                                          SLICE_R16C6C       CIN1_TO_COUT1_DELAY     0.277                 13.131  2       
+u_clock_gen/n878                                             NET DELAY               0.000                 13.131  2       
+u_clock_gen/scan_cnt_109_add_4_15/CI0->u_clock_gen/scan_cnt_109_add_4_15/CO0
+                                          SLICE_R16C6D       CIN0_TO_COUT0_DELAY     0.277                 13.408  2       
+u_clock_gen/n2156                                            NET DELAY               0.000                 13.408  2       
+u_clock_gen/scan_cnt_109_add_4_15/CI1->u_clock_gen/scan_cnt_109_add_4_15/CO1
+                                          SLICE_R16C6D       CIN1_TO_COUT1_DELAY     0.277                 13.685  2       
+u_clock_gen/n880                                             NET DELAY               0.555                 14.240  2       
+u_clock_gen/scan_cnt_109_add_4_17/CI0->u_clock_gen/scan_cnt_109_add_4_17/CO0
+                                          SLICE_R16C7A       CIN0_TO_COUT0_DELAY     0.277                 14.517  2       
+u_clock_gen/n2159                                            NET DELAY               0.000                 14.517  2       
+u_clock_gen/scan_cnt_109_add_4_17/CI1->u_clock_gen/scan_cnt_109_add_4_17/CO1
+                                          SLICE_R16C7A       CIN1_TO_COUT1_DELAY     0.277                 14.794  2       
+u_clock_gen/n882                                             NET DELAY               0.000                 14.794  2       
+u_clock_gen/scan_cnt_109_add_4_19/CI0->u_clock_gen/scan_cnt_109_add_4_19/CO0
+                                          SLICE_R16C7B       CIN0_TO_COUT0_DELAY     0.277                 15.071  2       
+u_clock_gen/n2162                                            NET DELAY               0.000                 15.071  2       
+u_clock_gen/scan_cnt_109_add_4_19/CI1->u_clock_gen/scan_cnt_109_add_4_19/CO1
+                                          SLICE_R16C7B       CIN1_TO_COUT1_DELAY     0.277                 15.348  2       
+u_clock_gen/n884                                             NET DELAY               0.000                 15.348  2       
+u_clock_gen/scan_cnt_109_add_4_21/CI0->u_clock_gen/scan_cnt_109_add_4_21/CO0
+                                          SLICE_R16C7C       CIN0_TO_COUT0_DELAY     0.277                 15.625  2       
+u_clock_gen/n2165                                            NET DELAY               0.000                 15.625  2       
+u_clock_gen/scan_cnt_109_add_4_21/CI1->u_clock_gen/scan_cnt_109_add_4_21/CO1
+                                          SLICE_R16C7C       CIN1_TO_COUT1_DELAY     0.277                 15.902  2       
+u_clock_gen/n886                                             NET DELAY               0.000                 15.902  2       
+u_clock_gen/scan_cnt_109_add_4_23/CI0->u_clock_gen/scan_cnt_109_add_4_23/CO0
+                                          SLICE_R16C7D       CIN0_TO_COUT0_DELAY     0.277                 16.179  2       
+u_clock_gen/n2168                                            NET DELAY               0.000                 16.179  2       
+u_clock_gen/scan_cnt_109_add_4_23/CI1->u_clock_gen/scan_cnt_109_add_4_23/CO1
+                                          SLICE_R16C7D       CIN1_TO_COUT1_DELAY     0.277                 16.456  2       
+u_clock_gen/n888                                             NET DELAY               0.555                 17.011  2       
+u_clock_gen/scan_cnt_109_add_4_25/CI0->u_clock_gen/scan_cnt_109_add_4_25/CO0
+                                          SLICE_R16C8A       CIN0_TO_COUT0_DELAY     0.277                 17.288  2       
+u_clock_gen/n2171                                            NET DELAY               0.000                 17.288  2       
+u_clock_gen/scan_cnt_109_add_4_25/CI1->u_clock_gen/scan_cnt_109_add_4_25/CO1
+                                          SLICE_R16C8A       CIN1_TO_COUT1_DELAY     0.277                 17.565  2       
+u_clock_gen/n890                                             NET DELAY               0.000                 17.565  2       
+u_clock_gen/scan_cnt_109_add_4_27/CI0->u_clock_gen/scan_cnt_109_add_4_27/CO0
+                                          SLICE_R16C8B       CIN0_TO_COUT0_DELAY     0.277                 17.842  2       
+u_clock_gen/n2174                                            NET DELAY               0.000                 17.842  2       
+u_clock_gen/scan_cnt_109_add_4_27/CI1->u_clock_gen/scan_cnt_109_add_4_27/CO1
+                                          SLICE_R16C8B       CIN1_TO_COUT1_DELAY     0.277                 18.119  2       
+u_clock_gen/n892                                             NET DELAY               0.000                 18.119  2       
+u_clock_gen/scan_cnt_109_add_4_29/CI0->u_clock_gen/scan_cnt_109_add_4_29/CO0
+                                          SLICE_R16C8C       CIN0_TO_COUT0_DELAY     0.277                 18.396  2       
+u_clock_gen/n2177                                            NET DELAY               0.000                 18.396  2       
+u_clock_gen/scan_cnt_109_add_4_29/CI1->u_clock_gen/scan_cnt_109_add_4_29/CO1
+                                          SLICE_R16C8C       CIN1_TO_COUT1_DELAY     0.277                 18.673  2       
+u_clock_gen/n894                                             NET DELAY               0.000                 18.673  2       
+u_clock_gen/scan_cnt_109_add_4_31/CI0->u_clock_gen/scan_cnt_109_add_4_31/CO0
+                                          SLICE_R16C8D       CIN0_TO_COUT0_DELAY     0.277                 18.950  2       
+u_clock_gen/n2180                                            NET DELAY               0.000                 18.950  2       
+u_clock_gen/scan_cnt_109_add_4_31/CI1->u_clock_gen/scan_cnt_109_add_4_31/CO1
+                                          SLICE_R16C8D       CIN1_TO_COUT1_DELAY     0.277                 19.227  2       
+u_clock_gen/n896                                             NET DELAY               1.216                 20.443  2       
+u_clock_gen/scan_cnt_109_add_4_33/D0->u_clock_gen/scan_cnt_109_add_4_33/S0
+                                          SLICE_R16C9A       D0_TO_F0_DELAY          0.476                 20.919  1       
+u_clock_gen/n133_adj_130[31]                                 NET DELAY               0.000                 20.919  1       
+u_clock_gen/scan_cnt_109__i31/D                              ENDPOINT                0.000                 20.919  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+                                                             CONSTRAINT              0.000                 41.666  1       
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                 41.666  50      
+u_display_mux/clk                                            NET DELAY               5.499                 47.165  50      
+u_clock_gen/scan_cnt_109__i31/CK                             CLOCK PIN               0.000                 47.165  1       
+                                                             Uncertainty          -(0.000)                 47.165  
+                                                             Setup time           -(0.198)                 46.967  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Required Time                                                                                              46.967  
+Arrival Time                                                                                            -(20.918)  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                       26.048  
+
+
+
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_clock_gen/mux_cnt_110__i0/Q  (SLICE_R5C5A)
+Path End         : u_clock_gen/mux_cnt_110__i31/D  (SLICE_R5C9A)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 33
+Delay Ratio      : 31.8% (route), 68.2% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 41.666 ns 
+Path Slack       : 26.048 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                  0.000  50      
+u_display_mux/clk                                            NET DELAY               5.499                  5.499  50      
+u_clock_gen/mux_cnt_110__i0/CK                               CLOCK PIN               0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+u_clock_gen/mux_cnt_110__i0/CK->u_clock_gen/mux_cnt_110__i0/Q
+                                          SLICE_R5C5A        CLK_TO_Q1_DELAY         1.388                  6.887  2       
+u_clock_gen/mux_cnt[0]                                       NET DELAY               2.022                  8.909  2       
+u_clock_gen/mux_cnt_110_add_4_1/C1->u_clock_gen/mux_cnt_110_add_4_1/CO1
+                                          SLICE_R5C5A        C1_TO_COUT1_DELAY       0.343                  9.252  2       
+u_clock_gen/n899                                             NET DELAY               0.000                  9.252  2       
+u_clock_gen/mux_cnt_110_add_4_3/CI0->u_clock_gen/mux_cnt_110_add_4_3/CO0
+                                          SLICE_R5C5B        CIN0_TO_COUT0_DELAY     0.277                  9.529  2       
+u_clock_gen/n2090                                            NET DELAY               0.000                  9.529  2       
+u_clock_gen/mux_cnt_110_add_4_3/CI1->u_clock_gen/mux_cnt_110_add_4_3/CO1
+                                          SLICE_R5C5B        CIN1_TO_COUT1_DELAY     0.277                  9.806  2       
+u_clock_gen/n901                                             NET DELAY               0.000                  9.806  2       
+u_clock_gen/mux_cnt_110_add_4_5/CI0->u_clock_gen/mux_cnt_110_add_4_5/CO0
+                                          SLICE_R5C5C        CIN0_TO_COUT0_DELAY     0.277                 10.083  2       
+u_clock_gen/n2093                                            NET DELAY               0.000                 10.083  2       
+u_clock_gen/mux_cnt_110_add_4_5/CI1->u_clock_gen/mux_cnt_110_add_4_5/CO1
+                                          SLICE_R5C5C        CIN1_TO_COUT1_DELAY     0.277                 10.360  2       
+u_clock_gen/n903                                             NET DELAY               0.000                 10.360  2       
+u_clock_gen/mux_cnt_110_add_4_7/CI0->u_clock_gen/mux_cnt_110_add_4_7/CO0
+                                          SLICE_R5C5D        CIN0_TO_COUT0_DELAY     0.277                 10.637  2       
+u_clock_gen/n2096                                            NET DELAY               0.000                 10.637  2       
+u_clock_gen/mux_cnt_110_add_4_7/CI1->u_clock_gen/mux_cnt_110_add_4_7/CO1
+                                          SLICE_R5C5D        CIN1_TO_COUT1_DELAY     0.277                 10.914  2       
+u_clock_gen/n905                                             NET DELAY               0.555                 11.469  2       
+u_clock_gen/mux_cnt_110_add_4_9/CI0->u_clock_gen/mux_cnt_110_add_4_9/CO0
+                                          SLICE_R5C6A        CIN0_TO_COUT0_DELAY     0.277                 11.746  2       
+u_clock_gen/n2099                                            NET DELAY               0.000                 11.746  2       
+u_clock_gen/mux_cnt_110_add_4_9/CI1->u_clock_gen/mux_cnt_110_add_4_9/CO1
+                                          SLICE_R5C6A        CIN1_TO_COUT1_DELAY     0.277                 12.023  2       
+u_clock_gen/n907                                             NET DELAY               0.000                 12.023  2       
+u_clock_gen/mux_cnt_110_add_4_11/CI0->u_clock_gen/mux_cnt_110_add_4_11/CO0
+                                          SLICE_R5C6B        CIN0_TO_COUT0_DELAY     0.277                 12.300  2       
+u_clock_gen/n2102                                            NET DELAY               0.000                 12.300  2       
+u_clock_gen/mux_cnt_110_add_4_11/CI1->u_clock_gen/mux_cnt_110_add_4_11/CO1
+                                          SLICE_R5C6B        CIN1_TO_COUT1_DELAY     0.277                 12.577  2       
+u_clock_gen/n909                                             NET DELAY               0.000                 12.577  2       
+u_clock_gen/mux_cnt_110_add_4_13/CI0->u_clock_gen/mux_cnt_110_add_4_13/CO0
+                                          SLICE_R5C6C        CIN0_TO_COUT0_DELAY     0.277                 12.854  2       
+u_clock_gen/n2105                                            NET DELAY               0.000                 12.854  2       
+u_clock_gen/mux_cnt_110_add_4_13/CI1->u_clock_gen/mux_cnt_110_add_4_13/CO1
+                                          SLICE_R5C6C        CIN1_TO_COUT1_DELAY     0.277                 13.131  2       
+u_clock_gen/n911                                             NET DELAY               0.000                 13.131  2       
+u_clock_gen/mux_cnt_110_add_4_15/CI0->u_clock_gen/mux_cnt_110_add_4_15/CO0
+                                          SLICE_R5C6D        CIN0_TO_COUT0_DELAY     0.277                 13.408  2       
+u_clock_gen/n2108                                            NET DELAY               0.000                 13.408  2       
+u_clock_gen/mux_cnt_110_add_4_15/CI1->u_clock_gen/mux_cnt_110_add_4_15/CO1
+                                          SLICE_R5C6D        CIN1_TO_COUT1_DELAY     0.277                 13.685  2       
+u_clock_gen/n913                                             NET DELAY               0.555                 14.240  2       
+u_clock_gen/mux_cnt_110_add_4_17/CI0->u_clock_gen/mux_cnt_110_add_4_17/CO0
+                                          SLICE_R5C7A        CIN0_TO_COUT0_DELAY     0.277                 14.517  2       
+u_clock_gen/n2111                                            NET DELAY               0.000                 14.517  2       
+u_clock_gen/mux_cnt_110_add_4_17/CI1->u_clock_gen/mux_cnt_110_add_4_17/CO1
+                                          SLICE_R5C7A        CIN1_TO_COUT1_DELAY     0.277                 14.794  2       
+u_clock_gen/n915                                             NET DELAY               0.000                 14.794  2       
+u_clock_gen/mux_cnt_110_add_4_19/CI0->u_clock_gen/mux_cnt_110_add_4_19/CO0
+                                          SLICE_R5C7B        CIN0_TO_COUT0_DELAY     0.277                 15.071  2       
+u_clock_gen/n2114                                            NET DELAY               0.000                 15.071  2       
+u_clock_gen/mux_cnt_110_add_4_19/CI1->u_clock_gen/mux_cnt_110_add_4_19/CO1
+                                          SLICE_R5C7B        CIN1_TO_COUT1_DELAY     0.277                 15.348  2       
+u_clock_gen/n917                                             NET DELAY               0.000                 15.348  2       
+u_clock_gen/mux_cnt_110_add_4_21/CI0->u_clock_gen/mux_cnt_110_add_4_21/CO0
+                                          SLICE_R5C7C        CIN0_TO_COUT0_DELAY     0.277                 15.625  2       
+u_clock_gen/n2117                                            NET DELAY               0.000                 15.625  2       
+u_clock_gen/mux_cnt_110_add_4_21/CI1->u_clock_gen/mux_cnt_110_add_4_21/CO1
+                                          SLICE_R5C7C        CIN1_TO_COUT1_DELAY     0.277                 15.902  2       
+u_clock_gen/n919                                             NET DELAY               0.000                 15.902  2       
+u_clock_gen/mux_cnt_110_add_4_23/CI0->u_clock_gen/mux_cnt_110_add_4_23/CO0
+                                          SLICE_R5C7D        CIN0_TO_COUT0_DELAY     0.277                 16.179  2       
+u_clock_gen/n2120                                            NET DELAY               0.000                 16.179  2       
+u_clock_gen/mux_cnt_110_add_4_23/CI1->u_clock_gen/mux_cnt_110_add_4_23/CO1
+                                          SLICE_R5C7D        CIN1_TO_COUT1_DELAY     0.277                 16.456  2       
+u_clock_gen/n921                                             NET DELAY               0.555                 17.011  2       
+u_clock_gen/mux_cnt_110_add_4_25/CI0->u_clock_gen/mux_cnt_110_add_4_25/CO0
+                                          SLICE_R5C8A        CIN0_TO_COUT0_DELAY     0.277                 17.288  2       
+u_clock_gen/n2123                                            NET DELAY               0.000                 17.288  2       
+u_clock_gen/mux_cnt_110_add_4_25/CI1->u_clock_gen/mux_cnt_110_add_4_25/CO1
+                                          SLICE_R5C8A        CIN1_TO_COUT1_DELAY     0.277                 17.565  2       
+u_clock_gen/n923                                             NET DELAY               0.000                 17.565  2       
+u_clock_gen/mux_cnt_110_add_4_27/CI0->u_clock_gen/mux_cnt_110_add_4_27/CO0
+                                          SLICE_R5C8B        CIN0_TO_COUT0_DELAY     0.277                 17.842  2       
+u_clock_gen/n2126                                            NET DELAY               0.000                 17.842  2       
+u_clock_gen/mux_cnt_110_add_4_27/CI1->u_clock_gen/mux_cnt_110_add_4_27/CO1
+                                          SLICE_R5C8B        CIN1_TO_COUT1_DELAY     0.277                 18.119  2       
+u_clock_gen/n925                                             NET DELAY               0.000                 18.119  2       
+u_clock_gen/mux_cnt_110_add_4_29/CI0->u_clock_gen/mux_cnt_110_add_4_29/CO0
+                                          SLICE_R5C8C        CIN0_TO_COUT0_DELAY     0.277                 18.396  2       
+u_clock_gen/n2129                                            NET DELAY               0.000                 18.396  2       
+u_clock_gen/mux_cnt_110_add_4_29/CI1->u_clock_gen/mux_cnt_110_add_4_29/CO1
+                                          SLICE_R5C8C        CIN1_TO_COUT1_DELAY     0.277                 18.673  2       
+u_clock_gen/n927                                             NET DELAY               0.000                 18.673  2       
+u_clock_gen/mux_cnt_110_add_4_31/CI0->u_clock_gen/mux_cnt_110_add_4_31/CO0
+                                          SLICE_R5C8D        CIN0_TO_COUT0_DELAY     0.277                 18.950  2       
+u_clock_gen/n2132                                            NET DELAY               0.000                 18.950  2       
+u_clock_gen/mux_cnt_110_add_4_31/CI1->u_clock_gen/mux_cnt_110_add_4_31/CO1
+                                          SLICE_R5C8D        CIN1_TO_COUT1_DELAY     0.277                 19.227  2       
+u_clock_gen/n929                                             NET DELAY               1.216                 20.443  2       
+u_clock_gen/mux_cnt_110_add_4_33/D0->u_clock_gen/mux_cnt_110_add_4_33/S0
+                                          SLICE_R5C9A        D0_TO_F0_DELAY          0.476                 20.919  1       
+u_clock_gen/n133[31]                                         NET DELAY               0.000                 20.919  1       
+u_clock_gen/mux_cnt_110__i31/D                               ENDPOINT                0.000                 20.919  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+                                                             CONSTRAINT              0.000                 41.666  1       
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                 41.666  50      
+u_display_mux/clk                                            NET DELAY               5.499                 47.165  50      
+u_clock_gen/mux_cnt_110__i31/CK                              CLOCK PIN               0.000                 47.165  1       
+                                                             Uncertainty          -(0.000)                 47.165  
+                                                             Setup time           -(0.198)                 46.967  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Required Time                                                                                              46.967  
+Arrival Time                                                                                            -(20.918)  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                       26.048  
+
+
+
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_clock_gen/mux_cnt_110__i9/Q  (SLICE_R5C6B)
+Path End         : u_clock_gen/mux_cnt_110__i0/SR  (SLICE_R5C5A)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 7
+Delay Ratio      : 71.2% (route), 28.8% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 41.666 ns 
+Path Slack       : 26.584 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  50      
+u_display_mux/clk                                            NET DELAY           5.499                  5.499  50      
+{u_clock_gen/mux_cnt_110__i9/CK   u_clock_gen/mux_cnt_110__i10/CK}
+                                                             CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+u_clock_gen/mux_cnt_110__i9/CK->u_clock_gen/mux_cnt_110__i9/Q
+                                          SLICE_R5C6B        CLK_TO_Q0_DELAY     1.388                  6.887  2       
+u_clock_gen/mux_cnt[9]                                       NET DELAY           2.736                  9.623  2       
+u_clock_gen/i15_4_lut/C->u_clock_gen/i15_4_lut/Z
+                                          SLICE_R6C8B        A0_TO_F0_DELAY      0.449                 10.072  1       
+u_clock_gen/n35                                              NET DELAY           2.485                 12.557  1       
+u_clock_gen/i18_3_lut/A->u_clock_gen/i18_3_lut/Z
+                                          SLICE_R6C7A        B1_TO_F1_DELAY      0.476                 13.033  1       
+u_clock_gen/n38_adj_132                                      NET DELAY           0.304                 13.337  1       
+u_clock_gen/i1_4_lut_adj_1/C->u_clock_gen/i1_4_lut_adj_1/Z
+                                          SLICE_R6C7B        C0_TO_F0_DELAY      0.476                 13.813  1       
+u_clock_gen/n14_adj_136                                      NET DELAY           0.304                 14.117  1       
+u_clock_gen/i10_4_lut_adj_2/D->u_clock_gen/i10_4_lut_adj_2/Z
+                                          SLICE_R6C7B        C1_TO_F1_DELAY      0.476                 14.593  1       
+u_clock_gen/n23_adj_137                                      NET DELAY           0.304                 14.897  1       
+u_clock_gen/i5_3_lut_adj_3/B->u_clock_gen/i5_3_lut_adj_3/Z
+                                          SLICE_R6C7C        C0_TO_F0_DELAY      0.476                 15.373  2       
+u_clock_gen/n14_adj_138                                      NET DELAY           0.304                 15.677  2       
+u_clock_gen/i8_4_lut_adj_5/C->u_clock_gen/i8_4_lut_adj_5/Z
+                                          SLICE_R6C7C        C1_TO_F1_DELAY      0.449                 16.126  17      
+u_clock_gen/mux_tick_N_127                                   NET DELAY           3.926                 20.052  17      
+u_clock_gen/mux_cnt_110__i0/SR                               ENDPOINT            0.000                 20.052  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 41.666  1       
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 41.666  50      
+u_display_mux/clk                                            NET DELAY           5.499                 47.165  50      
+u_clock_gen/mux_cnt_110__i0/CK                               CLOCK PIN           0.000                 47.165  1       
+                                                             Uncertainty      -(0.000)                 47.165  
+                                                             Setup time       -(0.529)                 46.636  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          46.636  
+Arrival Time                                                                                        -(20.051)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                   26.584  
+
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_clock_gen/mux_cnt_110__i9/Q  (SLICE_R5C6B)
+Path End         : {u_clock_gen/mux_cnt_110__i1/SR   u_clock_gen/mux_cnt_110__i2/SR}  (SLICE_R5C5B)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 7
+Delay Ratio      : 71.2% (route), 28.8% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 41.666 ns 
+Path Slack       : 26.584 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  50      
+u_display_mux/clk                                            NET DELAY           5.499                  5.499  50      
+{u_clock_gen/mux_cnt_110__i9/CK   u_clock_gen/mux_cnt_110__i10/CK}
+                                                             CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+u_clock_gen/mux_cnt_110__i9/CK->u_clock_gen/mux_cnt_110__i9/Q
+                                          SLICE_R5C6B        CLK_TO_Q0_DELAY     1.388                  6.887  2       
+u_clock_gen/mux_cnt[9]                                       NET DELAY           2.736                  9.623  2       
+u_clock_gen/i15_4_lut/C->u_clock_gen/i15_4_lut/Z
+                                          SLICE_R6C8B        A0_TO_F0_DELAY      0.449                 10.072  1       
+u_clock_gen/n35                                              NET DELAY           2.485                 12.557  1       
+u_clock_gen/i18_3_lut/A->u_clock_gen/i18_3_lut/Z
+                                          SLICE_R6C7A        B1_TO_F1_DELAY      0.476                 13.033  1       
+u_clock_gen/n38_adj_132                                      NET DELAY           0.304                 13.337  1       
+u_clock_gen/i1_4_lut_adj_1/C->u_clock_gen/i1_4_lut_adj_1/Z
+                                          SLICE_R6C7B        C0_TO_F0_DELAY      0.476                 13.813  1       
+u_clock_gen/n14_adj_136                                      NET DELAY           0.304                 14.117  1       
+u_clock_gen/i10_4_lut_adj_2/D->u_clock_gen/i10_4_lut_adj_2/Z
+                                          SLICE_R6C7B        C1_TO_F1_DELAY      0.476                 14.593  1       
+u_clock_gen/n23_adj_137                                      NET DELAY           0.304                 14.897  1       
+u_clock_gen/i5_3_lut_adj_3/B->u_clock_gen/i5_3_lut_adj_3/Z
+                                          SLICE_R6C7C        C0_TO_F0_DELAY      0.476                 15.373  2       
+u_clock_gen/n14_adj_138                                      NET DELAY           0.304                 15.677  2       
+u_clock_gen/i8_4_lut_adj_5/C->u_clock_gen/i8_4_lut_adj_5/Z
+                                          SLICE_R6C7C        C1_TO_F1_DELAY      0.449                 16.126  17      
+u_clock_gen/mux_tick_N_127                                   NET DELAY           3.926                 20.052  17      
+{u_clock_gen/mux_cnt_110__i1/SR   u_clock_gen/mux_cnt_110__i2/SR}
+                                                             ENDPOINT            0.000                 20.052  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 41.666  1       
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 41.666  50      
+u_display_mux/clk                                            NET DELAY           5.499                 47.165  50      
+{u_clock_gen/mux_cnt_110__i1/CK   u_clock_gen/mux_cnt_110__i2/CK}
+                                                             CLOCK PIN           0.000                 47.165  1       
+                                                             Uncertainty      -(0.000)                 47.165  
+                                                             Setup time       -(0.529)                 46.636  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          46.636  
+Arrival Time                                                                                        -(20.051)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                   26.584  
+
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_clock_gen/mux_cnt_110__i9/Q  (SLICE_R5C6B)
+Path End         : {u_clock_gen/mux_cnt_110__i3/SR   u_clock_gen/mux_cnt_110__i4/SR}  (SLICE_R5C5C)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 7
+Delay Ratio      : 71.2% (route), 28.8% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 41.666 ns 
+Path Slack       : 26.584 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  50      
+u_display_mux/clk                                            NET DELAY           5.499                  5.499  50      
+{u_clock_gen/mux_cnt_110__i9/CK   u_clock_gen/mux_cnt_110__i10/CK}
+                                                             CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+u_clock_gen/mux_cnt_110__i9/CK->u_clock_gen/mux_cnt_110__i9/Q
+                                          SLICE_R5C6B        CLK_TO_Q0_DELAY     1.388                  6.887  2       
+u_clock_gen/mux_cnt[9]                                       NET DELAY           2.736                  9.623  2       
+u_clock_gen/i15_4_lut/C->u_clock_gen/i15_4_lut/Z
+                                          SLICE_R6C8B        A0_TO_F0_DELAY      0.449                 10.072  1       
+u_clock_gen/n35                                              NET DELAY           2.485                 12.557  1       
+u_clock_gen/i18_3_lut/A->u_clock_gen/i18_3_lut/Z
+                                          SLICE_R6C7A        B1_TO_F1_DELAY      0.476                 13.033  1       
+u_clock_gen/n38_adj_132                                      NET DELAY           0.304                 13.337  1       
+u_clock_gen/i1_4_lut_adj_1/C->u_clock_gen/i1_4_lut_adj_1/Z
+                                          SLICE_R6C7B        C0_TO_F0_DELAY      0.476                 13.813  1       
+u_clock_gen/n14_adj_136                                      NET DELAY           0.304                 14.117  1       
+u_clock_gen/i10_4_lut_adj_2/D->u_clock_gen/i10_4_lut_adj_2/Z
+                                          SLICE_R6C7B        C1_TO_F1_DELAY      0.476                 14.593  1       
+u_clock_gen/n23_adj_137                                      NET DELAY           0.304                 14.897  1       
+u_clock_gen/i5_3_lut_adj_3/B->u_clock_gen/i5_3_lut_adj_3/Z
+                                          SLICE_R6C7C        C0_TO_F0_DELAY      0.476                 15.373  2       
+u_clock_gen/n14_adj_138                                      NET DELAY           0.304                 15.677  2       
+u_clock_gen/i8_4_lut_adj_5/C->u_clock_gen/i8_4_lut_adj_5/Z
+                                          SLICE_R6C7C        C1_TO_F1_DELAY      0.449                 16.126  17      
+u_clock_gen/mux_tick_N_127                                   NET DELAY           3.926                 20.052  17      
+{u_clock_gen/mux_cnt_110__i3/SR   u_clock_gen/mux_cnt_110__i4/SR}
+                                                             ENDPOINT            0.000                 20.052  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 41.666  1       
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 41.666  50      
+u_display_mux/clk                                            NET DELAY           5.499                 47.165  50      
+{u_clock_gen/mux_cnt_110__i3/CK   u_clock_gen/mux_cnt_110__i4/CK}
+                                                             CLOCK PIN           0.000                 47.165  1       
+                                                             Uncertainty      -(0.000)                 47.165  
+                                                             Setup time       -(0.529)                 46.636  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          46.636  
+Arrival Time                                                                                        -(20.051)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                   26.584  
+
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_clock_gen/mux_cnt_110__i9/Q  (SLICE_R5C6B)
+Path End         : {u_clock_gen/mux_cnt_110__i5/SR   u_clock_gen/mux_cnt_110__i6/SR}  (SLICE_R5C5D)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 7
+Delay Ratio      : 71.2% (route), 28.8% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 41.666 ns 
+Path Slack       : 26.584 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                  0.000  50      
+u_display_mux/clk                                            NET DELAY           5.499                  5.499  50      
+{u_clock_gen/mux_cnt_110__i9/CK   u_clock_gen/mux_cnt_110__i10/CK}
+                                                             CLOCK PIN           0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+u_clock_gen/mux_cnt_110__i9/CK->u_clock_gen/mux_cnt_110__i9/Q
+                                          SLICE_R5C6B        CLK_TO_Q0_DELAY     1.388                  6.887  2       
+u_clock_gen/mux_cnt[9]                                       NET DELAY           2.736                  9.623  2       
+u_clock_gen/i15_4_lut/C->u_clock_gen/i15_4_lut/Z
+                                          SLICE_R6C8B        A0_TO_F0_DELAY      0.449                 10.072  1       
+u_clock_gen/n35                                              NET DELAY           2.485                 12.557  1       
+u_clock_gen/i18_3_lut/A->u_clock_gen/i18_3_lut/Z
+                                          SLICE_R6C7A        B1_TO_F1_DELAY      0.476                 13.033  1       
+u_clock_gen/n38_adj_132                                      NET DELAY           0.304                 13.337  1       
+u_clock_gen/i1_4_lut_adj_1/C->u_clock_gen/i1_4_lut_adj_1/Z
+                                          SLICE_R6C7B        C0_TO_F0_DELAY      0.476                 13.813  1       
+u_clock_gen/n14_adj_136                                      NET DELAY           0.304                 14.117  1       
+u_clock_gen/i10_4_lut_adj_2/D->u_clock_gen/i10_4_lut_adj_2/Z
+                                          SLICE_R6C7B        C1_TO_F1_DELAY      0.476                 14.593  1       
+u_clock_gen/n23_adj_137                                      NET DELAY           0.304                 14.897  1       
+u_clock_gen/i5_3_lut_adj_3/B->u_clock_gen/i5_3_lut_adj_3/Z
+                                          SLICE_R6C7C        C0_TO_F0_DELAY      0.476                 15.373  2       
+u_clock_gen/n14_adj_138                                      NET DELAY           0.304                 15.677  2       
+u_clock_gen/i8_4_lut_adj_5/C->u_clock_gen/i8_4_lut_adj_5/Z
+                                          SLICE_R6C7C        C1_TO_F1_DELAY      0.449                 16.126  17      
+u_clock_gen/mux_tick_N_127                                   NET DELAY           3.926                 20.052  17      
+{u_clock_gen/mux_cnt_110__i5/SR   u_clock_gen/mux_cnt_110__i6/SR}
+                                                             ENDPOINT            0.000                 20.052  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+                                                             CONSTRAINT          0.000                 41.666  1       
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY       0.000                 41.666  50      
+u_display_mux/clk                                            NET DELAY           5.499                 47.165  50      
+{u_clock_gen/mux_cnt_110__i5/CK   u_clock_gen/mux_cnt_110__i6/CK}
+                                                             CLOCK PIN           0.000                 47.165  1       
+                                                             Uncertainty      -(0.000)                 47.165  
+                                                             Setup time       -(0.529)                 46.636  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                          46.636  
+Arrival Time                                                                                        -(20.051)  
+----------------------------------------  -----------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                   26.584  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_clock_gen/scan_cnt_109__i0/Q  (SLICE_R16C5A)
+Path End         : u_clock_gen/scan_cnt_109__i30/D  (SLICE_R16C8D)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 32
+Delay Ratio      : 29.8% (route), 70.2% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 41.666 ns 
+Path Slack       : 26.880 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                  0.000  50      
+u_display_mux/clk                                            NET DELAY               5.499                  5.499  50      
+u_clock_gen/scan_cnt_109__i0/CK                              CLOCK PIN               0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+u_clock_gen/scan_cnt_109__i0/CK->u_clock_gen/scan_cnt_109__i0/Q
+                                          SLICE_R16C5A       CLK_TO_Q1_DELAY         1.388                  6.887  2       
+u_clock_gen/scan_cnt[0]                                      NET DELAY               2.022                  8.909  2       
+u_clock_gen/scan_cnt_109_add_4_1/C1->u_clock_gen/scan_cnt_109_add_4_1/CO1
+                                          SLICE_R16C5A       C1_TO_COUT1_DELAY       0.343                  9.252  2       
+u_clock_gen/n866                                             NET DELAY               0.000                  9.252  2       
+u_clock_gen/scan_cnt_109_add_4_3/CI0->u_clock_gen/scan_cnt_109_add_4_3/CO0
+                                          SLICE_R16C5B       CIN0_TO_COUT0_DELAY     0.277                  9.529  2       
+u_clock_gen/n2138                                            NET DELAY               0.000                  9.529  2       
+u_clock_gen/scan_cnt_109_add_4_3/CI1->u_clock_gen/scan_cnt_109_add_4_3/CO1
+                                          SLICE_R16C5B       CIN1_TO_COUT1_DELAY     0.277                  9.806  2       
+u_clock_gen/n868                                             NET DELAY               0.000                  9.806  2       
+u_clock_gen/scan_cnt_109_add_4_5/CI0->u_clock_gen/scan_cnt_109_add_4_5/CO0
+                                          SLICE_R16C5C       CIN0_TO_COUT0_DELAY     0.277                 10.083  2       
+u_clock_gen/n2141                                            NET DELAY               0.000                 10.083  2       
+u_clock_gen/scan_cnt_109_add_4_5/CI1->u_clock_gen/scan_cnt_109_add_4_5/CO1
+                                          SLICE_R16C5C       CIN1_TO_COUT1_DELAY     0.277                 10.360  2       
+u_clock_gen/n870                                             NET DELAY               0.000                 10.360  2       
+u_clock_gen/scan_cnt_109_add_4_7/CI0->u_clock_gen/scan_cnt_109_add_4_7/CO0
+                                          SLICE_R16C5D       CIN0_TO_COUT0_DELAY     0.277                 10.637  2       
+u_clock_gen/n2144                                            NET DELAY               0.000                 10.637  2       
+u_clock_gen/scan_cnt_109_add_4_7/CI1->u_clock_gen/scan_cnt_109_add_4_7/CO1
+                                          SLICE_R16C5D       CIN1_TO_COUT1_DELAY     0.277                 10.914  2       
+u_clock_gen/n872                                             NET DELAY               0.555                 11.469  2       
+u_clock_gen/scan_cnt_109_add_4_9/CI0->u_clock_gen/scan_cnt_109_add_4_9/CO0
+                                          SLICE_R16C6A       CIN0_TO_COUT0_DELAY     0.277                 11.746  2       
+u_clock_gen/n2147                                            NET DELAY               0.000                 11.746  2       
+u_clock_gen/scan_cnt_109_add_4_9/CI1->u_clock_gen/scan_cnt_109_add_4_9/CO1
+                                          SLICE_R16C6A       CIN1_TO_COUT1_DELAY     0.277                 12.023  2       
+u_clock_gen/n874                                             NET DELAY               0.000                 12.023  2       
+u_clock_gen/scan_cnt_109_add_4_11/CI0->u_clock_gen/scan_cnt_109_add_4_11/CO0
+                                          SLICE_R16C6B       CIN0_TO_COUT0_DELAY     0.277                 12.300  2       
+u_clock_gen/n2150                                            NET DELAY               0.000                 12.300  2       
+u_clock_gen/scan_cnt_109_add_4_11/CI1->u_clock_gen/scan_cnt_109_add_4_11/CO1
+                                          SLICE_R16C6B       CIN1_TO_COUT1_DELAY     0.277                 12.577  2       
+u_clock_gen/n876                                             NET DELAY               0.000                 12.577  2       
+u_clock_gen/scan_cnt_109_add_4_13/CI0->u_clock_gen/scan_cnt_109_add_4_13/CO0
+                                          SLICE_R16C6C       CIN0_TO_COUT0_DELAY     0.277                 12.854  2       
+u_clock_gen/n2153                                            NET DELAY               0.000                 12.854  2       
+u_clock_gen/scan_cnt_109_add_4_13/CI1->u_clock_gen/scan_cnt_109_add_4_13/CO1
+                                          SLICE_R16C6C       CIN1_TO_COUT1_DELAY     0.277                 13.131  2       
+u_clock_gen/n878                                             NET DELAY               0.000                 13.131  2       
+u_clock_gen/scan_cnt_109_add_4_15/CI0->u_clock_gen/scan_cnt_109_add_4_15/CO0
+                                          SLICE_R16C6D       CIN0_TO_COUT0_DELAY     0.277                 13.408  2       
+u_clock_gen/n2156                                            NET DELAY               0.000                 13.408  2       
+u_clock_gen/scan_cnt_109_add_4_15/CI1->u_clock_gen/scan_cnt_109_add_4_15/CO1
+                                          SLICE_R16C6D       CIN1_TO_COUT1_DELAY     0.277                 13.685  2       
+u_clock_gen/n880                                             NET DELAY               0.555                 14.240  2       
+u_clock_gen/scan_cnt_109_add_4_17/CI0->u_clock_gen/scan_cnt_109_add_4_17/CO0
+                                          SLICE_R16C7A       CIN0_TO_COUT0_DELAY     0.277                 14.517  2       
+u_clock_gen/n2159                                            NET DELAY               0.000                 14.517  2       
+u_clock_gen/scan_cnt_109_add_4_17/CI1->u_clock_gen/scan_cnt_109_add_4_17/CO1
+                                          SLICE_R16C7A       CIN1_TO_COUT1_DELAY     0.277                 14.794  2       
+u_clock_gen/n882                                             NET DELAY               0.000                 14.794  2       
+u_clock_gen/scan_cnt_109_add_4_19/CI0->u_clock_gen/scan_cnt_109_add_4_19/CO0
+                                          SLICE_R16C7B       CIN0_TO_COUT0_DELAY     0.277                 15.071  2       
+u_clock_gen/n2162                                            NET DELAY               0.000                 15.071  2       
+u_clock_gen/scan_cnt_109_add_4_19/CI1->u_clock_gen/scan_cnt_109_add_4_19/CO1
+                                          SLICE_R16C7B       CIN1_TO_COUT1_DELAY     0.277                 15.348  2       
+u_clock_gen/n884                                             NET DELAY               0.000                 15.348  2       
+u_clock_gen/scan_cnt_109_add_4_21/CI0->u_clock_gen/scan_cnt_109_add_4_21/CO0
+                                          SLICE_R16C7C       CIN0_TO_COUT0_DELAY     0.277                 15.625  2       
+u_clock_gen/n2165                                            NET DELAY               0.000                 15.625  2       
+u_clock_gen/scan_cnt_109_add_4_21/CI1->u_clock_gen/scan_cnt_109_add_4_21/CO1
+                                          SLICE_R16C7C       CIN1_TO_COUT1_DELAY     0.277                 15.902  2       
+u_clock_gen/n886                                             NET DELAY               0.000                 15.902  2       
+u_clock_gen/scan_cnt_109_add_4_23/CI0->u_clock_gen/scan_cnt_109_add_4_23/CO0
+                                          SLICE_R16C7D       CIN0_TO_COUT0_DELAY     0.277                 16.179  2       
+u_clock_gen/n2168                                            NET DELAY               0.000                 16.179  2       
+u_clock_gen/scan_cnt_109_add_4_23/CI1->u_clock_gen/scan_cnt_109_add_4_23/CO1
+                                          SLICE_R16C7D       CIN1_TO_COUT1_DELAY     0.277                 16.456  2       
+u_clock_gen/n888                                             NET DELAY               0.555                 17.011  2       
+u_clock_gen/scan_cnt_109_add_4_25/CI0->u_clock_gen/scan_cnt_109_add_4_25/CO0
+                                          SLICE_R16C8A       CIN0_TO_COUT0_DELAY     0.277                 17.288  2       
+u_clock_gen/n2171                                            NET DELAY               0.000                 17.288  2       
+u_clock_gen/scan_cnt_109_add_4_25/CI1->u_clock_gen/scan_cnt_109_add_4_25/CO1
+                                          SLICE_R16C8A       CIN1_TO_COUT1_DELAY     0.277                 17.565  2       
+u_clock_gen/n890                                             NET DELAY               0.000                 17.565  2       
+u_clock_gen/scan_cnt_109_add_4_27/CI0->u_clock_gen/scan_cnt_109_add_4_27/CO0
+                                          SLICE_R16C8B       CIN0_TO_COUT0_DELAY     0.277                 17.842  2       
+u_clock_gen/n2174                                            NET DELAY               0.000                 17.842  2       
+u_clock_gen/scan_cnt_109_add_4_27/CI1->u_clock_gen/scan_cnt_109_add_4_27/CO1
+                                          SLICE_R16C8B       CIN1_TO_COUT1_DELAY     0.277                 18.119  2       
+u_clock_gen/n892                                             NET DELAY               0.000                 18.119  2       
+u_clock_gen/scan_cnt_109_add_4_29/CI0->u_clock_gen/scan_cnt_109_add_4_29/CO0
+                                          SLICE_R16C8C       CIN0_TO_COUT0_DELAY     0.277                 18.396  2       
+u_clock_gen/n2177                                            NET DELAY               0.000                 18.396  2       
+u_clock_gen/scan_cnt_109_add_4_29/CI1->u_clock_gen/scan_cnt_109_add_4_29/CO1
+                                          SLICE_R16C8C       CIN1_TO_COUT1_DELAY     0.277                 18.673  2       
+u_clock_gen/n894                                             NET DELAY               0.000                 18.673  2       
+u_clock_gen/scan_cnt_109_add_4_31/CI0->u_clock_gen/scan_cnt_109_add_4_31/CO0
+                                          SLICE_R16C8D       CIN0_TO_COUT0_DELAY     0.277                 18.950  2       
+u_clock_gen/n2180                                            NET DELAY               0.661                 19.611  2       
+u_clock_gen/scan_cnt_109_add_4_31/D1->u_clock_gen/scan_cnt_109_add_4_31/S1
+                                          SLICE_R16C8D       D1_TO_F1_DELAY          0.476                 20.087  1       
+u_clock_gen/n133_adj_130[30]                                 NET DELAY               0.000                 20.087  1       
+u_clock_gen/scan_cnt_109__i30/D                              ENDPOINT                0.000                 20.087  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+                                                             CONSTRAINT              0.000                 41.666  1       
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                 41.666  50      
+u_display_mux/clk                                            NET DELAY               5.499                 47.165  50      
+{u_clock_gen/scan_cnt_109__i29/CK   u_clock_gen/scan_cnt_109__i30/CK}
+                                                             CLOCK PIN               0.000                 47.165  1       
+                                                             Uncertainty          -(0.000)                 47.165  
+                                                             Setup time           -(0.198)                 46.967  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Required Time                                                                                              46.967  
+Arrival Time                                                                                            -(20.086)  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                       26.880  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_clock_gen/mux_cnt_110__i0/Q  (SLICE_R5C5A)
+Path End         : u_clock_gen/mux_cnt_110__i30/D  (SLICE_R5C8D)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 32
+Delay Ratio      : 29.8% (route), 70.2% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 41.666 ns 
+Path Slack       : 26.880 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                  0.000  50      
+u_display_mux/clk                                            NET DELAY               5.499                  5.499  50      
+u_clock_gen/mux_cnt_110__i0/CK                               CLOCK PIN               0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+u_clock_gen/mux_cnt_110__i0/CK->u_clock_gen/mux_cnt_110__i0/Q
+                                          SLICE_R5C5A        CLK_TO_Q1_DELAY         1.388                  6.887  2       
+u_clock_gen/mux_cnt[0]                                       NET DELAY               2.022                  8.909  2       
+u_clock_gen/mux_cnt_110_add_4_1/C1->u_clock_gen/mux_cnt_110_add_4_1/CO1
+                                          SLICE_R5C5A        C1_TO_COUT1_DELAY       0.343                  9.252  2       
+u_clock_gen/n899                                             NET DELAY               0.000                  9.252  2       
+u_clock_gen/mux_cnt_110_add_4_3/CI0->u_clock_gen/mux_cnt_110_add_4_3/CO0
+                                          SLICE_R5C5B        CIN0_TO_COUT0_DELAY     0.277                  9.529  2       
+u_clock_gen/n2090                                            NET DELAY               0.000                  9.529  2       
+u_clock_gen/mux_cnt_110_add_4_3/CI1->u_clock_gen/mux_cnt_110_add_4_3/CO1
+                                          SLICE_R5C5B        CIN1_TO_COUT1_DELAY     0.277                  9.806  2       
+u_clock_gen/n901                                             NET DELAY               0.000                  9.806  2       
+u_clock_gen/mux_cnt_110_add_4_5/CI0->u_clock_gen/mux_cnt_110_add_4_5/CO0
+                                          SLICE_R5C5C        CIN0_TO_COUT0_DELAY     0.277                 10.083  2       
+u_clock_gen/n2093                                            NET DELAY               0.000                 10.083  2       
+u_clock_gen/mux_cnt_110_add_4_5/CI1->u_clock_gen/mux_cnt_110_add_4_5/CO1
+                                          SLICE_R5C5C        CIN1_TO_COUT1_DELAY     0.277                 10.360  2       
+u_clock_gen/n903                                             NET DELAY               0.000                 10.360  2       
+u_clock_gen/mux_cnt_110_add_4_7/CI0->u_clock_gen/mux_cnt_110_add_4_7/CO0
+                                          SLICE_R5C5D        CIN0_TO_COUT0_DELAY     0.277                 10.637  2       
+u_clock_gen/n2096                                            NET DELAY               0.000                 10.637  2       
+u_clock_gen/mux_cnt_110_add_4_7/CI1->u_clock_gen/mux_cnt_110_add_4_7/CO1
+                                          SLICE_R5C5D        CIN1_TO_COUT1_DELAY     0.277                 10.914  2       
+u_clock_gen/n905                                             NET DELAY               0.555                 11.469  2       
+u_clock_gen/mux_cnt_110_add_4_9/CI0->u_clock_gen/mux_cnt_110_add_4_9/CO0
+                                          SLICE_R5C6A        CIN0_TO_COUT0_DELAY     0.277                 11.746  2       
+u_clock_gen/n2099                                            NET DELAY               0.000                 11.746  2       
+u_clock_gen/mux_cnt_110_add_4_9/CI1->u_clock_gen/mux_cnt_110_add_4_9/CO1
+                                          SLICE_R5C6A        CIN1_TO_COUT1_DELAY     0.277                 12.023  2       
+u_clock_gen/n907                                             NET DELAY               0.000                 12.023  2       
+u_clock_gen/mux_cnt_110_add_4_11/CI0->u_clock_gen/mux_cnt_110_add_4_11/CO0
+                                          SLICE_R5C6B        CIN0_TO_COUT0_DELAY     0.277                 12.300  2       
+u_clock_gen/n2102                                            NET DELAY               0.000                 12.300  2       
+u_clock_gen/mux_cnt_110_add_4_11/CI1->u_clock_gen/mux_cnt_110_add_4_11/CO1
+                                          SLICE_R5C6B        CIN1_TO_COUT1_DELAY     0.277                 12.577  2       
+u_clock_gen/n909                                             NET DELAY               0.000                 12.577  2       
+u_clock_gen/mux_cnt_110_add_4_13/CI0->u_clock_gen/mux_cnt_110_add_4_13/CO0
+                                          SLICE_R5C6C        CIN0_TO_COUT0_DELAY     0.277                 12.854  2       
+u_clock_gen/n2105                                            NET DELAY               0.000                 12.854  2       
+u_clock_gen/mux_cnt_110_add_4_13/CI1->u_clock_gen/mux_cnt_110_add_4_13/CO1
+                                          SLICE_R5C6C        CIN1_TO_COUT1_DELAY     0.277                 13.131  2       
+u_clock_gen/n911                                             NET DELAY               0.000                 13.131  2       
+u_clock_gen/mux_cnt_110_add_4_15/CI0->u_clock_gen/mux_cnt_110_add_4_15/CO0
+                                          SLICE_R5C6D        CIN0_TO_COUT0_DELAY     0.277                 13.408  2       
+u_clock_gen/n2108                                            NET DELAY               0.000                 13.408  2       
+u_clock_gen/mux_cnt_110_add_4_15/CI1->u_clock_gen/mux_cnt_110_add_4_15/CO1
+                                          SLICE_R5C6D        CIN1_TO_COUT1_DELAY     0.277                 13.685  2       
+u_clock_gen/n913                                             NET DELAY               0.555                 14.240  2       
+u_clock_gen/mux_cnt_110_add_4_17/CI0->u_clock_gen/mux_cnt_110_add_4_17/CO0
+                                          SLICE_R5C7A        CIN0_TO_COUT0_DELAY     0.277                 14.517  2       
+u_clock_gen/n2111                                            NET DELAY               0.000                 14.517  2       
+u_clock_gen/mux_cnt_110_add_4_17/CI1->u_clock_gen/mux_cnt_110_add_4_17/CO1
+                                          SLICE_R5C7A        CIN1_TO_COUT1_DELAY     0.277                 14.794  2       
+u_clock_gen/n915                                             NET DELAY               0.000                 14.794  2       
+u_clock_gen/mux_cnt_110_add_4_19/CI0->u_clock_gen/mux_cnt_110_add_4_19/CO0
+                                          SLICE_R5C7B        CIN0_TO_COUT0_DELAY     0.277                 15.071  2       
+u_clock_gen/n2114                                            NET DELAY               0.000                 15.071  2       
+u_clock_gen/mux_cnt_110_add_4_19/CI1->u_clock_gen/mux_cnt_110_add_4_19/CO1
+                                          SLICE_R5C7B        CIN1_TO_COUT1_DELAY     0.277                 15.348  2       
+u_clock_gen/n917                                             NET DELAY               0.000                 15.348  2       
+u_clock_gen/mux_cnt_110_add_4_21/CI0->u_clock_gen/mux_cnt_110_add_4_21/CO0
+                                          SLICE_R5C7C        CIN0_TO_COUT0_DELAY     0.277                 15.625  2       
+u_clock_gen/n2117                                            NET DELAY               0.000                 15.625  2       
+u_clock_gen/mux_cnt_110_add_4_21/CI1->u_clock_gen/mux_cnt_110_add_4_21/CO1
+                                          SLICE_R5C7C        CIN1_TO_COUT1_DELAY     0.277                 15.902  2       
+u_clock_gen/n919                                             NET DELAY               0.000                 15.902  2       
+u_clock_gen/mux_cnt_110_add_4_23/CI0->u_clock_gen/mux_cnt_110_add_4_23/CO0
+                                          SLICE_R5C7D        CIN0_TO_COUT0_DELAY     0.277                 16.179  2       
+u_clock_gen/n2120                                            NET DELAY               0.000                 16.179  2       
+u_clock_gen/mux_cnt_110_add_4_23/CI1->u_clock_gen/mux_cnt_110_add_4_23/CO1
+                                          SLICE_R5C7D        CIN1_TO_COUT1_DELAY     0.277                 16.456  2       
+u_clock_gen/n921                                             NET DELAY               0.555                 17.011  2       
+u_clock_gen/mux_cnt_110_add_4_25/CI0->u_clock_gen/mux_cnt_110_add_4_25/CO0
+                                          SLICE_R5C8A        CIN0_TO_COUT0_DELAY     0.277                 17.288  2       
+u_clock_gen/n2123                                            NET DELAY               0.000                 17.288  2       
+u_clock_gen/mux_cnt_110_add_4_25/CI1->u_clock_gen/mux_cnt_110_add_4_25/CO1
+                                          SLICE_R5C8A        CIN1_TO_COUT1_DELAY     0.277                 17.565  2       
+u_clock_gen/n923                                             NET DELAY               0.000                 17.565  2       
+u_clock_gen/mux_cnt_110_add_4_27/CI0->u_clock_gen/mux_cnt_110_add_4_27/CO0
+                                          SLICE_R5C8B        CIN0_TO_COUT0_DELAY     0.277                 17.842  2       
+u_clock_gen/n2126                                            NET DELAY               0.000                 17.842  2       
+u_clock_gen/mux_cnt_110_add_4_27/CI1->u_clock_gen/mux_cnt_110_add_4_27/CO1
+                                          SLICE_R5C8B        CIN1_TO_COUT1_DELAY     0.277                 18.119  2       
+u_clock_gen/n925                                             NET DELAY               0.000                 18.119  2       
+u_clock_gen/mux_cnt_110_add_4_29/CI0->u_clock_gen/mux_cnt_110_add_4_29/CO0
+                                          SLICE_R5C8C        CIN0_TO_COUT0_DELAY     0.277                 18.396  2       
+u_clock_gen/n2129                                            NET DELAY               0.000                 18.396  2       
+u_clock_gen/mux_cnt_110_add_4_29/CI1->u_clock_gen/mux_cnt_110_add_4_29/CO1
+                                          SLICE_R5C8C        CIN1_TO_COUT1_DELAY     0.277                 18.673  2       
+u_clock_gen/n927                                             NET DELAY               0.000                 18.673  2       
+u_clock_gen/mux_cnt_110_add_4_31/CI0->u_clock_gen/mux_cnt_110_add_4_31/CO0
+                                          SLICE_R5C8D        CIN0_TO_COUT0_DELAY     0.277                 18.950  2       
+u_clock_gen/n2132                                            NET DELAY               0.661                 19.611  2       
+u_clock_gen/mux_cnt_110_add_4_31/D1->u_clock_gen/mux_cnt_110_add_4_31/S1
+                                          SLICE_R5C8D        D1_TO_F1_DELAY          0.476                 20.087  1       
+u_clock_gen/n133[30]                                         NET DELAY               0.000                 20.087  1       
+u_clock_gen/mux_cnt_110__i30/D                               ENDPOINT                0.000                 20.087  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+                                                             CONSTRAINT              0.000                 41.666  1       
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                 41.666  50      
+u_display_mux/clk                                            NET DELAY               5.499                 47.165  50      
+{u_clock_gen/mux_cnt_110__i29/CK   u_clock_gen/mux_cnt_110__i30/CK}
+                                                             CLOCK PIN               0.000                 47.165  1       
+                                                             Uncertainty          -(0.000)                 47.165  
+                                                             Setup time           -(0.198)                 46.967  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Required Time                                                                                              46.967  
+Arrival Time                                                                                            -(20.086)  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                       26.880  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_clock_gen/scan_cnt_109__i0/Q  (SLICE_R16C5A)
+Path End         : u_clock_gen/scan_cnt_109__i29/D  (SLICE_R16C8D)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 31
+Delay Ratio      : 30.4% (route), 69.6% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 41.666 ns 
+Path Slack       : 27.157 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                  0.000  50      
+u_display_mux/clk                                            NET DELAY               5.499                  5.499  50      
+u_clock_gen/scan_cnt_109__i0/CK                              CLOCK PIN               0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+u_clock_gen/scan_cnt_109__i0/CK->u_clock_gen/scan_cnt_109__i0/Q
+                                          SLICE_R16C5A       CLK_TO_Q1_DELAY         1.388                  6.887  2       
+u_clock_gen/scan_cnt[0]                                      NET DELAY               2.022                  8.909  2       
+u_clock_gen/scan_cnt_109_add_4_1/C1->u_clock_gen/scan_cnt_109_add_4_1/CO1
+                                          SLICE_R16C5A       C1_TO_COUT1_DELAY       0.343                  9.252  2       
+u_clock_gen/n866                                             NET DELAY               0.000                  9.252  2       
+u_clock_gen/scan_cnt_109_add_4_3/CI0->u_clock_gen/scan_cnt_109_add_4_3/CO0
+                                          SLICE_R16C5B       CIN0_TO_COUT0_DELAY     0.277                  9.529  2       
+u_clock_gen/n2138                                            NET DELAY               0.000                  9.529  2       
+u_clock_gen/scan_cnt_109_add_4_3/CI1->u_clock_gen/scan_cnt_109_add_4_3/CO1
+                                          SLICE_R16C5B       CIN1_TO_COUT1_DELAY     0.277                  9.806  2       
+u_clock_gen/n868                                             NET DELAY               0.000                  9.806  2       
+u_clock_gen/scan_cnt_109_add_4_5/CI0->u_clock_gen/scan_cnt_109_add_4_5/CO0
+                                          SLICE_R16C5C       CIN0_TO_COUT0_DELAY     0.277                 10.083  2       
+u_clock_gen/n2141                                            NET DELAY               0.000                 10.083  2       
+u_clock_gen/scan_cnt_109_add_4_5/CI1->u_clock_gen/scan_cnt_109_add_4_5/CO1
+                                          SLICE_R16C5C       CIN1_TO_COUT1_DELAY     0.277                 10.360  2       
+u_clock_gen/n870                                             NET DELAY               0.000                 10.360  2       
+u_clock_gen/scan_cnt_109_add_4_7/CI0->u_clock_gen/scan_cnt_109_add_4_7/CO0
+                                          SLICE_R16C5D       CIN0_TO_COUT0_DELAY     0.277                 10.637  2       
+u_clock_gen/n2144                                            NET DELAY               0.000                 10.637  2       
+u_clock_gen/scan_cnt_109_add_4_7/CI1->u_clock_gen/scan_cnt_109_add_4_7/CO1
+                                          SLICE_R16C5D       CIN1_TO_COUT1_DELAY     0.277                 10.914  2       
+u_clock_gen/n872                                             NET DELAY               0.555                 11.469  2       
+u_clock_gen/scan_cnt_109_add_4_9/CI0->u_clock_gen/scan_cnt_109_add_4_9/CO0
+                                          SLICE_R16C6A       CIN0_TO_COUT0_DELAY     0.277                 11.746  2       
+u_clock_gen/n2147                                            NET DELAY               0.000                 11.746  2       
+u_clock_gen/scan_cnt_109_add_4_9/CI1->u_clock_gen/scan_cnt_109_add_4_9/CO1
+                                          SLICE_R16C6A       CIN1_TO_COUT1_DELAY     0.277                 12.023  2       
+u_clock_gen/n874                                             NET DELAY               0.000                 12.023  2       
+u_clock_gen/scan_cnt_109_add_4_11/CI0->u_clock_gen/scan_cnt_109_add_4_11/CO0
+                                          SLICE_R16C6B       CIN0_TO_COUT0_DELAY     0.277                 12.300  2       
+u_clock_gen/n2150                                            NET DELAY               0.000                 12.300  2       
+u_clock_gen/scan_cnt_109_add_4_11/CI1->u_clock_gen/scan_cnt_109_add_4_11/CO1
+                                          SLICE_R16C6B       CIN1_TO_COUT1_DELAY     0.277                 12.577  2       
+u_clock_gen/n876                                             NET DELAY               0.000                 12.577  2       
+u_clock_gen/scan_cnt_109_add_4_13/CI0->u_clock_gen/scan_cnt_109_add_4_13/CO0
+                                          SLICE_R16C6C       CIN0_TO_COUT0_DELAY     0.277                 12.854  2       
+u_clock_gen/n2153                                            NET DELAY               0.000                 12.854  2       
+u_clock_gen/scan_cnt_109_add_4_13/CI1->u_clock_gen/scan_cnt_109_add_4_13/CO1
+                                          SLICE_R16C6C       CIN1_TO_COUT1_DELAY     0.277                 13.131  2       
+u_clock_gen/n878                                             NET DELAY               0.000                 13.131  2       
+u_clock_gen/scan_cnt_109_add_4_15/CI0->u_clock_gen/scan_cnt_109_add_4_15/CO0
+                                          SLICE_R16C6D       CIN0_TO_COUT0_DELAY     0.277                 13.408  2       
+u_clock_gen/n2156                                            NET DELAY               0.000                 13.408  2       
+u_clock_gen/scan_cnt_109_add_4_15/CI1->u_clock_gen/scan_cnt_109_add_4_15/CO1
+                                          SLICE_R16C6D       CIN1_TO_COUT1_DELAY     0.277                 13.685  2       
+u_clock_gen/n880                                             NET DELAY               0.555                 14.240  2       
+u_clock_gen/scan_cnt_109_add_4_17/CI0->u_clock_gen/scan_cnt_109_add_4_17/CO0
+                                          SLICE_R16C7A       CIN0_TO_COUT0_DELAY     0.277                 14.517  2       
+u_clock_gen/n2159                                            NET DELAY               0.000                 14.517  2       
+u_clock_gen/scan_cnt_109_add_4_17/CI1->u_clock_gen/scan_cnt_109_add_4_17/CO1
+                                          SLICE_R16C7A       CIN1_TO_COUT1_DELAY     0.277                 14.794  2       
+u_clock_gen/n882                                             NET DELAY               0.000                 14.794  2       
+u_clock_gen/scan_cnt_109_add_4_19/CI0->u_clock_gen/scan_cnt_109_add_4_19/CO0
+                                          SLICE_R16C7B       CIN0_TO_COUT0_DELAY     0.277                 15.071  2       
+u_clock_gen/n2162                                            NET DELAY               0.000                 15.071  2       
+u_clock_gen/scan_cnt_109_add_4_19/CI1->u_clock_gen/scan_cnt_109_add_4_19/CO1
+                                          SLICE_R16C7B       CIN1_TO_COUT1_DELAY     0.277                 15.348  2       
+u_clock_gen/n884                                             NET DELAY               0.000                 15.348  2       
+u_clock_gen/scan_cnt_109_add_4_21/CI0->u_clock_gen/scan_cnt_109_add_4_21/CO0
+                                          SLICE_R16C7C       CIN0_TO_COUT0_DELAY     0.277                 15.625  2       
+u_clock_gen/n2165                                            NET DELAY               0.000                 15.625  2       
+u_clock_gen/scan_cnt_109_add_4_21/CI1->u_clock_gen/scan_cnt_109_add_4_21/CO1
+                                          SLICE_R16C7C       CIN1_TO_COUT1_DELAY     0.277                 15.902  2       
+u_clock_gen/n886                                             NET DELAY               0.000                 15.902  2       
+u_clock_gen/scan_cnt_109_add_4_23/CI0->u_clock_gen/scan_cnt_109_add_4_23/CO0
+                                          SLICE_R16C7D       CIN0_TO_COUT0_DELAY     0.277                 16.179  2       
+u_clock_gen/n2168                                            NET DELAY               0.000                 16.179  2       
+u_clock_gen/scan_cnt_109_add_4_23/CI1->u_clock_gen/scan_cnt_109_add_4_23/CO1
+                                          SLICE_R16C7D       CIN1_TO_COUT1_DELAY     0.277                 16.456  2       
+u_clock_gen/n888                                             NET DELAY               0.555                 17.011  2       
+u_clock_gen/scan_cnt_109_add_4_25/CI0->u_clock_gen/scan_cnt_109_add_4_25/CO0
+                                          SLICE_R16C8A       CIN0_TO_COUT0_DELAY     0.277                 17.288  2       
+u_clock_gen/n2171                                            NET DELAY               0.000                 17.288  2       
+u_clock_gen/scan_cnt_109_add_4_25/CI1->u_clock_gen/scan_cnt_109_add_4_25/CO1
+                                          SLICE_R16C8A       CIN1_TO_COUT1_DELAY     0.277                 17.565  2       
+u_clock_gen/n890                                             NET DELAY               0.000                 17.565  2       
+u_clock_gen/scan_cnt_109_add_4_27/CI0->u_clock_gen/scan_cnt_109_add_4_27/CO0
+                                          SLICE_R16C8B       CIN0_TO_COUT0_DELAY     0.277                 17.842  2       
+u_clock_gen/n2174                                            NET DELAY               0.000                 17.842  2       
+u_clock_gen/scan_cnt_109_add_4_27/CI1->u_clock_gen/scan_cnt_109_add_4_27/CO1
+                                          SLICE_R16C8B       CIN1_TO_COUT1_DELAY     0.277                 18.119  2       
+u_clock_gen/n892                                             NET DELAY               0.000                 18.119  2       
+u_clock_gen/scan_cnt_109_add_4_29/CI0->u_clock_gen/scan_cnt_109_add_4_29/CO0
+                                          SLICE_R16C8C       CIN0_TO_COUT0_DELAY     0.277                 18.396  2       
+u_clock_gen/n2177                                            NET DELAY               0.000                 18.396  2       
+u_clock_gen/scan_cnt_109_add_4_29/CI1->u_clock_gen/scan_cnt_109_add_4_29/CO1
+                                          SLICE_R16C8C       CIN1_TO_COUT1_DELAY     0.277                 18.673  2       
+u_clock_gen/n894                                             NET DELAY               0.661                 19.334  2       
+u_clock_gen/scan_cnt_109_add_4_31/D0->u_clock_gen/scan_cnt_109_add_4_31/S0
+                                          SLICE_R16C8D       D0_TO_F0_DELAY          0.476                 19.810  1       
+u_clock_gen/n133_adj_130[29]                                 NET DELAY               0.000                 19.810  1       
+u_clock_gen/scan_cnt_109__i29/D                              ENDPOINT                0.000                 19.810  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+                                                             CONSTRAINT              0.000                 41.666  1       
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                 41.666  50      
+u_display_mux/clk                                            NET DELAY               5.499                 47.165  50      
+{u_clock_gen/scan_cnt_109__i29/CK   u_clock_gen/scan_cnt_109__i30/CK}
+                                                             CLOCK PIN               0.000                 47.165  1       
+                                                             Uncertainty          -(0.000)                 47.165  
+                                                             Setup time           -(0.198)                 46.967  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Required Time                                                                                              46.967  
+Arrival Time                                                                                            -(19.809)  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                       27.157  
+
+
+
+
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_clock_gen/mux_cnt_110__i0/Q  (SLICE_R5C5A)
+Path End         : u_clock_gen/mux_cnt_110__i29/D  (SLICE_R5C8D)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 31
+Delay Ratio      : 30.4% (route), 69.6% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 41.666 ns 
+Path Slack       : 27.157 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                  0.000  50      
+u_display_mux/clk                                            NET DELAY               5.499                  5.499  50      
+u_clock_gen/mux_cnt_110__i0/CK                               CLOCK PIN               0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+u_clock_gen/mux_cnt_110__i0/CK->u_clock_gen/mux_cnt_110__i0/Q
+                                          SLICE_R5C5A        CLK_TO_Q1_DELAY         1.388                  6.887  2       
+u_clock_gen/mux_cnt[0]                                       NET DELAY               2.022                  8.909  2       
+u_clock_gen/mux_cnt_110_add_4_1/C1->u_clock_gen/mux_cnt_110_add_4_1/CO1
+                                          SLICE_R5C5A        C1_TO_COUT1_DELAY       0.343                  9.252  2       
+u_clock_gen/n899                                             NET DELAY               0.000                  9.252  2       
+u_clock_gen/mux_cnt_110_add_4_3/CI0->u_clock_gen/mux_cnt_110_add_4_3/CO0
+                                          SLICE_R5C5B        CIN0_TO_COUT0_DELAY     0.277                  9.529  2       
+u_clock_gen/n2090                                            NET DELAY               0.000                  9.529  2       
+u_clock_gen/mux_cnt_110_add_4_3/CI1->u_clock_gen/mux_cnt_110_add_4_3/CO1
+                                          SLICE_R5C5B        CIN1_TO_COUT1_DELAY     0.277                  9.806  2       
+u_clock_gen/n901                                             NET DELAY               0.000                  9.806  2       
+u_clock_gen/mux_cnt_110_add_4_5/CI0->u_clock_gen/mux_cnt_110_add_4_5/CO0
+                                          SLICE_R5C5C        CIN0_TO_COUT0_DELAY     0.277                 10.083  2       
+u_clock_gen/n2093                                            NET DELAY               0.000                 10.083  2       
+u_clock_gen/mux_cnt_110_add_4_5/CI1->u_clock_gen/mux_cnt_110_add_4_5/CO1
+                                          SLICE_R5C5C        CIN1_TO_COUT1_DELAY     0.277                 10.360  2       
+u_clock_gen/n903                                             NET DELAY               0.000                 10.360  2       
+u_clock_gen/mux_cnt_110_add_4_7/CI0->u_clock_gen/mux_cnt_110_add_4_7/CO0
+                                          SLICE_R5C5D        CIN0_TO_COUT0_DELAY     0.277                 10.637  2       
+u_clock_gen/n2096                                            NET DELAY               0.000                 10.637  2       
+u_clock_gen/mux_cnt_110_add_4_7/CI1->u_clock_gen/mux_cnt_110_add_4_7/CO1
+                                          SLICE_R5C5D        CIN1_TO_COUT1_DELAY     0.277                 10.914  2       
+u_clock_gen/n905                                             NET DELAY               0.555                 11.469  2       
+u_clock_gen/mux_cnt_110_add_4_9/CI0->u_clock_gen/mux_cnt_110_add_4_9/CO0
+                                          SLICE_R5C6A        CIN0_TO_COUT0_DELAY     0.277                 11.746  2       
+u_clock_gen/n2099                                            NET DELAY               0.000                 11.746  2       
+u_clock_gen/mux_cnt_110_add_4_9/CI1->u_clock_gen/mux_cnt_110_add_4_9/CO1
+                                          SLICE_R5C6A        CIN1_TO_COUT1_DELAY     0.277                 12.023  2       
+u_clock_gen/n907                                             NET DELAY               0.000                 12.023  2       
+u_clock_gen/mux_cnt_110_add_4_11/CI0->u_clock_gen/mux_cnt_110_add_4_11/CO0
+                                          SLICE_R5C6B        CIN0_TO_COUT0_DELAY     0.277                 12.300  2       
+u_clock_gen/n2102                                            NET DELAY               0.000                 12.300  2       
+u_clock_gen/mux_cnt_110_add_4_11/CI1->u_clock_gen/mux_cnt_110_add_4_11/CO1
+                                          SLICE_R5C6B        CIN1_TO_COUT1_DELAY     0.277                 12.577  2       
+u_clock_gen/n909                                             NET DELAY               0.000                 12.577  2       
+u_clock_gen/mux_cnt_110_add_4_13/CI0->u_clock_gen/mux_cnt_110_add_4_13/CO0
+                                          SLICE_R5C6C        CIN0_TO_COUT0_DELAY     0.277                 12.854  2       
+u_clock_gen/n2105                                            NET DELAY               0.000                 12.854  2       
+u_clock_gen/mux_cnt_110_add_4_13/CI1->u_clock_gen/mux_cnt_110_add_4_13/CO1
+                                          SLICE_R5C6C        CIN1_TO_COUT1_DELAY     0.277                 13.131  2       
+u_clock_gen/n911                                             NET DELAY               0.000                 13.131  2       
+u_clock_gen/mux_cnt_110_add_4_15/CI0->u_clock_gen/mux_cnt_110_add_4_15/CO0
+                                          SLICE_R5C6D        CIN0_TO_COUT0_DELAY     0.277                 13.408  2       
+u_clock_gen/n2108                                            NET DELAY               0.000                 13.408  2       
+u_clock_gen/mux_cnt_110_add_4_15/CI1->u_clock_gen/mux_cnt_110_add_4_15/CO1
+                                          SLICE_R5C6D        CIN1_TO_COUT1_DELAY     0.277                 13.685  2       
+u_clock_gen/n913                                             NET DELAY               0.555                 14.240  2       
+u_clock_gen/mux_cnt_110_add_4_17/CI0->u_clock_gen/mux_cnt_110_add_4_17/CO0
+                                          SLICE_R5C7A        CIN0_TO_COUT0_DELAY     0.277                 14.517  2       
+u_clock_gen/n2111                                            NET DELAY               0.000                 14.517  2       
+u_clock_gen/mux_cnt_110_add_4_17/CI1->u_clock_gen/mux_cnt_110_add_4_17/CO1
+                                          SLICE_R5C7A        CIN1_TO_COUT1_DELAY     0.277                 14.794  2       
+u_clock_gen/n915                                             NET DELAY               0.000                 14.794  2       
+u_clock_gen/mux_cnt_110_add_4_19/CI0->u_clock_gen/mux_cnt_110_add_4_19/CO0
+                                          SLICE_R5C7B        CIN0_TO_COUT0_DELAY     0.277                 15.071  2       
+u_clock_gen/n2114                                            NET DELAY               0.000                 15.071  2       
+u_clock_gen/mux_cnt_110_add_4_19/CI1->u_clock_gen/mux_cnt_110_add_4_19/CO1
+                                          SLICE_R5C7B        CIN1_TO_COUT1_DELAY     0.277                 15.348  2       
+u_clock_gen/n917                                             NET DELAY               0.000                 15.348  2       
+u_clock_gen/mux_cnt_110_add_4_21/CI0->u_clock_gen/mux_cnt_110_add_4_21/CO0
+                                          SLICE_R5C7C        CIN0_TO_COUT0_DELAY     0.277                 15.625  2       
+u_clock_gen/n2117                                            NET DELAY               0.000                 15.625  2       
+u_clock_gen/mux_cnt_110_add_4_21/CI1->u_clock_gen/mux_cnt_110_add_4_21/CO1
+                                          SLICE_R5C7C        CIN1_TO_COUT1_DELAY     0.277                 15.902  2       
+u_clock_gen/n919                                             NET DELAY               0.000                 15.902  2       
+u_clock_gen/mux_cnt_110_add_4_23/CI0->u_clock_gen/mux_cnt_110_add_4_23/CO0
+                                          SLICE_R5C7D        CIN0_TO_COUT0_DELAY     0.277                 16.179  2       
+u_clock_gen/n2120                                            NET DELAY               0.000                 16.179  2       
+u_clock_gen/mux_cnt_110_add_4_23/CI1->u_clock_gen/mux_cnt_110_add_4_23/CO1
+                                          SLICE_R5C7D        CIN1_TO_COUT1_DELAY     0.277                 16.456  2       
+u_clock_gen/n921                                             NET DELAY               0.555                 17.011  2       
+u_clock_gen/mux_cnt_110_add_4_25/CI0->u_clock_gen/mux_cnt_110_add_4_25/CO0
+                                          SLICE_R5C8A        CIN0_TO_COUT0_DELAY     0.277                 17.288  2       
+u_clock_gen/n2123                                            NET DELAY               0.000                 17.288  2       
+u_clock_gen/mux_cnt_110_add_4_25/CI1->u_clock_gen/mux_cnt_110_add_4_25/CO1
+                                          SLICE_R5C8A        CIN1_TO_COUT1_DELAY     0.277                 17.565  2       
+u_clock_gen/n923                                             NET DELAY               0.000                 17.565  2       
+u_clock_gen/mux_cnt_110_add_4_27/CI0->u_clock_gen/mux_cnt_110_add_4_27/CO0
+                                          SLICE_R5C8B        CIN0_TO_COUT0_DELAY     0.277                 17.842  2       
+u_clock_gen/n2126                                            NET DELAY               0.000                 17.842  2       
+u_clock_gen/mux_cnt_110_add_4_27/CI1->u_clock_gen/mux_cnt_110_add_4_27/CO1
+                                          SLICE_R5C8B        CIN1_TO_COUT1_DELAY     0.277                 18.119  2       
+u_clock_gen/n925                                             NET DELAY               0.000                 18.119  2       
+u_clock_gen/mux_cnt_110_add_4_29/CI0->u_clock_gen/mux_cnt_110_add_4_29/CO0
+                                          SLICE_R5C8C        CIN0_TO_COUT0_DELAY     0.277                 18.396  2       
+u_clock_gen/n2129                                            NET DELAY               0.000                 18.396  2       
+u_clock_gen/mux_cnt_110_add_4_29/CI1->u_clock_gen/mux_cnt_110_add_4_29/CO1
+                                          SLICE_R5C8C        CIN1_TO_COUT1_DELAY     0.277                 18.673  2       
+u_clock_gen/n927                                             NET DELAY               0.661                 19.334  2       
+u_clock_gen/mux_cnt_110_add_4_31/D0->u_clock_gen/mux_cnt_110_add_4_31/S0
+                                          SLICE_R5C8D        D0_TO_F0_DELAY          0.476                 19.810  1       
+u_clock_gen/n133[29]                                         NET DELAY               0.000                 19.810  1       
+u_clock_gen/mux_cnt_110__i29/D                               ENDPOINT                0.000                 19.810  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+                                                             CONSTRAINT              0.000                 41.666  1       
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                 41.666  50      
+u_display_mux/clk                                            NET DELAY               5.499                 47.165  50      
+{u_clock_gen/mux_cnt_110__i29/CK   u_clock_gen/mux_cnt_110__i30/CK}
+                                                             CLOCK PIN               0.000                 47.165  1       
+                                                             Uncertainty          -(0.000)                 47.165  
+                                                             Setup time           -(0.198)                 46.967  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Required Time                                                                                              46.967  
+Arrival Time                                                                                            -(19.809)  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                       27.157  
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    End of Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+
+##########################################################
+
+
+
+===============================================================
+3  Hold at Speed Grade m Corner at -40 Degrees
+===============================================================
+
+3.1  Endpoint slacks
+=======================
+-------------------------------------------------------
+          Listing 10 End Points          |    Slack    
+-------------------------------------------------------
+{older_key_i0_i0/SP   older_key_i0_i1/SP}|    1.483 ns 
+{recent_key_i0_i0/SP   recent_key_i0_i1/SP}              
+                                         |    1.483 ns 
+u_keypad_scanner/col_idx_i0_i1/D         |    1.743 ns 
+u_keypad_scanner/row_sync_1_i1/D         |    1.743 ns 
+u_keypad_scanner/row_sync_1_i2/D         |    1.743 ns 
+u_keypad_scanner/row_sync_1_i0/D         |    1.743 ns 
+u_keypad_scanner/row_sync_1_i3/D         |    1.743 ns 
+u_keypad_scanner/key_valid_c/D           |    1.743 ns 
+recent_key_i0_i3/D                       |    1.743 ns 
+recent_key_i0_i2/D                       |    1.743 ns 
+-------------------------------------------------------
+                                         |             
+Hold # of endpoints with negative slack: |           0 
+                                         |             
+-------------------------------------------------------
+
+3.2  Detailed Report
+=======================
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Detail report of critical paths
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_keypad_scanner/key_valid_c/Q  (SLICE_R18C4B)
+Path End         : {older_key_i0_i0/SP   older_key_i0_i1/SP}  (SLICE_R18C3B)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 47.5% (route), 52.5% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.483 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  51      
+u_display_mux/clk                                            NET DELAY        3.084                  3.084  51      
+{u_keypad_scanner/key_valid_c/CK   u_keypad_scanner/state__i1/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_keypad_scanner/key_valid_c/CK->u_keypad_scanner/key_valid_c/Q
+                                          SLICE_R18C4B       CLK_TO_Q0_DELAY  0.779                  3.863  4       
+u_keypad_scanner/key_valid                                   NET DELAY        0.704                  4.567  4       
+{older_key_i0_i0/SP   older_key_i0_i1/SP}
+                                                             ENDPOINT         0.000                  4.567  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  51      
+u_display_mux/clk                                            NET DELAY        3.084                  3.084  51      
+{older_key_i0_i0/CK   older_key_i0_i1/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.567  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.483  
+
+
+
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_keypad_scanner/key_valid_c/Q  (SLICE_R18C4B)
+Path End         : {recent_key_i0_i0/SP   recent_key_i0_i1/SP}  (SLICE_R18C3C)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 47.5% (route), 52.5% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.483 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  51      
+u_display_mux/clk                                            NET DELAY        3.084                  3.084  51      
+{u_keypad_scanner/key_valid_c/CK   u_keypad_scanner/state__i1/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_keypad_scanner/key_valid_c/CK->u_keypad_scanner/key_valid_c/Q
+                                          SLICE_R18C4B       CLK_TO_Q0_DELAY  0.779                  3.863  4       
+u_keypad_scanner/key_valid                                   NET DELAY        0.704                  4.567  4       
+{recent_key_i0_i0/SP   recent_key_i0_i1/SP}
+                                                             ENDPOINT         0.000                  4.567  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  51      
+u_display_mux/clk                                            NET DELAY        3.084                  3.084  51      
+{recent_key_i0_i0/CK   recent_key_i0_i1/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.567  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.483  
+
+
+
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_keypad_scanner/col_idx_i0_i1/Q  (SLICE_R17C4C)
+Path End         : u_keypad_scanner/col_idx_i0_i1/D  (SLICE_R17C4C)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  51      
+u_display_mux/clk                                            NET DELAY        3.084                  3.084  51      
+{u_keypad_scanner/col_idx_i0_i1/CK   u_keypad_scanner/col_idx_i0_i0/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_keypad_scanner/col_idx_i0_i1/CK->u_keypad_scanner/col_idx_i0_i1/Q
+                                          SLICE_R17C4C       CLK_TO_Q0_DELAY  0.779                  3.863  9       
+u_keypad_scanner/col_idx[1]                                  NET DELAY        0.712                  4.575  9       
+u_keypad_scanner/i588_4_lut/A->u_keypad_scanner/i588_4_lut/Z
+                                          SLICE_R17C4C       D0_TO_F0_DELAY   0.252                  4.827  1       
+u_keypad_scanner/n158[1]                                     NET DELAY        0.000                  4.827  1       
+u_keypad_scanner/col_idx_i0_i1/D                             ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  51      
+u_display_mux/clk                                            NET DELAY        3.084                  3.084  51      
+{u_keypad_scanner/col_idx_i0_i1/CK   u_keypad_scanner/col_idx_i0_i0/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_keypad_scanner/row_sync_0_i1/Q  (SLICE_R15C3A)
+Path End         : u_keypad_scanner/row_sync_1_i1/D  (SLICE_R15C3C)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  51      
+u_display_mux/clk                                            NET DELAY        3.084                  3.084  51      
+{u_keypad_scanner/row_sync_0_i1/CK   u_keypad_scanner/row_sync_0_i0/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_keypad_scanner/row_sync_0_i1/CK->u_keypad_scanner/row_sync_0_i1/Q
+                                          SLICE_R15C3A       CLK_TO_Q0_DELAY  0.779                  3.863  1       
+u_keypad_scanner/row_sync_0[1]                               NET DELAY        0.712                  4.575  1       
+u_keypad_scanner.SLICE_39/D0->u_keypad_scanner.SLICE_39/F0
+                                          SLICE_R15C3C       D0_TO_F0_DELAY   0.252                  4.827  1       
+u_keypad_scanner.row_sync_0[1].sig_003.FeedThruLUT
+                                                             NET DELAY        0.000                  4.827  1       
+u_keypad_scanner/row_sync_1_i1/D                             ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  51      
+u_display_mux/clk                                            NET DELAY        3.084                  3.084  51      
+{u_keypad_scanner/row_sync_1_i1/CK   u_keypad_scanner/row_sync_1_i2/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_keypad_scanner/row_sync_0_i2/Q  (SLICE_R15C2D)
+Path End         : u_keypad_scanner/row_sync_1_i2/D  (SLICE_R15C3C)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  51      
+u_display_mux/clk                                            NET DELAY        3.084                  3.084  51      
+{u_keypad_scanner/row_sync_0_i2/CK   u_keypad_scanner/row_sync_0_i3/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_keypad_scanner/row_sync_0_i2/CK->u_keypad_scanner/row_sync_0_i2/Q
+                                          SLICE_R15C2D       CLK_TO_Q0_DELAY  0.779                  3.863  1       
+u_keypad_scanner/row_sync_0[2]                               NET DELAY        0.712                  4.575  1       
+u_keypad_scanner.SLICE_39/D1->u_keypad_scanner.SLICE_39/F1
+                                          SLICE_R15C3C       D1_TO_F1_DELAY   0.252                  4.827  1       
+u_keypad_scanner.row_sync_0[2].sig_004.FeedThruLUT
+                                                             NET DELAY        0.000                  4.827  1       
+u_keypad_scanner/row_sync_1_i2/D                             ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  51      
+u_display_mux/clk                                            NET DELAY        3.084                  3.084  51      
+{u_keypad_scanner/row_sync_1_i1/CK   u_keypad_scanner/row_sync_1_i2/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_keypad_scanner/row_sync_0_i0/Q  (SLICE_R15C3A)
+Path End         : u_keypad_scanner/row_sync_1_i0/D  (SLICE_R15C3D)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  51      
+u_display_mux/clk                                            NET DELAY        3.084                  3.084  51      
+{u_keypad_scanner/row_sync_0_i1/CK   u_keypad_scanner/row_sync_0_i0/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_keypad_scanner/row_sync_0_i0/CK->u_keypad_scanner/row_sync_0_i0/Q
+                                          SLICE_R15C3A       CLK_TO_Q1_DELAY  0.779                  3.863  1       
+u_keypad_scanner/row_sync_0[0]                               NET DELAY        0.712                  4.575  1       
+u_keypad_scanner.SLICE_38/D0->u_keypad_scanner.SLICE_38/F0
+                                          SLICE_R15C3D       D0_TO_F0_DELAY   0.252                  4.827  1       
+u_keypad_scanner.row_sync_0[0].sig_002.FeedThruLUT
+                                                             NET DELAY        0.000                  4.827  1       
+u_keypad_scanner/row_sync_1_i0/D                             ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  51      
+u_display_mux/clk                                            NET DELAY        3.084                  3.084  51      
+{u_keypad_scanner/row_sync_1_i0/CK   u_keypad_scanner/row_sync_1_i3/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_keypad_scanner/row_sync_0_i3/Q  (SLICE_R15C2D)
+Path End         : u_keypad_scanner/row_sync_1_i3/D  (SLICE_R15C3D)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  51      
+u_display_mux/clk                                            NET DELAY        3.084                  3.084  51      
+{u_keypad_scanner/row_sync_0_i2/CK   u_keypad_scanner/row_sync_0_i3/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_keypad_scanner/row_sync_0_i3/CK->u_keypad_scanner/row_sync_0_i3/Q
+                                          SLICE_R15C2D       CLK_TO_Q1_DELAY  0.779                  3.863  1       
+u_keypad_scanner/row_sync_0[3]                               NET DELAY        0.712                  4.575  1       
+u_keypad_scanner.SLICE_38/D1->u_keypad_scanner.SLICE_38/F1
+                                          SLICE_R15C3D       D1_TO_F1_DELAY   0.252                  4.827  1       
+u_keypad_scanner.row_sync_0[3].sig_005.FeedThruLUT
+                                                             NET DELAY        0.000                  4.827  1       
+u_keypad_scanner/row_sync_1_i3/D                             ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  51      
+u_display_mux/clk                                            NET DELAY        3.084                  3.084  51      
+{u_keypad_scanner/row_sync_1_i0/CK   u_keypad_scanner/row_sync_1_i3/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_keypad_scanner/state__i1/Q  (SLICE_R18C4B)
+Path End         : u_keypad_scanner/key_valid_c/D  (SLICE_R18C4B)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  51      
+u_display_mux/clk                                            NET DELAY        3.084                  3.084  51      
+{u_keypad_scanner/key_valid_c/CK   u_keypad_scanner/state__i1/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_keypad_scanner/state__i1/CK->u_keypad_scanner/state__i1/Q
+                                          SLICE_R18C4B       CLK_TO_Q1_DELAY  0.779                  3.863  6       
+u_keypad_scanner/state[1]                                    NET DELAY        0.712                  4.575  6       
+u_keypad_scanner/i1348_2_lut_3_lut/B->u_keypad_scanner/i1348_2_lut_3_lut/Z
+                                          SLICE_R18C4B       D0_TO_F0_DELAY   0.252                  4.827  1       
+u_keypad_scanner/n1247                                       NET DELAY        0.000                  4.827  1       
+u_keypad_scanner/key_valid_c/D                               ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  51      
+u_display_mux/clk                                            NET DELAY        3.084                  3.084  51      
+{u_keypad_scanner/key_valid_c/CK   u_keypad_scanner/state__i1/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_keypad_scanner/key_code_i0_i3/Q  (SLICE_R17C3C)
+Path End         : recent_key_i0_i3/D  (SLICE_R17C2D)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  51      
+u_display_mux/clk                                            NET DELAY        3.084                  3.084  51      
+{u_keypad_scanner/key_code_i0_i3/CK   u_keypad_scanner/key_code_i0_i2/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_keypad_scanner/key_code_i0_i3/CK->u_keypad_scanner/key_code_i0_i3/Q
+                                          SLICE_R17C3C       CLK_TO_Q0_DELAY  0.779                  3.863  1       
+u_keypad_scanner/scanned_key[3]                              NET DELAY        0.712                  4.575  1       
+SLICE_35/D0->SLICE_35/F0                  SLICE_R17C2D       D0_TO_F0_DELAY   0.252                  4.827  1       
+scanned_key[3].sig_001.FeedThruLUT                           NET DELAY        0.000                  4.827  1       
+recent_key_i0_i3/D                                           ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  51      
+u_display_mux/clk                                            NET DELAY        3.084                  3.084  51      
+{recent_key_i0_i3/CK   recent_key_i0_i2/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
+
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : u_keypad_scanner/key_code_i0_i2/Q  (SLICE_R17C3C)
+Path End         : recent_key_i0_i2/D  (SLICE_R17C2D)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 40.8% (route), 59.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.743 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  51      
+u_display_mux/clk                                            NET DELAY        3.084                  3.084  51      
+{u_keypad_scanner/key_code_i0_i3/CK   u_keypad_scanner/key_code_i0_i2/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+u_keypad_scanner/key_code_i0_i2/CK->u_keypad_scanner/key_code_i0_i2/Q
+                                          SLICE_R17C3C       CLK_TO_Q1_DELAY  0.779                  3.863  1       
+u_keypad_scanner/scanned_key[2]                              NET DELAY        0.712                  4.575  1       
+SLICE_35/D1->SLICE_35/F1                  SLICE_R17C2D       D1_TO_F1_DELAY   0.252                  4.827  1       
+scanned_key[2].sig_010.FeedThruLUT                           NET DELAY        0.000                  4.827  1       
+recent_key_i0_i2/D                                           ENDPOINT         0.000                  4.827  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+u_clock_gen.u_hsosc/CLKHF                 HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  51      
+u_display_mux/clk                                            NET DELAY        3.084                  3.084  51      
+{recent_key_i0_i3/CK   recent_key_i0_i2/CK}
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.000                  3.084  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.084  
+Arrival Time                                                                                         4.827  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.743  
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    End of Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+
+##########################################################
+
+
+

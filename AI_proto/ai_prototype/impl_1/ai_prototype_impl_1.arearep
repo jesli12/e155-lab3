@@ -1,0 +1,43 @@
+----------------------------------------------------------------------
+Report for cell top_keypad_display.TECH
+Register bits:  91 of 5280 (1.723%)
+I/O cells:      18
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               CCU2        34          100.0
+                            FD1P3XZ        91          100.0
+                         HSOSC_CORE         1          100.0
+                                 IB         5          100.0
+                               LUT4        70          100.0
+                                 OB        13          100.0
+SUB MODULES
+                          clock_gen         1
+                        display_mux         1
+                     keypad_scanner         1
+                              TOTAL       217
+----------------------------------------------------------------------
+Report for cell keypad_scanner.v1
+Instance Path : u_keypad_scanner
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ        16           17.6
+                               LUT4        32           45.7
+                              TOTAL        48
+----------------------------------------------------------------------
+Report for cell clock_gen.v1
+Instance Path : u_clock_gen
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        34          100.0
+                            FD1P3XZ        66           72.5
+                         HSOSC_CORE         1          100.0
+                               LUT4        22           31.4
+                              TOTAL       123
+----------------------------------------------------------------------
+Report for cell display_mux.v1
+Instance Path : u_display_mux
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ         1            1.1
+                               LUT4        14           20.0
+                              TOTAL        15

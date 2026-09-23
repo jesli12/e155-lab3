@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliMessageLog>
+    <Task name="Synthesis">
+        <Message>
+            <ID>35001797</ID>
+            <Severity>1</Severity>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>../source/implementation/total_ai.sv(266): </Dynamic>
+            <Dynamic>top_keypad_display</Dynamic>
+            <Navigation>../source/implementation/total_ai.sv</Navigation>
+            <Navigation>266</Navigation>
+        </Message>
+        <Message>
+            <ID>35901063</ID>
+            <Severity>4096</Severity>
+            <Dynamic>../source/implementation/total_ai.sv(289): </Dynamic>
+            <Dynamic>SB_HFOSC</Dynamic>
+            <Navigation>../source/implementation/total_ai.sv</Navigation>
+            <Navigation>289</Navigation>
+        </Message>
+    </Task>
+</BaliMessageLog>
