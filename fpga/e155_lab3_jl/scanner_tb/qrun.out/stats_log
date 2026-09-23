@@ -1,4 +1,5 @@
 vlog: Errors: 0, Warnings: 0
+vsim: Errors: 0, Warnings: 0
 vopt: Errors: 0, Warnings: 3
 qrun: Errors: 0, Warnings: 0
-vsim: Errors: 7, Warnings: 0
+vsim: Errors: 0, Warnings: 0

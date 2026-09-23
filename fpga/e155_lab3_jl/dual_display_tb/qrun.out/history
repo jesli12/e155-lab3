@@ -1,0 +1,36 @@
+- Entry: 1
+  Time: Wed Sep 23 04:54:27 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -clean -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/dual_display_tb/dual_display_tb.f 
+- Entry: 2
+  Time: Wed Sep 23 04:56:26 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/dual_display_tb/dual_display_tb.f 
+- Entry: 3
+  Time: Wed Sep 23 04:59:42 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/dual_display_tb/dual_display_tb.f 
+- Entry: 4
+  Time: Wed Sep 23 05:06:07 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/dual_display_tb/dual_display_tb.f 
+- Entry: 5
+  Time: Wed Sep 23 05:06:14 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/dual_display_tb/dual_display_tb.f 
+- Entry: 6
+  Time: Wed Sep 23 05:08:54 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/dual_display_tb/dual_display_tb.f 
+- Entry: 7
+  Time: Wed Sep 23 05:12:52 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/dual_display_tb/dual_display_tb.f 
+- Entry: 8
+  Time: Wed Sep 23 05:16:26 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/dual_display_tb/dual_display_tb.f 
+- Entry: 9
+  Time: Wed Sep 23 05:21:30 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/dual_display_tb/dual_display_tb.f 
+- Entry: 10
+  Time: Wed Sep 23 05:23:07 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/dual_display_tb/dual_display_tb.f 
+- Entry: 11
+  Time: Wed Sep 23 05:24:17 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/dual_display_tb/dual_display_tb.f 
+- Entry: 12
+  Time: Wed Sep 23 05:25:51 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/dual_display_tb/dual_display_tb.f 

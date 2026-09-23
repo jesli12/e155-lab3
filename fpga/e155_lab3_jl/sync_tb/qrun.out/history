@@ -1,0 +1,6 @@
+- Entry: 1
+  Time: Wed Sep 23 04:29:35 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -clean -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/sync_tb/sync_tb.f 
+- Entry: 2
+  Time: Wed Sep 23 04:32:01 2026
+  Command: C:\lscc\radiant\2026.1\questasim\win64\qrun.exe -reportprogress 300 -guimode -f C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/sync_tb/sync_tb.f 

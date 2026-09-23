@@ -11,10 +11,11 @@ module dual_display(
 );
 	logic [3:0] disp; // this is the single set of switches that get sent into the single seven segment module
 	logic [27:0] seg_count;
-	// counter for timing multiplexer (120 Hz)
+	
+	// counter for timing multiplexer 
 	counter #(
 		.WIDTH(28),
-		.MAX_COUNT(400_000) // MAX_COUNT = 200_000 = a signal on/off frequency of 120 Hz
+		.MAX_COUNT(400_000) 
 	) segment_counter (
 		.osc (int_osc), 
 		.nrst (nreset),  

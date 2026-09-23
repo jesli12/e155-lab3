@@ -3,7 +3,6 @@
 -reflib ovi_ice40up
 
 
-"C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/debounce.sv" 
 "C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/lab3top_jl.sv" 
 "C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/scanner.sv" 
 "C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/sev_seg.sv" 
@@ -12,6 +11,8 @@
 "C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress_fsm.sv" 
 "C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress.sv" 
 "C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/scanner_tb.sv" 
+"C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/debounce_fsm.sv" 
+"C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/dual_display.sv" 
 -sv
 -optionset VOPTDEBUG
 +noacc+pmi_work.*
@@ -29,4 +30,4 @@
 
 -do "view wave"
 -do "add wave /*"
--do "run 100 ns"
+-do "run -all"

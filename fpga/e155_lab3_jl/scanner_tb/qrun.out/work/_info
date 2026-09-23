@@ -2,6 +2,11 @@ m255
 K4
 z2
 Z0 !s99 nomlopt
+R0
+R0
+R0
+R0
+R0
 !s11f vlog 2025.2 2025.05, May 31 2025
 13
 !s112 1.1
@@ -11,135 +16,160 @@ Z0 !s99 nomlopt
 cModel Technology
 Z1 dC:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/scanner_tb
 vcounter
-Z2 2C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/debounce.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/lab3top_jl.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/scanner.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/sev_seg.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/counter.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/sync.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress_fsm.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/scanner_tb.sv
+Z2 2C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/lab3top_jl.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/scanner.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/sev_seg.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/counter.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/sync.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress_fsm.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/scanner_tb.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/debounce_fsm.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/dual_display.sv
 Z3 DXx6 sv_std 3 std 0 22 @5XbY]_OacJl=`ToSm<M^0
-Z4 !s110 1790046601
+Z4 !s110 1790158123
 !i10b 1
 !s100 WCFTg@HchZ:EI9OAd0hVi1
 ITzm3V^WUb;85S7ahalnIJ0
 S1
 R1
-Z5 w1789966061
+w1789966061
 8C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/counter.sv
 FC:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/counter.sv
 !i122 0
 L0 6 22
-Z6 VDg1SIo80bB@j0V0VzS_@n1
-Z7 OL;L;2025.2;82
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z6 OL;L;2025.2;82
 r1
 !s85 0
 31
-Z8 !s108 1790046601.000000
-Z9 !s107 C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/scanner_tb.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress_fsm.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/sync.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/counter.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/sev_seg.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/scanner.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/lab3top_jl.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/debounce.sv|
-Z10 !s90 -reportprogress|300|-L|work|-sv|-L|pmi_work|-L|ovi_ice40up|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/debounce.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/lab3top_jl.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/scanner.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/sev_seg.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/counter.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/sync.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress_fsm.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/scanner_tb.sv|-work|qrun.out/work|-statslog|qrun.out/stats_log|-csession=incr|
+Z7 !s108 1790158123.000000
+Z8 !s107 C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/dual_display.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/debounce_fsm.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/scanner_tb.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress_fsm.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/sync.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/counter.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/sev_seg.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/scanner.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/lab3top_jl.sv|
+Z9 !s90 -reportprogress|300|-L|work|-sv|-L|pmi_work|-L|ovi_ice40up|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/lab3top_jl.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/scanner.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/sev_seg.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/counter.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/sync.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress_fsm.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/scanner_tb.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/debounce_fsm.sv|C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/dual_display.sv|-work|qrun.out/work|-statslog|qrun.out/stats_log|-csession=incr|
 !i113 0
-Z11 o-L work -sv -L pmi_work -L ovi_ice40up -work qrun.out/work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-Z12 tCvgOpt 0 defaultOptions 1085333592
-vdebounce
+Z10 o-L work -sv -L pmi_work -L ovi_ice40up -work qrun.out/work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z11 tCvgOpt 0 defaultOptions 1085333592
+vdebounce_fsm
 R2
 R3
 R4
 !i10b 1
-!s100 ?NBVC;0ajA=XOlcaT:FHi0
-IDd`Rll3]fmV58D3I]`gRL0
+!s100 ;6mgJWZKYXFM4SD6@k=cY3
+I?02e^z3]dhKaT6l=PJhZ:2
 S1
 R1
-w1790024957
-8C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/debounce.sv
-FC:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/debounce.sv
+w1790141486
+8C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/debounce_fsm.sv
+FC:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/debounce_fsm.sv
 !i122 0
 L0 6 40
+R5
 R6
-R7
 r1
 !s85 0
 31
+R7
 R8
 R9
-R10
 !i113 0
+R10
 R11
-R12
+vdual_display
+R2
+R3
+R4
+!i10b 1
+!s100 :z7_51c`5AE^=g]EEeKRO2
+IIiV5<:UYoaaja@a8C9S;:0
+S1
+R1
+w1790155720
+8C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/dual_display.sv
+FC:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/dual_display.sv
+!i122 0
+L0 5 29
+R5
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
 vkeypress
 R2
 R3
 R4
 !i10b 1
-!s100 LlzQ3GOiBUnVOC3YVBbCV1
-I:1m>bN1HMTWlG^7FC3aSB3
+!s100 dkUlW6A?723lzIFz5V6mc0
+IF]BLV]J1cNE::a>?FEEN<0
 S1
 R1
-w1790039756
+w1790149850
 8C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress.sv
 FC:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress.sv
 !i122 0
-L0 4 49
+L0 4 57
+R5
 R6
-R7
 r1
 !s85 0
 31
+R7
 R8
 R9
-R10
 !i113 0
+R10
 R11
-R12
 vkeypress_fsm
 R2
 R3
 R4
 !i10b 1
-!s100 P>Y@1WaQLhX<Z6N>m2z3_2
-IB_`PgW:@]eCgW`azP:S0`1
+!s100 A0l73F<P4n>Lcn^5a=mlh0
+ITPk9dBi]7<:[0j=^AiE0@3
 S1
 R1
-w1790038735
+w1790151048
 8C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress_fsm.sv
 FC:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/keypress_fsm.sv
 !i122 0
-L0 6 54
+L0 6 49
+R5
 R6
-R7
 r1
 !s85 0
 31
+R7
 R8
 R9
-R10
 !i113 0
+R10
 R11
-R12
 vlab3top_jl
 R2
 R3
 R4
 !i10b 1
-!s100 Yg92<;4[fCoo6I1SScL9i0
-I9l=@TKQ:YG?d?4Je[AeB10
+!s100 3]SR`O:fA:VD8_l^EF4iK2
+IohTJaNR=?nA<CcGN2_hzd0
 S1
 R1
-w1790039777
+w1790152586
 8C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/lab3top_jl.sv
 FC:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/lab3top_jl.sv
 !i122 0
-L0 5 59
+L0 5 53
+R5
 R6
-R7
 r1
 !s85 0
 31
+R7
 R8
 R9
-R10
 !i113 0
+R10
 R11
-R12
 Tqrun_opt
 !i145 1
 !i144 0
-R4
-VLKNDkFE=iFcRiNS7a5`Ee3
+Z12 !s110 1790160179
+V16zCU1TjgWNS7k6?@ZPf92
 04 10 4 work scanner_tb fast 0
 R0
 !s12f OEM25U3 
@@ -155,76 +185,76 @@ R2
 R3
 R4
 !i10b 1
-!s100 cVn5WVVFMAPWSXAL^MKPm2
-I[<8EB7^ne77e5TO33fY?03
+!s100 M`@?O@f3e[03TNieDhVPX1
+IFMHIZNo6P:DhDgLl1]Xo;0
 S1
 R1
-w1790040352
+w1790151069
 8C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/scanner.sv
 FC:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/scanner.sv
 !i122 0
-L0 9 25
+L0 9 26
+R5
 R6
-R7
 r1
 !s85 0
 31
+R7
 R8
 R9
-R10
 !i113 0
+R10
 R11
-R12
 vscanner_tb
 R2
 R3
-R4
+R12
 !i10b 1
-!s100 ]BOKEfUOjFYXAAzI]6o5Y0
-ImS:c=64;mV5?MCA921HXH1
+!s100 T18^@BPQT80]2GFdPz[n52
+IR?UkbX8j@JD`n7M_[4P7D2
 S1
 R1
-w1790046267
+w1790160155
 8C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/scanner_tb.sv
 FC:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/scanner_tb.sv
-!i122 0
-L0 14 74
+!i122 5
+L0 14 39
+R5
 R6
-R7
 r1
 !s85 0
 31
+!s108 1790160179.000000
 R8
 R9
-R10
 !i113 0
+R10
 R11
-R12
 vsev_seg
 R2
 R3
 R4
 !i10b 1
-!s100 e2SD53iE@UZ:_RdjXFkSS3
-I11]V=Fmg9D?6U2ki]kOLW3
+!s100 cWkmF^k[?b8a_PDj9NG@[0
+IEe0aDP2YXl>3S?g@57[2j0
 S1
 R1
-R5
+w1790151792
 8C:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/sev_seg.sv
 FC:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/sev_seg.sv
 !i122 0
-L0 9 28
+L0 9 27
+R5
 R6
-R7
 r1
 !s85 0
 31
+R7
 R8
 R9
-R10
 !i113 0
+R10
 R11
-R12
 vsync
 R2
 R3
@@ -239,14 +269,14 @@ w1789988918
 FC:/Users/jesli/Documents/GitHub/e155-lab3/fpga/e155_lab3_jl/source/impl_1/sync.sv
 !i122 0
 L0 4 13
+R5
 R6
-R7
 r1
 !s85 0
 31
+R7
 R8
 R9
-R10
 !i113 0
+R10
 R11
-R12
